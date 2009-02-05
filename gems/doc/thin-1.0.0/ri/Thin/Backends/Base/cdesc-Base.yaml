@@ -1,0 +1,97 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Maximum number of file or socket descriptors that the server may open.
+  name: maximum_connections
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Maximum number of connections that can be persistent
+  name: maximum_persistent_connections
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Disable the use of epoll under Linux
+  name: no_epoll
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Number of persistent connections currently opened
+  name: persistent_connection_count
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Server serving the connections throught the backend
+  name: server
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Allow using threads in the backend.
+  name: threaded
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Maximum time for incoming data to arrive
+  name: timeout
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "A Backend connects the server to the client. It handles:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: connection/disconnection to the server
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: initialization of the connections
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: manitoring of the active connections.
+  type: :BULLET
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Implementing your own backend
+- !ruby/struct:SM::Flow::P 
+  body: You can create your own minimal backend by inheriting this class and defining the <tt>connect</tt> and <tt>disconnect</tt> method. If your backend is not based on EventMachine you also need to redefine the <tt>start</tt>, <tt>stop</tt>, <tt>stop!</tt> and <tt>config</tt> methods.
+constants: []
+
+full_name: Thin::Backends::Base
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: config
+- !ruby/object:RI::MethodSummary 
+  name: connection_finished
+- !ruby/object:RI::MethodSummary 
+  name: empty?
+- !ruby/object:RI::MethodSummary 
+  name: initialize_connection
+- !ruby/object:RI::MethodSummary 
+  name: running?
+- !ruby/object:RI::MethodSummary 
+  name: size
+- !ruby/object:RI::MethodSummary 
+  name: start
+- !ruby/object:RI::MethodSummary 
+  name: stop
+- !ruby/object:RI::MethodSummary 
+  name: stop!
+- !ruby/object:RI::MethodSummary 
+  name: threaded?
+name: Base
+superclass: Object

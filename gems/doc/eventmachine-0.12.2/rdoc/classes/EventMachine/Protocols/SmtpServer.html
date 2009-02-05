@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: EventMachine::Protocols::SmtpServer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">EventMachine::Protocols::SmtpServer</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/protocols/smtpserver_rb.html">
+                lib/protocols/smtpserver.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                <a href="../Connection.html">
+                EventMachine::Connection
+               </a>
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000416">connection_ended</a>&nbsp;&nbsp;
+      <a href="#M000410">get_server_domain</a>&nbsp;&nbsp;
+      <a href="#M000409">get_server_greeting</a>&nbsp;&nbsp;
+      <a href="#M000395">init_protocol_state</a>&nbsp;&nbsp;
+      <a href="#M000389">new</a>&nbsp;&nbsp;
+      <a href="#M000390">parms=</a>&nbsp;&nbsp;
+      <a href="#M000388">parms=</a>&nbsp;&nbsp;
+      <a href="#M000391">post_init</a>&nbsp;&nbsp;
+      <a href="#M000401">process_auth</a>&nbsp;&nbsp;
+      <a href="#M000402">process_data</a>&nbsp;&nbsp;
+      <a href="#M000408">process_data_line</a>&nbsp;&nbsp;
+      <a href="#M000396">process_ehlo</a>&nbsp;&nbsp;
+      <a href="#M000397">process_helo</a>&nbsp;&nbsp;
+      <a href="#M000406">process_mail_from</a>&nbsp;&nbsp;
+      <a href="#M000399">process_noop</a>&nbsp;&nbsp;
+      <a href="#M000398">process_quit</a>&nbsp;&nbsp;
+      <a href="#M000407">process_rcpt_to</a>&nbsp;&nbsp;
+      <a href="#M000403">process_rset</a>&nbsp;&nbsp;
+      <a href="#M000405">process_starttls</a>&nbsp;&nbsp;
+      <a href="#M000400">process_unknown</a>&nbsp;&nbsp;
+      <a href="#M000418">receive_data_chunk</a>&nbsp;&nbsp;
+      <a href="#M000417">receive_data_command</a>&nbsp;&nbsp;
+      <a href="#M000411">receive_ehlo_domain</a>&nbsp;&nbsp;
+      <a href="#M000393">receive_line</a>&nbsp;&nbsp;
+      <a href="#M000419">receive_message</a>&nbsp;&nbsp;
+      <a href="#M000412">receive_plain_auth</a>&nbsp;&nbsp;
+      <a href="#M000414">receive_recipient</a>&nbsp;&nbsp;
+      <a href="#M000415">receive_reset</a>&nbsp;&nbsp;
+      <a href="#M000413">receive_sender</a>&nbsp;&nbsp;
+      <a href="#M000420">receive_transaction</a>&nbsp;&nbsp;
+      <a href="#M000394">reset_protocol_state</a>&nbsp;&nbsp;
+      <a href="#M000392">send_server_greeting</a>&nbsp;&nbsp;
+      <a href="#M000404">unbind</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="LineText2.html">Protocols::LineText2</a></span>
+      </div>
+    </div>
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HeloRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AHELO\s*/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">EhloRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AEHLO\s*/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">QuitRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AQUIT/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MailFromRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AMAIL FROM:\s*/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RcptToRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\ARCPT TO:\s*/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">DataRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\ADATA/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">NoopRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\ANOOP/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">RsetRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\ARSET/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VrfyRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AVRFY\s+/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ExpnRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AEXPN\s+/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">HelpRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AHELP/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">StarttlsRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\ASTARTTLS/i</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">AuthRegex</td>
+          <td>=</td>
+          <td class="context-item-value">/\AAUTH\s+/i</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000389" class="method-detail">
+        <a name="M000389"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000389.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000389.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(*args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000388" class="method-detail">
+        <a name="M000388"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000388.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000388.html');return false;">
+          <span class="method-name">parms=</span><span class="method-args">(parms={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000416" class="method-detail">
+        <a name="M000416"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000416.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000416.html');return false;">
+          <span class="method-name">connection_ended</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sent when the remote peer has ended the connection.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000410" class="method-detail">
+        <a name="M000410"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000410.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000410.html');return false;">
+          <span class="method-name">get_server_domain</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The domain name returned in the first line of the response to a successful
+EHLO or HELO command.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000409" class="method-detail">
+        <a name="M000409"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000409.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000409.html');return false;">
+          <span class="method-name">get_server_greeting</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+The greeting returned in the initial connection message to the client.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000395" class="method-detail">
+        <a name="M000395"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000395.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000395.html');return false;">
+          <span class="method-name">init_protocol_state</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000390" class="method-detail">
+        <a name="M000390"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000390.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000390.html');return false;">
+          <span class="method-name">parms=</span><span class="method-args">(parms={})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000391" class="method-detail">
+        <a name="M000391"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000391.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000391.html');return false;">
+          <span class="method-name">post_init</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+In SMTP, the server talks first. But by a (perhaps flawed) axiom in EM, <a
+href="SmtpServer.html#M000391">post_init</a> will execute BEFORE the block
+passed to start_server, for any given accepted connection. Since in this
+class we&#8216;ll probably be getting a lot of initialization parameters,
+we want the guts of <a href="SmtpServer.html#M000391">post_init</a> to run
+AFTER the application has initialized the connection object. So we use a
+spawn to schedule the <a href="SmtpServer.html#M000391">post_init</a> to
+run later. It&#8216;s a little weird, I admit. A reasonable alternative
+would be to set parameters as a class variable and to do that before
+accepting any connections.
+</p>
+<p>
+OBSOLETE, now we have @@parms. But the spawn is nice to keep as an
+illustration.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000401" class="method-detail">
+        <a name="M000401"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000401.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000401.html');return false;">
+          <span class="method-name">process_auth</span><span class="method-args">(str)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000402" class="method-detail">
+        <a name="M000402"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000402.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000402.html');return false;">
+          <span class="method-name">process_data</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000408" class="method-detail">
+        <a name="M000408"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000408.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000408.html');return false;">
+          <span class="method-name">process_data_line</span><span class="method-args">(ln)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Send the incoming data to the application one chunk at a time, rather than
+one line at a time. That lets the application be a little more flexible
+about storing to disk, etc. Since we clear the chunk array every time we
+submit it, the caller needs to be aware to do things like dup it if he
+wants to keep it around across calls.
+</p>
+<p>
+DON&#8216;T reset the transaction upon disposition of the incoming message.
+This means another DATA command can be accepted with the same sender and
+recipients. If the client wants to reset, he can call RSET. Not sure
+whether the standard requires a transaction-reset at this point, but it
+appears not to.
+</p>
+<p>
+User-written code can return a <a href="../Deferrable.html">Deferrable</a>
+as a response from <a href="SmtpServer.html#M000419">receive_message</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000396" class="method-detail">
+        <a name="M000396"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000396.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000396.html');return false;">
+          <span class="method-name">process_ehlo</span><span class="method-args">(domain)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000397" class="method-detail">
+        <a name="M000397"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000397.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000397.html');return false;">
+          <span class="method-name">process_helo</span><span class="method-args">(domain)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000406" class="method-detail">
+        <a name="M000406"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000406.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000406.html');return false;">
+          <span class="method-name">process_mail_from</span><span class="method-args">(sender)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000399" class="method-detail">
+        <a name="M000399"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000399.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000399.html');return false;">
+          <span class="method-name">process_noop</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000398" class="method-detail">
+        <a name="M000398"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000398.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000398.html');return false;">
+          <span class="method-name">process_quit</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000407" class="method-detail">
+        <a name="M000407"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000407.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000407.html');return false;">
+          <span class="method-name">process_rcpt_to</span><span class="method-args">(rcpt)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000403" class="method-detail">
+        <a name="M000403"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000403.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000403.html');return false;">
+          <span class="method-name">process_rset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000405" class="method-detail">
+        <a name="M000405"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000405.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000405.html');return false;">
+          <span class="method-name">process_starttls</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000400" class="method-detail">
+        <a name="M000400"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000400.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000400.html');return false;">
+          <span class="method-name">process_unknown</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000418" class="method-detail">
+        <a name="M000418"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000418.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000418.html');return false;">
+          <span class="method-name">receive_data_chunk</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sent when data from the remote peer is available. The size can be
+controlled by setting the :chunksize parameter. This call can be made
+multiple times. The goal is to strike a balance between sending the data to
+the application one line at a time, and holding all of a very large message
+in memory.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000417" class="method-detail">
+        <a name="M000417"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000417.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000417.html');return false;">
+          <span class="method-name">receive_data_command</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called when the remote peer sends the DATA command. Returning false will
+cause us to send a 550 error to the peer. This can be useful for dealing
+with problems that arise from processing the whole set of sender and
+recipients.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000411" class="method-detail">
+        <a name="M000411"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000411.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000411.html');return false;">
+          <span class="method-name">receive_ehlo_domain</span><span class="method-args">(domain)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+A false response from this user-overridable method will cause a 550 error
+to be returned to the remote client.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000393" class="method-detail">
+        <a name="M000393"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000393.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000393.html');return false;">
+          <span class="method-name">receive_line</span><span class="method-args">(ln)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000419" class="method-detail">
+        <a name="M000419"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000419.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000419.html');return false;">
+          <span class="method-name">receive_message</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sent after a message has been completely received. User code must return
+true or false to indicate whether the message has been accepted for
+delivery.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000412" class="method-detail">
+        <a name="M000412"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000412.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000412.html');return false;">
+          <span class="method-name">receive_plain_auth</span><span class="method-args">(user, password)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Return true or false to indicate that the authentication is acceptable.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000414" class="method-detail">
+        <a name="M000414"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000414.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000414.html');return false;">
+          <span class="method-name">receive_recipient</span><span class="method-args">(rcpt)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Receives the argument of a RCPT TO command. Can be given multiple times per
+transaction. Return false to reject the recipient.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000415" class="method-detail">
+        <a name="M000415"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000415.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000415.html');return false;">
+          <span class="method-name">receive_reset</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Sent when the remote peer issues the RSET command. Since RSET is not
+allowed to fail (according to the protocol), we ignore any return value
+from user overrides of this method.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000413" class="method-detail">
+        <a name="M000413"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000413.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000413.html');return false;">
+          <span class="method-name">receive_sender</span><span class="method-args">(sender)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Receives the argument of the MAIL FROM command. Return false to indicate to
+the remote client that the sender is not accepted. This can only be
+successfully called once per transaction.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000420" class="method-detail">
+        <a name="M000420"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000420.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000420.html');return false;">
+          <span class="method-name">receive_transaction</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+This is called when the protocol state is reset. It happens when the remote
+client calls EHLO/HELO or RSET.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000394" class="method-detail">
+        <a name="M000394"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000394.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000394.html');return false;">
+          <span class="method-name">reset_protocol_state</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000392" class="method-detail">
+        <a name="M000392"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000392.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000392.html');return false;">
+          <span class="method-name">send_server_greeting</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000404" class="method-detail">
+        <a name="M000404"></a>
+
+        <div class="method-heading">
+          <a href="SmtpServer.src/M000404.html" target="Code" class="method-signature"
+            onclick="popupCode('SmtpServer.src/M000404.html');return false;">
+          <span class="method-name">unbind</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

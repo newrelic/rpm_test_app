@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: We can get here in a variety of ways, all of them being failures unless the @succeeded flag is set. If a protocol success was recorded, then don't set a deferred success because the caller will already have done it (no need to wait until the connection closes to invoke the callbacks).
+full_name: EventMachine::Protocols::SmtpClient#unbind
+is_singleton: false
+name: unbind
+params: ()
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Receives the argument of a RCPT TO command. Can be given multiple times per transaction. Return false to reject the recipient.
+full_name: EventMachine::Protocols::SmtpServer#receive_recipient
+is_singleton: false
+name: receive_recipient
+params: (rcpt)
+visibility: public

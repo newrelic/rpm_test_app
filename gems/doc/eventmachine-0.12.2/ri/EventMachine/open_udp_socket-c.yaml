@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::open_udp_socket
+is_singleton: true
+name: open_udp_socket
+params: (server, port)
+visibility: public

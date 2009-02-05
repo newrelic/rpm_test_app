@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#send_data"
+full_name: EventMachine::send_data
+is_singleton: true
+name: send_data
+params: (target, data, datalength)
+visibility: public

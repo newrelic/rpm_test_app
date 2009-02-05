@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>start_unix_domain_server (EventMachine)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/eventmachine.rb, line 546</span>
+546:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">start_unix_domain_server</span> <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">handler</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+547:     <span class="ruby-identifier">klass</span> = <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">handler</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Class</span>))
+548:       <span class="ruby-identifier">handler</span>
+549:     <span class="ruby-keyword kw">else</span>
+550:       <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>( <span class="ruby-constant">Connection</span> ) {<span class="ruby-identifier">handler</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">include</span> <span class="ruby-identifier">handler</span>}
+551:     <span class="ruby-keyword kw">end</span>
+552: 
+553:     <span class="ruby-identifier">arity</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-identifier">:initialize</span>).<span class="ruby-identifier">arity</span>
+554:     <span class="ruby-identifier">expected</span> = <span class="ruby-identifier">arity</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">arity</span> <span class="ruby-operator">:</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">arity</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+555:     <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">arity</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">expected</span>) <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">arity</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">expected</span>)
+556:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;wrong number of arguments for #{klass}#initialize (#{args.size} for #{expected})&quot;</span> 
+557:     <span class="ruby-keyword kw">end</span>
+558: 
+559:     <span class="ruby-identifier">s</span> = <span class="ruby-identifier">start_unix_server</span> <span class="ruby-identifier">filename</span>
+560:     <span class="ruby-ivar">@acceptors</span>[<span class="ruby-identifier">s</span>] = [<span class="ruby-identifier">klass</span>,<span class="ruby-identifier">args</span>,<span class="ruby-identifier">block</span>]
+561:     <span class="ruby-identifier">s</span>
+562:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

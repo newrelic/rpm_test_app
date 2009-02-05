@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: We encountered an error on our side of the protocol and will close the connection. Use an extra-protocol error code (900) and use the message from the caller.
+full_name: EventMachine::Protocols::SmtpClient#invoke_internal_error
+is_singleton: false
+name: invoke_internal_error
+params: (msg = "???")
+visibility: public

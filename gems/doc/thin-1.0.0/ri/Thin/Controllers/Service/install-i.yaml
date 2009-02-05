@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Controllers::Service#install
+is_singleton: false
+name: install
+params: (config_files_path=DEFAULT_CONFIG_PATH)
+visibility: public

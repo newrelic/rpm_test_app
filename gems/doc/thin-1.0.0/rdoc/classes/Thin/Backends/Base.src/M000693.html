@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>initialize_connection (Thin::Backends::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/backends/base.rb, line 123</span>
+        <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize_connection</span>(<span class="ruby-identifier">connection</span>)
+          <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">backend</span>                 = <span class="ruby-keyword kw">self</span>
+          <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">app</span>                     = <span class="ruby-ivar">@server</span>.<span class="ruby-identifier">app</span>
+          <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">comm_inactivity_timeout</span> = <span class="ruby-ivar">@timeout</span>
+          <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">threaded</span>                = <span class="ruby-ivar">@threaded</span>
+
+          <span class="ruby-comment cmt"># We control the number of persistent connections by keeping</span>
+          <span class="ruby-comment cmt"># a count of the total one allowed yet.</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@persistent_connection_count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@maximum_persistent_connections</span>
+            <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">can_persist!</span>
+            <span class="ruby-ivar">@persistent_connection_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword kw">end</span>
+
+          <span class="ruby-ivar">@connections</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">connection</span>
+        <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>send (EventMachine::Protocols::SmtpClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/protocols/smtpclient.rb, line 79</span>
+79:                 <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">args</span>={}
+80:                         <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:port</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">25</span>
+81:                         <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:body</span>] <span class="ruby-operator">||=</span> <span class="ruby-value str">&quot;&quot;</span>
+82: 
+83: ??
+84:                         <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">connect</span>( <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:host</span>], <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:port</span>], <span class="ruby-keyword kw">self</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+85:                                 <span class="ruby-comment cmt"># According to the EM docs, we will get here AFTER post_init is called.</span>
+86:                                 <span class="ruby-identifier">c</span>.<span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>
+87:                                 <span class="ruby-identifier">c</span>.<span class="ruby-identifier">set_comm_inactivity_timeout</span> <span class="ruby-value">60</span>
+88:                         }
+89: 
+90:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

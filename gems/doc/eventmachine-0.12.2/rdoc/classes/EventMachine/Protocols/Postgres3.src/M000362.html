@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect (EventMachine::Protocols::Postgres3)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/postgres.rb, line 129</span>
+129:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">connect</span> <span class="ruby-identifier">db</span>, <span class="ruby-identifier">user</span>, <span class="ruby-identifier">psw</span>=<span class="ruby-keyword kw">nil</span>
+130:                 <span class="ruby-identifier">d</span> = <span class="ruby-constant">EM</span><span class="ruby-operator">::</span><span class="ruby-constant">DefaultDeferrable</span>.<span class="ruby-identifier">new</span>
+131:                 <span class="ruby-identifier">d</span>.<span class="ruby-identifier">timeout</span> <span class="ruby-value">15</span>
+132: 
+133:                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@pending_query</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@pending_conn</span>
+134:                         <span class="ruby-identifier">d</span>.<span class="ruby-identifier">succeed</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-value str">&quot;Operation already in progress&quot;</span>
+135:                 <span class="ruby-keyword kw">else</span>
+136:                         <span class="ruby-ivar">@pending_conn</span> = <span class="ruby-identifier">d</span>
+137:                         <span class="ruby-identifier">prms</span> = {<span class="ruby-value str">&quot;user&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-identifier">user</span>, <span class="ruby-value str">&quot;database&quot;</span>=<span class="ruby-operator">&gt;</span><span class="ruby-identifier">db</span>}
+138:                         <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+139:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">psw</span>
+140:                                 <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">psw</span>
+141:                                 <span class="ruby-comment cmt">#prms[&quot;password&quot;] = psw</span>
+142:                         <span class="ruby-keyword kw">end</span>
+143:                         <span class="ruby-identifier">send_data</span> <span class="ruby-constant">PostgresPR</span><span class="ruby-operator">::</span><span class="ruby-constant">StartupMessage</span>.<span class="ruby-identifier">new</span>( <span class="ruby-value">3</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">16</span>, <span class="ruby-identifier">prms</span> ).<span class="ruby-identifier">dump</span>
+144:                 <span class="ruby-keyword kw">end</span>
+145: 
+146:                 <span class="ruby-identifier">d</span>
+147:         <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

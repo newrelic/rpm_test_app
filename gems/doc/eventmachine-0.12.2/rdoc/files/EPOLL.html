@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: EPOLL</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>EPOLL</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>EPOLL
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Jan 29 11:32:00 -0800 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="../classes/EventMachine.html">EventMachine</a> now supports epoll,
+bringing large increases in performance and scalability to Ruby programs.
+</p>
+<p>
+Epoll(7) is a alternative mechanism for multiplexed I/O that is available
+in Linux 2.6 kernels. It features significantly greater performance than
+the standard select(2) mechanism, when used in applications that require
+very large numbers of open I/O descriptors.
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> has always used
+select(2) because its behavior is well standardized and broadly supported.
+But select becomes unreasonably slow when a program has a very large number
+of file descriptors or sockets. Ruby&#8216;s version of select hardcodes a
+limit of 1024 descriptors per process, but heavily loaded processes will
+start to show performance degradation even after only a few hundred
+descriptors are in use.
+</p>
+<p>
+Epoll is an extended version of the poll(2) call, and it solves the
+problems with select. Programs based on epoll can easily scale past
+Ruby&#8216;s 1024-descriptor limit, potentially to tens of thousands of
+connectors, with no significant impact on performance.
+</p>
+<p>
+(Another alternative which is very similar to epoll in principle is kqueue,
+supplied on BSD and its variants.)
+</p>
+<p>
+This note shows you how to use epoll in your programs.
+</p>
+<h3>Compiling <a href="../classes/EventMachine.html">EventMachine</a> to use epoll.</h3>
+<p>
+You don&#8216;t have to do anything to get epoll support in <a
+href="../classes/EventMachine.html">EventMachine</a>. When you compile <a
+href="../classes/EventMachine.html">EventMachine</a> on a platform that
+supports epoll, EM will automatically generate a Makefile that includes
+epoll. (At this writing, this will only work on Linux 2.6 kernels.) If you
+compile EM on a platform without epoll, then epoll support will be omitted
+from the Makefile, and EM will work just as it always has.
+</p>
+<h3>Using epoll in your programs.</h3>
+<p>
+First, you need to tell <a
+href="../classes/EventMachine.html">EventMachine</a> to use epoll instead
+of select (but see below, as this requirement will be removed in a future
+<a href="../classes/EventMachine.html">EventMachine</a> version). Second,
+you need to prepare your program to use more than 1024 descriptors, an
+operation that generally requires superuser privileges. Third, you will
+probably want your process to drop the superuser privileges after you
+increase your process&#8216;s descriptor limit.
+</p>
+<h3>Using <a href="../classes/EventMachine.html#M000290">EventMachine#epoll</a></h3>
+<p>
+Call the method <a
+href="../classes/EventMachine.html#M000290">EventMachine#epoll</a> anytime
+before you call <a
+href="../classes/EventMachine.html#M000249">EventMachine#run</a>, and your
+program will automatically use epoll, if available. It&#8216;s safe to call
+<a href="../classes/EventMachine.html#M000290">EventMachine#epoll</a> on
+any platform because it compiles to a no-op on platforms that don&#8216;t
+support epoll.
+</p>
+<pre>
+  require 'rubygems'
+  require 'eventmachine'
+
+  EM.epoll
+  EM.run {
+    ...
+  }
+</pre>
+<p>
+<a href="../classes/EventMachine.html#M000290">EventMachine#epoll</a> was
+included in this initial release only to avoid changing the behavior of
+existing programs. However, it&#8216;s expected that a future release of EM
+will convert <a
+href="../classes/EventMachine.html#M000290">EventMachine#epoll</a> to a
+no-op, and run epoll by default on platforms that support it.
+</p>
+<h3>Using <a href="../classes/EventMachine.html#M000269">EventMachine#set_descriptor_table_size</a></h3>
+<p>
+In Linux (as in every Unix-like platform), every process has a internal
+table that determines the maximum number of file and socket descriptors you
+may have open at any given time. The size of this table is generally fixed
+at 1024, although it may be increased within certain system-defined hard
+and soft limits.
+</p>
+<p>
+If you want your <a href="../classes/EventMachine.html">EventMachine</a>
+program to support more than 1024 total descriptors, you must use <a
+href="../classes/EventMachine.html#M000269">EventMachine#set_descriptor_table_size</a>,
+as follows:
+</p>
+<pre>
+  require 'rubygems'
+  require 'eventmachine'
+
+  new_size = EM.set_descriptor_table_size( 60000 )
+  $&gt;.puts &quot;New descriptor-table size is #{new_size}&quot;
+
+  EM.run {
+    ...
+  }
+</pre>
+<p>
+If successful, this example will increase the maximum number of descriptors
+that epoll can use to 60,000. Call <a
+href="../classes/EventMachine.html#M000269">EventMachine#set_descriptor_table_size</a>
+without an argument at any time to find out the current size of the
+descriptor table.
+</p>
+<p>
+Using <a
+href="../classes/EventMachine.html#M000269">EventMachine#set_descriptor_table_size</a>
+ONLY affects the number of descriptors that can be used by epoll. It has no
+useful effect on platforms that don&#8216;t support epoll, and it does NOT
+increase the number of descriptors that Ruby&#8216;s own I/O functions can
+use.
+</p>
+<p>
+set_descriptor_table_size can fail if your process is not running as
+superuser, or if you try to set a table size that exceeds the hard limits
+imposed by your system. In the latter case, try a smaller number.
+</p>
+<h3>Using <a href="../classes/EventMachine.html#M000268">EventMachine#set_effective_user</a></h3>
+<p>
+In general, you must run your program with elevated or superuser privileges
+if you want to increase your descriptor-table size beyond 1024 descriptors.
+This is easy enough to verify. Try running the sample program given above,
+that increases the descriptor limit to 60,000. You will probably find that
+the table size will not be increased if you don&#8216;t run your program as
+root or with elevated privileges.
+</p>
+<p>
+But of course network servers, especially long-running ones, should not run
+with elevated privileges. You will want to drop superuser privileges as
+soon as possible after initialization. To do this, use <a
+href="../classes/EventMachine.html#M000268">EventMachine#set_effective_user</a>:
+</p>
+<pre>
+  require 'rubygems'
+  require 'eventmachine'
+
+  # (Here, program is running as superuser)
+
+  EM.set_descriptor_table_size( 60000 )
+  EM.set_effective_user( &quot;nobody&quot; )
+  # (Here, program is running as nobody)
+
+  EM.run {
+    ...
+  }
+</pre>
+<p>
+Of course, you will need to replace &quot;nobody&quot; in the example with
+the name of an unprivileged user that is valid on your system. What if you
+want to drop privileges after opening a server socket on a privileged
+(low-numbered) port? Easy, just call set_effective_user after opening your
+sockets:
+</p>
+<pre>
+  require 'rubygems'
+  require 'eventmachine'
+
+  # (Here, program is running as superuser)
+
+  EM.set_descriptor_table_size( 60000 )
+
+  EM.run {
+    EM.start_server( &quot;0.0.0.0&quot;, 80, MyHttpServer )
+    EM.start_server( &quot;0.0.0.0&quot;, 443, MyEncryptedHttpServer )
+
+    EM.set_effective_user( &quot;nobody&quot; )
+    # (Here, program is running as nobody)
+
+    ...
+  }
+</pre>
+<p>
+Because <a
+href="../classes/EventMachine.html#M000268">EventMachine#set_effective_user</a>
+is used to enforce security requirements, it has no nonfatal errors. If you
+try to set a nonexistent or invalid effective user, set_effective_user will
+abort your program, rather than continue to run with elevated privileges.
+</p>
+<p>
+<a
+href="../classes/EventMachine.html#M000268">EventMachine#set_effective_user</a>
+is a silent no-op on platforms that don&#8216;t support it, such as
+Windows.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Provisional implementation. Will be re-implemented in subclasses. TODO: Complete this implementation. As it stands, this only writes a single packet per cycle. Highly inefficient, but required unless we're running on a Ruby with proper nonblocking I/O (Ruby 1.8.4 built from sources from May 25, 2006 or newer). We need to improve the loop so it writes multiple times, however not more than a certain number of bytes per cycle, otherwise one busy connection could hog output buffers and slow down other connections. Also we should coalesce small writes. URGENT TODO: Coalesce small writes. They are a performance killer. The last-activity recorder ASSUMES we'll only come here if we've selected writable."
+full_name: EventMachine::StreamObject#eventable_write
+is_singleton: false
+name: eventable_write
+params: ()
+visibility: public

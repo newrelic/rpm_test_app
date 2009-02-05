@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>subscribe (EventMachine::Protocols::Stomp)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/stomp.rb, line 120</span>
+120:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">subscribe</span> <span class="ruby-identifier">dest</span>, <span class="ruby-identifier">ack</span>=<span class="ruby-keyword kw">false</span>
+121:                                 <span class="ruby-identifier">send_frame</span> <span class="ruby-value str">&quot;SUBSCRIBE&quot;</span>, {<span class="ruby-identifier">:destination=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">dest</span>, <span class="ruby-identifier">:ack=</span><span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">ack</span> <span class="ruby-value">? </span><span class="ruby-value str">&quot;client&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-value str">&quot;auto&quot;</span>)}
+122:                         <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

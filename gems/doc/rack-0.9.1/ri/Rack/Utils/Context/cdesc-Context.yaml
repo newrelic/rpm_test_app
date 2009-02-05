@@ -1,0 +1,36 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: app
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: for
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "The recommended manner in which to implement a contexting application is to define a method #context in which a new Context is instantiated."
+- !ruby/struct:SM::Flow::P 
+  body: As a Context is a glorified block, it is highly recommended that you define the contextual block within the application's operational scope. This would typically the application as you're place into Rack's stack.
+- !ruby/struct:SM::Flow::VERB 
+  body: "  class MyObject\n    ...\n    def context app\n      Rack::Utils::Context.new app do |env|\n        do_stuff\n        response = app.call(env)\n        do_more_stuff\n      end\n    end\n    ...\n  end\n"
+- !ruby/struct:SM::Flow::P 
+  body: mobj = MyObject.new app = mobj.context other_app Rack::Handler::Mongrel.new app
+constants: []
+
+full_name: Rack::Utils::Context
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: context
+- !ruby/object:RI::MethodSummary 
+  name: inspect
+- !ruby/object:RI::MethodSummary 
+  name: pretty_print
+name: Context
+superclass: Proc

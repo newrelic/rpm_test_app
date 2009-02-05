@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Thin::Runner)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/runner.rb, line 30</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">argv</span>)
+      <span class="ruby-ivar">@argv</span> = <span class="ruby-identifier">argv</span>
+      
+      <span class="ruby-comment cmt"># Default options values</span>
+      <span class="ruby-ivar">@options</span> = {
+        <span class="ruby-identifier">:chdir</span>                =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>,
+        <span class="ruby-identifier">:environment</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'development'</span>,
+        <span class="ruby-identifier">:address</span>              =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'0.0.0.0'</span>,
+        <span class="ruby-identifier">:port</span>                 =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_PORT</span>,
+        <span class="ruby-identifier">:timeout</span>              =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_TIMEOUT</span>,
+        <span class="ruby-identifier">:log</span>                  =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'log/thin.log'</span>,
+        <span class="ruby-identifier">:pid</span>                  =<span class="ruby-operator">&gt;</span> <span class="ruby-value str">'tmp/pids/thin.pid'</span>,
+        <span class="ruby-identifier">:max_conns</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_MAXIMUM_CONNECTIONS</span>,
+        <span class="ruby-identifier">:max_persistent_conns</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Server</span><span class="ruby-operator">::</span><span class="ruby-constant">DEFAULT_MAXIMUM_PERSISTENT_CONNECTIONS</span>,
+        <span class="ruby-identifier">:require</span>              =<span class="ruby-operator">&gt;</span> []
+      }
+      
+      <span class="ruby-identifier">parse!</span>
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

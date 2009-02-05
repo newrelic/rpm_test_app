@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: realm
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Rack::Auth::AbstractHandler implements common authentication functionality.
+- !ruby/struct:SM::Flow::P 
+  body: <tt>realm</tt> should be set for all handlers.
+constants: []
+
+full_name: Rack::Auth::AbstractHandler
+includes: []
+
+instance_methods: []
+
+name: AbstractHandler
+superclass: Object

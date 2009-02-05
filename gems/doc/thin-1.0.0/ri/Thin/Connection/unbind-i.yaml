@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Called when the connection is unbinded from the socket and can no longer be used to process requests.
+full_name: Thin::Connection#unbind
+is_singleton: false
+name: unbind
+params: ()
+visibility: public

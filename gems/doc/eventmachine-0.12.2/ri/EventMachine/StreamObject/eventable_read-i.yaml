@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Proper nonblocking I/O was added to Ruby 1.8.4 in May 2006. If we have it, then we can read multiple times safely to improve performance. The last-activity clock ASSUMES that we only come here when we have selected readable. TODO, coalesce multiple reads into a single event. TODO, do the function check somewhere else and cache it.
+full_name: EventMachine::StreamObject#eventable_read
+is_singleton: false
+name: eventable_read
+params: ()
+visibility: public

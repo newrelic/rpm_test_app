@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: This is called when the protocol state is reset. It happens when the remote client calls EHLO/HELO or RSET.
+full_name: EventMachine::Protocols::SmtpServer#receive_transaction
+is_singleton: false
+name: receive_transaction
+params: ()
+visibility: public

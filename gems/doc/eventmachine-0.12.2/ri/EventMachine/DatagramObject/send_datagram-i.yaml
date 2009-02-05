@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#send_datagram"
+full_name: EventMachine::DatagramObject#send_datagram
+is_singleton: false
+name: send_datagram
+params: (data, target)
+visibility: public

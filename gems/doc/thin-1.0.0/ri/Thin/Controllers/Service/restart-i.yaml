@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Controllers::Service#restart
+is_singleton: false
+name: restart
+params: ()
+visibility: public

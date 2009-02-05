@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>start (Thin::Controllers::Controller)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/controllers/controller.rb, line 37</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">start</span>
+        <span class="ruby-comment cmt"># Constantize backend class</span>
+        <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:backend</span>] = <span class="ruby-identifier">eval</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:backend</span>], <span class="ruby-constant">TOPLEVEL_BINDING</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:backend</span>]
+        
+        <span class="ruby-identifier">server</span> = <span class="ruby-constant">Server</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:socket</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:address</span>], <span class="ruby-comment cmt"># Server detects kind of socket</span>
+                            <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:port</span>],                         <span class="ruby-comment cmt"># Port ignored on UNIX socket</span>
+                            <span class="ruby-ivar">@options</span>)
+        
+        <span class="ruby-comment cmt"># Set options</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">pid_file</span>                       = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:pid</span>]
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">log_file</span>                       = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:log</span>]
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">timeout</span>                        = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:timeout</span>]
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">maximum_connections</span>            = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:max_conns</span>]
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">maximum_persistent_connections</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:max_persistent_conns</span>]
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">threaded</span>                       = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:threaded</span>]
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">no_epoll</span>                       = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:no_epoll</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">backend</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:no_epoll=</span>)
+
+        <span class="ruby-comment cmt"># Detach the process, after this line the current process returns</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">daemonize</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:daemonize</span>]
+
+        <span class="ruby-comment cmt"># +config+ must be called before changing privileges since it might require superuser power.</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">config</span>
+        
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">change_privilege</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:user</span>], <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:group</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:user</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:group</span>]
+
+        <span class="ruby-comment cmt"># If a Rack config file is specified we eval it inside a Rack::Builder block to create</span>
+        <span class="ruby-comment cmt"># a Rack adapter from it. Or else we guess which adapter to use and load it.</span>
+        <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:rackup</span>]
+          <span class="ruby-identifier">server</span>.<span class="ruby-identifier">app</span> = <span class="ruby-identifier">load_rackup_config</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-identifier">server</span>.<span class="ruby-identifier">app</span> = <span class="ruby-identifier">load_adapter</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-comment cmt"># If a prefix is required, wrap in Rack URL mapper</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">app</span> = <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">URLMap</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:prefix</span>] =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">server</span>.<span class="ruby-identifier">app</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:prefix</span>]
+
+        <span class="ruby-comment cmt"># If a stats URL is specified, wrap in Stats adapter</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">app</span> = <span class="ruby-constant">Stats</span><span class="ruby-operator">::</span><span class="ruby-constant">Adapter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">server</span>.<span class="ruby-identifier">app</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:stats</span>]) <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:stats</span>]
+
+        <span class="ruby-comment cmt"># Register restart procedure which just start another process with same options,</span>
+        <span class="ruby-comment cmt"># so that's why this is done here.</span>
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">on_restart</span> { <span class="ruby-constant">Command</span>.<span class="ruby-identifier">run</span>(<span class="ruby-identifier">:start</span>, <span class="ruby-ivar">@options</span>) }
+
+        <span class="ruby-identifier">server</span>.<span class="ruby-identifier">start</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

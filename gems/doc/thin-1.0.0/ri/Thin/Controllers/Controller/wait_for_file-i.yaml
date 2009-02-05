@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Wait for a pid file to either be created or deleted.
+full_name: Thin::Controllers::Controller#wait_for_file
+is_singleton: false
+name: wait_for_file
+params: (state, file)
+visibility: protected

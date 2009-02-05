@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::EvmaUNIXClient#select_for_writing?
+is_singleton: false
+name: select_for_writing?
+params: ()
+visibility: public

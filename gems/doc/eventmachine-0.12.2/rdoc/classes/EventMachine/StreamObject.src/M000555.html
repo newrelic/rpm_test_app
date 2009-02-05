@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>select_for_writing? (EventMachine::StreamObject)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 517</span>
+517:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">select_for_writing?</span>
+518:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@close_scheduled</span>
+519:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@outbound_q</span>.<span class="ruby-identifier">empty?</span>
+520:           <span class="ruby-ivar">@close_scheduled</span> = <span class="ruby-keyword kw">true</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@close_requested</span>
+521:           <span class="ruby-keyword kw">false</span>
+522:         <span class="ruby-keyword kw">else</span>
+523:           <span class="ruby-keyword kw">true</span>
+524:         <span class="ruby-keyword kw">end</span>
+525:       <span class="ruby-keyword kw">end</span>
+526:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

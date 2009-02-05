@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Auth::Digest::Params#[]
+is_singleton: false
+name: "[]"
+params: (k)
+visibility: public

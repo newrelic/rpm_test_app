@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>post_init (EventMachine::Protocols::SmtpServer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpserver.rb, line 110</span>
+110:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">post_init</span>
+111:                         <span class="ruby-comment cmt">#send_data &quot;220 #{get_server_greeting}\r\n&quot; (ORIGINAL)</span>
+112:                         <span class="ruby-comment cmt">#(EM.spawn {|x| x.send_data &quot;220 #{x.get_server_greeting}\r\n&quot;}).notify(self)</span>
+113:                         (<span class="ruby-constant">EM</span>.<span class="ruby-identifier">spawn</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">send_server_greeting</span>}).<span class="ruby-identifier">notify</span>(<span class="ruby-keyword kw">self</span>)
+114:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

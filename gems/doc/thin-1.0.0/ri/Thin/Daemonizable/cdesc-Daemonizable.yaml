@@ -1,0 +1,55 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: log_file
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: pid_file
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: included
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Module included in classes that can be turned into a daemon. Handle stuff like:"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: storing the PID in a file
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: redirecting output to the log file
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: changing processs privileges
+  - !ruby/struct:SM::Flow::LI 
+    label: "*"
+    body: killing the process gracefully
+  type: :BULLET
+constants: []
+
+full_name: Thin::Daemonizable
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: change_privilege
+- !ruby/object:RI::MethodSummary 
+  name: daemonize
+- !ruby/object:RI::MethodSummary 
+  name: on_restart
+- !ruby/object:RI::MethodSummary 
+  name: pid
+- !ruby/object:RI::MethodSummary 
+  name: remove_pid_file
+- !ruby/object:RI::MethodSummary 
+  name: remove_stale_pid_file
+- !ruby/object:RI::MethodSummary 
+  name: restart
+- !ruby/object:RI::MethodSummary 
+  name: write_pid_file
+name: Daemonizable
+superclass: 

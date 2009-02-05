@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>receive_data (EventMachine::Protocols::LineAndTextProtocol)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/protocols/line_and_text.rb, line 39</span>
+39:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive_data</span> <span class="ruby-identifier">data</span>
+40:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lbp_mode</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:lines</span>
+41:           <span class="ruby-keyword kw">begin</span>
+42:             <span class="ruby-ivar">@lpb_buffer</span>.<span class="ruby-identifier">extract</span>(<span class="ruby-identifier">data</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span><span class="ruby-operator">|</span> 
+43:               <span class="ruby-identifier">receive_line</span>(<span class="ruby-identifier">line</span>.<span class="ruby-identifier">chomp</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_line</span>)
+44:             <span class="ruby-keyword kw">end</span>
+45:           <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Exception</span>
+46:             <span class="ruby-identifier">receive_error</span>(<span class="ruby-value str">'overlength line'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_error</span>)
+47:             <span class="ruby-identifier">close_connection</span>
+48:             <span class="ruby-keyword kw">return</span>
+49:           <span class="ruby-keyword kw">end</span>
+50:         <span class="ruby-keyword kw">else</span>
+51:           <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lbp_binary_limit</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+52:             <span class="ruby-identifier">wanted</span> = <span class="ruby-ivar">@lbp_binary_limit</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@lbp_binary_bytes_received</span>
+53:             <span class="ruby-identifier">chunk</span> = <span class="ruby-keyword kw">nil</span>
+54:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">wanted</span>
+55:               <span class="ruby-identifier">chunk</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice!</span>(<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">wanted</span>)
+56:             <span class="ruby-keyword kw">else</span>
+57:               <span class="ruby-identifier">chunk</span> = <span class="ruby-identifier">data</span>
+58:               <span class="ruby-identifier">data</span> = <span class="ruby-value str">&quot;&quot;</span>
+59:             <span class="ruby-keyword kw">end</span>
+60:             <span class="ruby-ivar">@lbp_binary_buffer</span>[<span class="ruby-ivar">@lbp_binary_bytes_received</span><span class="ruby-operator">...</span>(<span class="ruby-ivar">@lbp_binary_bytes_received</span><span class="ruby-operator">+</span><span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">length</span>)] = <span class="ruby-identifier">chunk</span>
+61:             <span class="ruby-ivar">@lbp_binary_bytes_received</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">length</span>
+62:             <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lbp_binary_bytes_received</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@lbp_binary_limit</span>
+63:               <span class="ruby-identifier">receive_binary_data</span>(<span class="ruby-ivar">@lbp_binary_buffer</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_binary_data</span>)
+64:               <span class="ruby-identifier">lbp_init_line_state</span>
+65:             <span class="ruby-keyword kw">end</span>
+66:             <span class="ruby-identifier">receive_data</span>(<span class="ruby-identifier">data</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+67:           <span class="ruby-keyword kw">else</span>
+68:             <span class="ruby-identifier">receive_binary_data</span>(<span class="ruby-identifier">data</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_binary_data</span>)
+69:             <span class="ruby-identifier">data</span> = <span class="ruby-value str">&quot;&quot;</span>
+70:           <span class="ruby-keyword kw">end</span>
+71:         <span class="ruby-keyword kw">end</span>
+72:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>add_periodic_timer (EventMachine)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/eventmachine.rb, line 354</span>
+354:   <span class="ruby-keyword kw">def</span> <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">add_periodic_timer</span> <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+355:     <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+356:     <span class="ruby-identifier">code</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>
+357:     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>
+358:       <span class="ruby-identifier">block_1</span> = <span class="ruby-identifier">proc</span> {
+359:         <span class="ruby-identifier">code</span>.<span class="ruby-identifier">call</span>
+360:         <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">add_periodic_timer</span> <span class="ruby-identifier">interval</span>, <span class="ruby-identifier">code</span>
+361:       }
+362:       <span class="ruby-identifier">add_timer</span> <span class="ruby-identifier">interval</span>, <span class="ruby-identifier">block_1</span>
+363:     <span class="ruby-keyword kw">end</span>
+364:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

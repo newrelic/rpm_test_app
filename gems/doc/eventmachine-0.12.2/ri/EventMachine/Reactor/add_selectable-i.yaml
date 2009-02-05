@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Reactor#add_selectable
+is_singleton: false
+name: add_selectable
+params: (io)
+visibility: public

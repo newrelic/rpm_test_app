@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#eventable_write This really belongs in DatagramObject, but there is some UDP-specific stuff."
+full_name: EventMachine::EvmaUDPSocket#eventable_write
+is_singleton: false
+name: eventable_write
+params: ()
+visibility: public

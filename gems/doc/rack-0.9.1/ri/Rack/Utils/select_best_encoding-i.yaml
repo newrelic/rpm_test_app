@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Utils#select_best_encoding
+is_singleton: false
+name: select_best_encoding
+params: (available_encodings, accept_encoding)
+visibility: public

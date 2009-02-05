@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine::Connection#post_init is called by the event loop immediately after the network connection has been established, and before resumption of the network loop. This method is generally not called by user code, but is called automatically by the event loop. The base-class implementation is a no-op. This is a very good place to initialize instance variables that will be used throughout the lifetime of the network connection.
+full_name: EventMachine::Connection#post_init
+is_singleton: false
+name: post_init
+params: ()
+visibility: public

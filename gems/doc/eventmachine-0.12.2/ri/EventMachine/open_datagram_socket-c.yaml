@@ -1,0 +1,22 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: c
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "EventMachine#open_datagram_socket is for support of UDP-based protocols. Its usage is similar to that of EventMachine#start_server. It takes three parameters: an IP address (which must be valid on the machine which executes the method), a port number, and an optional Module name which will handle the data. This method will create a new UDP (datagram) socket and bind it to the address and port that you specify. The normal callbacks (see EventMachine#start_server) will be called as events of interest occur on the newly-created socket, but there are some differences in how they behave."
+- !ruby/struct:SM::Flow::P 
+  body: Connection#receive_data will be called when a datagram packet is received on the socket, but unlike TCP sockets, the message boundaries of the received data will be respected. In other words, if the remote peer sent you a datagram of a particular size, you may rely on Connection#receive_data to give you the exact data in the packet, with the original data length. Also observe that Connection#receive_data may be called with a <em>zero-length</em> data payload, since empty datagrams are permitted in UDP.
+- !ruby/struct:SM::Flow::P 
+  body: "Connection#send_data is available with UDP packets as with TCP, but there is an important difference. Because UDP communications are <em>connectionless,</em> there is no implicit recipient for the packets you send. Ordinarily you must specify the recipient for each packet you send. However, EventMachine provides for the typical pattern of receiving a UDP datagram from a remote peer, performing some operation, and then sending one or more packets in response to the same remote peer. To support this model easily, just use Connection#send_data in the code that you supply for Connection:receive_data. EventMachine will provide an implicit return address for any messages sent to Connection#send_data within the context of a Connection#receive_data callback, and your response will automatically go to the correct remote peer. (TODO: Example-code needed!)"
+- !ruby/struct:SM::Flow::P 
+  body: "Observe that the port number that you supply to EventMachine#open_datagram_socket may be zero. In this case, EventMachine will create a UDP socket that is bound to an <em>ephemeral</em> (not well-known) port. This is not appropriate for servers that must publish a well-known port to which remote peers may send datagrams. But it can be useful for clients that send datagrams to other servers. If you do this, you will receive any responses from the remote servers through the normal Connection#receive_data callback. Observe that you will probably have issues with firewalls blocking the ephemeral port numbers, so this technique is most appropriate for LANs. (TODO: Need an example!)"
+- !ruby/struct:SM::Flow::P 
+  body: If you wish to send datagrams to arbitrary remote peers (not necessarily ones that have sent data to which you are responding), then see Connection#send_datagram.
+- !ruby/struct:SM::Flow::P 
+  body: "DO NOT call send_data from a datagram socket outside of a #receive_data method. Use #send_datagram. If you do use #send_data outside of a #receive_data method, you'll get a confusing error because there is no &quot;peer,&quot; as #send_data requires. (Inside of #receive_data, #send_data &quot;fakes&quot; the peer as described above.)"
+full_name: EventMachine::open_datagram_socket
+is_singleton: true
+name: open_datagram_socket
+params: (address, port, handler=nil, *args) {|c| ...}
+visibility: public

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Basically a convenience method. We might create a subclass that does this automatically. But it's such a performance killer.
+full_name: EventMachine::Protocols::HeaderAndContentProtocol#headers_2_hash
+is_singleton: false
+name: headers_2_hash
+params: (hdrs)
+visibility: public

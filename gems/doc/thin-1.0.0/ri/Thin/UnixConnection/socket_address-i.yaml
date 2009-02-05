@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::UnixConnection#socket_address
+is_singleton: false
+name: socket_address
+params: ()
+visibility: protected

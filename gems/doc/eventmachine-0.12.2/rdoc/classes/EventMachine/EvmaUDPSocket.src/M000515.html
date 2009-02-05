@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>create (EventMachine::EvmaUDPSocket)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 947</span>
+947:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create</span> <span class="ruby-identifier">host</span>, <span class="ruby-identifier">port</span>
+948:         <span class="ruby-identifier">sd</span> = <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">new</span>( <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_INET</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SOCK_DGRAM</span>, <span class="ruby-value">0</span> )
+949:         <span class="ruby-identifier">sd</span>.<span class="ruby-identifier">bind</span> <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-identifier">pack_sockaddr_in</span>( <span class="ruby-identifier">port</span>, <span class="ruby-identifier">host</span> )
+950:         <span class="ruby-constant">EvmaUDPSocket</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">sd</span>
+951:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

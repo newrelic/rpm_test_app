@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Request#threaded=
+is_singleton: false
+name: threaded=
+params: (value)
+visibility: public

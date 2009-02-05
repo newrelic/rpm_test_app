@@ -1,0 +1,16 @@
+<p>
+  <b>Title:</b>
+  <%=h @blog.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @blog.author.name %>
+</p>
+
+<h1>Posts</h1>
+<%= render :partial => 'posts/post', :collection => @blog.posts, :as => :post %>
+
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>

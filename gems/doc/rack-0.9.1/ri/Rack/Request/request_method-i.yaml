@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Request#request_method
+is_singleton: false
+name: request_method
+params: ()
+visibility: public

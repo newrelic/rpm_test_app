@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#close_connection The extension version does NOT raise any kind of an error if an attempt is made to close a non-existent connection. Not sure whether we should. For now, we'll raise an error here in that case."
+full_name: EventMachine::close_connection
+is_singleton: true
+name: close_connection
+params: (target, after_writing)
+visibility: public

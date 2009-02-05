@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Handler::FastCGI::send_body
+is_singleton: true
+name: send_body
+params: (out, body)
+visibility: public

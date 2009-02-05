@@ -1,0 +1,131 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+- !ruby/object:RI::MethodSummary 
+  name: parms=
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HeloRegex
+  value: /\AHELO\s*/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: EhloRegex
+  value: /\AEHLO\s*/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: QuitRegex
+  value: /\AQUIT/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MailFromRegex
+  value: /\AMAIL FROM:\s*/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RcptToRegex
+  value: /\ARCPT TO:\s*/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: DataRegex
+  value: /\ADATA/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: NoopRegex
+  value: /\ANOOP/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RsetRegex
+  value: /\ARSET/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VrfyRegex
+  value: /\AVRFY\s+/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ExpnRegex
+  value: /\AEXPN\s+/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HelpRegex
+  value: /\AHELP/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: StarttlsRegex
+  value: /\ASTARTTLS/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: AuthRegex
+  value: /\AAUTH\s+/i
+full_name: EventMachine::Protocols::SmtpServer
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Protocols::LineText2
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: connection_ended
+- !ruby/object:RI::MethodSummary 
+  name: get_server_domain
+- !ruby/object:RI::MethodSummary 
+  name: get_server_greeting
+- !ruby/object:RI::MethodSummary 
+  name: init_protocol_state
+- !ruby/object:RI::MethodSummary 
+  name: parms=
+- !ruby/object:RI::MethodSummary 
+  name: post_init
+- !ruby/object:RI::MethodSummary 
+  name: process_auth
+- !ruby/object:RI::MethodSummary 
+  name: process_data
+- !ruby/object:RI::MethodSummary 
+  name: process_data_line
+- !ruby/object:RI::MethodSummary 
+  name: process_ehlo
+- !ruby/object:RI::MethodSummary 
+  name: process_helo
+- !ruby/object:RI::MethodSummary 
+  name: process_mail_from
+- !ruby/object:RI::MethodSummary 
+  name: process_noop
+- !ruby/object:RI::MethodSummary 
+  name: process_quit
+- !ruby/object:RI::MethodSummary 
+  name: process_rcpt_to
+- !ruby/object:RI::MethodSummary 
+  name: process_rset
+- !ruby/object:RI::MethodSummary 
+  name: process_starttls
+- !ruby/object:RI::MethodSummary 
+  name: process_unknown
+- !ruby/object:RI::MethodSummary 
+  name: receive_data_chunk
+- !ruby/object:RI::MethodSummary 
+  name: receive_data_command
+- !ruby/object:RI::MethodSummary 
+  name: receive_ehlo_domain
+- !ruby/object:RI::MethodSummary 
+  name: receive_line
+- !ruby/object:RI::MethodSummary 
+  name: receive_message
+- !ruby/object:RI::MethodSummary 
+  name: receive_plain_auth
+- !ruby/object:RI::MethodSummary 
+  name: receive_recipient
+- !ruby/object:RI::MethodSummary 
+  name: receive_reset
+- !ruby/object:RI::MethodSummary 
+  name: receive_sender
+- !ruby/object:RI::MethodSummary 
+  name: receive_transaction
+- !ruby/object:RI::MethodSummary 
+  name: reset_protocol_state
+- !ruby/object:RI::MethodSummary 
+  name: send_server_greeting
+- !ruby/object:RI::MethodSummary 
+  name: unbind
+name: SmtpServer
+superclass: EventMachine::Connection

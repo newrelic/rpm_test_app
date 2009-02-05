@@ -1,0 +1,13 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: start!
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Start the server and listen for connections.
+full_name: Thin::Server#start
+is_singleton: false
+name: start
+params: ()
+visibility: public

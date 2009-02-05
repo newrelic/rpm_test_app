@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Response::Helpers#client_error?
+is_singleton: false
+name: client_error?
+params: ()
+visibility: public

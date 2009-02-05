@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Reloader#reload!
+is_singleton: false
+name: reload!
+params: (stderr=STDERR)
+visibility: public

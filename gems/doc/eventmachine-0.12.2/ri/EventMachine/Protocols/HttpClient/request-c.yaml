@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "TODO: Add streaming so we can support enormous POSTs. Current max is 20meg. Timeout for connections that run too long or hang somewhere in the middle. Persistent connections (HTTP/1.1), may need a associated delegate object. DNS: Some way to cache DNS lookups for hostnames we connect to. Ruby's DNS lookups are unbelievably slow. HEAD requests. Chunked transfer encoding. Convenience methods for requests. get, post, url, etc. SSL. Handle status codes like 304, 100, etc. Refactor this code so that protocol errors all get handled one way (an exception?), instead of sprinkling set_deferred_status :failed calls everywhere."
+full_name: EventMachine::Protocols::HttpClient::request
+is_singleton: true
+name: request
+params: ( args = {} )
+visibility: public

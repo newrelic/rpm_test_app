@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Jan 29 11:32:00 -0800 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+$Id: README 668 2008-01-04 23:00:34Z blackhedd $
+</p>
+<h1>RUBY/<a href="../classes/EventMachine.html">EventMachine</a></h1>
+<table>
+<tr><td valign="top">Homepage:</td><td><a href="http://rubyeventmachine.com">rubyeventmachine.com</a>
+
+</td></tr>
+<tr><td valign="top">Copyright:</td><td>(C) 2006-07 by Francis Cianfrocca. All Rights Reserved.
+
+</td></tr>
+<tr><td valign="top">Email:</td><td>gmail address: garbagecat10
+
+</td></tr>
+</table>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> is copyrighted free
+software made available under the terms of either the GPL or Ruby&#8216;s
+License. See the file COPYING for full licensing information. See <a
+href="../classes/EventMachine.html">EventMachine</a> and <a
+href="../classes/EventMachine/Connection.html">EventMachine::Connection</a>
+for documentation and usage examples.
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> implements a fast,
+single-threaded engine for arbitrary network communications. It&#8216;s
+extremely easy to use in Ruby. <a
+href="../classes/EventMachine.html">EventMachine</a> wraps all interactions
+with IP sockets, allowing programs to concentrate on the implementation of
+network protocols. It can be used to create both network servers and
+clients. To create a server or client, a Ruby program only needs to specify
+the IP address and port, and provide a Module that implements the
+communications protocol. Implementations of several standard network
+protocols are provided with the package, primarily to serve as examples.
+The real goal of <a href="../classes/EventMachine.html">EventMachine</a> is
+to enable programs to easily interface with other programs using TCP/IP,
+especially if custom protocols are required.
+</p>
+<p>
+A Ruby program uses <a href="../classes/EventMachine.html">EventMachine</a>
+by registering the addresses and ports of network servers and clients, and
+then entering an event-handling loop. <a
+href="../classes/EventMachine.html">EventMachine</a> contains glue code in
+Ruby which will execute callbacks to user-supplied code for all significant
+events occurring in the clients and servers. These events include
+connection acceptance, startup, data-receipt, shutdown, and timer events.
+Arbitrary processing can be performed by user code during event callbacks,
+including sending data to one or more remote network peers, startup and
+shutdown of network connections, and installation of new event handlers.
+</p>
+<p>
+The <a href="../classes/EventMachine.html">EventMachine</a> implements a
+very familiar model for network programming. It emphasizes: 1) the maximum
+possible isolation of user code from network objects like sockets; 2)
+maximum performance and scalability; and 3) extreme ease-of-use for user
+code. It attempts to provide a higher-level interface than similar projects
+which expose a variety of low-level event-handling and networking objects
+to Ruby programs.
+</p>
+<p>
+The design and implementation of <a
+href="../classes/EventMachine.html">EventMachine</a> grows out of nearly
+ten years of experience writing high-performance, high-scaling network
+server applications. We have taken particular account of the challenges and
+lessons described as the &quot;C10K problem&quot; by Dan Kegel and others.
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> consists of an
+extension library written in C++ (which can be accessed from languages
+other than Ruby), and a Ruby module which can be dropped into user
+programs. On most platforms, <a
+href="../classes/EventMachine.html">EventMachine</a> uses the
+<tt>select(2)</tt> system call, so it will run on a large range of
+Unix-like systems and on Microsoft Windows with good performance and
+scalability. On Linux 2.6 kernels, <a
+href="../classes/EventMachine.html">EventMachine</a> automatically
+configures itself to use <tt>epoll(4)</tt> instead of <tt>select(2),</tt>
+so scalability on that platform can be significantly improved.
+</p>
+<p>
+Here&#8216;s a fully-functional echo server written with <a
+href="../classes/EventMachine.html">EventMachine</a>:
+</p>
+<pre>
+      require 'rubygems'
+      require 'eventmachine'
+
+      module EchoServer
+        def receive_data data
+          send_data &quot;&gt;&gt;&gt;you sent: #{data}&quot;
+          close_connection if data =~ /quit/i
+        end
+      end
+
+      EventMachine::run {
+        EventMachine::start_server &quot;192.168.0.100&quot;, 8081, EchoServer
+      }
+</pre>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

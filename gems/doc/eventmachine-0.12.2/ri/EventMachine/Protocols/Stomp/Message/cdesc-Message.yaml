@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: body
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: command
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: header
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: EventMachine::Protocols::Stomp::Message
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: consume_line
+name: Message
+superclass: Object

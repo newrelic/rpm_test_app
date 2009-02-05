@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Send the incoming data to the application one chunk at a time, rather than one line at a time. That lets the application be a little more flexible about storing to disk, etc. Since we clear the chunk array every time we submit it, the caller needs to be aware to do things like dup it if he wants to keep it around across calls.
+- !ruby/struct:SM::Flow::P 
+  body: DON'T reset the transaction upon disposition of the incoming message. This means another DATA command can be accepted with the same sender and recipients. If the client wants to reset, he can call RSET. Not sure whether the standard requires a transaction-reset at this point, but it appears not to.
+- !ruby/struct:SM::Flow::P 
+  body: User-written code can return a Deferrable as a response from receive_message.
+full_name: EventMachine::Protocols::SmtpServer#process_data_line
+is_singleton: false
+name: process_data_line
+params: (ln)
+visibility: public

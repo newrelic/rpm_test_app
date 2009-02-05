@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>receive_line (EventMachine::Protocols::SmtpServer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpserver.rb, line 120</span>
+120:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive_line</span> <span class="ruby-identifier">ln</span>
+121:                         <span class="ruby-ivar">@@parms</span>[<span class="ruby-identifier">:verbose</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">$&gt;</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;&gt;&gt;&gt; #{ln}&quot;</span>
+122:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:data</span>)
+123:                                 <span class="ruby-identifier">process_data_line</span> <span class="ruby-identifier">ln</span>
+124:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">EhloRegex</span>
+125:                                 <span class="ruby-identifier">process_ehlo</span> <span class="ruby-identifier">$'</span>.<span class="ruby-identifier">dup</span>
+126:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">HeloRegex</span>
+127:                                 <span class="ruby-identifier">process_helo</span> <span class="ruby-identifier">$'</span>.<span class="ruby-identifier">dup</span>
+128:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">MailFromRegex</span>
+129:                                 <span class="ruby-identifier">process_mail_from</span> <span class="ruby-identifier">$'</span>.<span class="ruby-identifier">dup</span>
+130:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RcptToRegex</span>
+131:                                 <span class="ruby-identifier">process_rcpt_to</span> <span class="ruby-identifier">$'</span>.<span class="ruby-identifier">dup</span>
+132:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">DataRegex</span>
+133:                                 <span class="ruby-identifier">process_data</span>
+134:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">RsetRegex</span>
+135:                                 <span class="ruby-identifier">process_rset</span>
+136:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">VrfyRegex</span>
+137:                                 <span class="ruby-identifier">process_vrfy</span>
+138:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">ExpnRegex</span>
+139:                                 <span class="ruby-identifier">process_expn</span>
+140:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">HelpRegex</span>
+141:                                 <span class="ruby-identifier">process_help</span>
+142:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">NoopRegex</span>
+143:                                 <span class="ruby-identifier">process_noop</span>
+144:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">QuitRegex</span>
+145:                                 <span class="ruby-identifier">process_quit</span>
+146:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">StarttlsRegex</span>
+147:                                 <span class="ruby-identifier">process_starttls</span>
+148:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">ln</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">AuthRegex</span>
+149:                                 <span class="ruby-identifier">process_auth</span> <span class="ruby-identifier">$'</span>.<span class="ruby-identifier">dup</span>
+150:                         <span class="ruby-keyword kw">else</span>
+151:                                 <span class="ruby-identifier">process_unknown</span>
+152:                         <span class="ruby-keyword kw">end</span>
+153:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

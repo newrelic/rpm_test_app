@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run_timers (EventMachine::Reactor)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 329</span>
+329:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">run_timers</span>
+330:     <span class="ruby-ivar">@timers</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+331:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-ivar">@current_loop_time</span>
+332:         <span class="ruby-ivar">@timers</span>.<span class="ruby-identifier">delete</span> <span class="ruby-identifier">t</span>
+333:         <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">event_callback</span> <span class="ruby-value str">&quot;&quot;</span>, <span class="ruby-constant">TimerFired</span>, <span class="ruby-identifier">t</span>.<span class="ruby-identifier">last</span>
+334:       <span class="ruby-keyword kw">else</span>
+335:         <span class="ruby-keyword kw">break</span>
+336:       <span class="ruby-keyword kw">end</span>
+337:     }
+338:     <span class="ruby-comment cmt">#while @timers.length &gt; 0 and @timers.first.first &lt;= now</span>
+339:     <span class="ruby-comment cmt">#  t = @timers.shift</span>
+340:     <span class="ruby-comment cmt">#  EventMachine::event_callback &quot;&quot;, TimerFired, t.last</span>
+341:     <span class="ruby-comment cmt">#end</span>
+342:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

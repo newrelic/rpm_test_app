@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::HttpClient#dispatch_response
+is_singleton: false
+name: dispatch_response
+params: ()
+visibility: public

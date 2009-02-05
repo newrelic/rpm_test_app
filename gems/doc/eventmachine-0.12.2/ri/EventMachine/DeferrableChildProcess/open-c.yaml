@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Sugars a common use-case involving forked child processes. #open takes a String argument containing an shell command string (including arguments if desired). #open immediately returns an EventMachine::Deferrable object, without blocking."
+- !ruby/struct:SM::Flow::P 
+  body: It also invokes EventMachine#popen to run the passed-in command in a forked child process.
+- !ruby/struct:SM::Flow::P 
+  body: "When the forked child terminates, the Deferrable that #open calls its callbacks, passing the data returned from the child process."
+full_name: EventMachine::DeferrableChildProcess::open
+is_singleton: true
+name: open
+params: (cmd)
+visibility: public

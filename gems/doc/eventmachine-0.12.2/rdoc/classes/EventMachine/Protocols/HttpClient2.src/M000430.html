@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect (EventMachine::Protocols::HttpClient2)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/httpcli2.rb, line 218</span>
+218:                 <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">connect</span> <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+219:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+220:                                 <span class="ruby-identifier">args</span> = {<span class="ruby-identifier">:host=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">:port=</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]}
+221:                         <span class="ruby-keyword kw">else</span>
+222:                                 <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+223:                         <span class="ruby-keyword kw">end</span>
+224: 
+225:                         <span class="ruby-identifier">h</span>,<span class="ruby-identifier">prt</span>,<span class="ruby-identifier">ssl</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:host</span>], <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">args</span>[<span class="ruby-identifier">:port</span>]), (<span class="ruby-identifier">args</span>[<span class="ruby-identifier">:tls</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:ssl</span>])
+226:                         <span class="ruby-identifier">conn</span> = <span class="ruby-constant">EM</span>.<span class="ruby-identifier">connect</span>( <span class="ruby-identifier">h</span>, <span class="ruby-identifier">prt</span>, <span class="ruby-keyword kw">self</span> )
+227:                         <span class="ruby-comment cmt"># TODO, start_tls if necessary</span>
+228:                         <span class="ruby-identifier">conn</span>.<span class="ruby-identifier">set_default_host_header</span>( <span class="ruby-identifier">h</span>, <span class="ruby-identifier">prt</span>, <span class="ruby-identifier">ssl</span> )
+229:                         <span class="ruby-identifier">conn</span>
+230:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

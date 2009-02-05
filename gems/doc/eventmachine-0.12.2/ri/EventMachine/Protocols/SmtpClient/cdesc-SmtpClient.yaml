@@ -1,0 +1,59 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: args
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: send
+comment: 
+constants: []
+
+full_name: EventMachine::Protocols::SmtpClient
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: EventMachine::Deferrable
+- !ruby/object:RI::IncludedModule 
+  name: EventMachine::Protocols::LineText2
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: connection_completed
+- !ruby/object:RI::MethodSummary 
+  name: invoke_auth
+- !ruby/object:RI::MethodSummary 
+  name: invoke_data
+- !ruby/object:RI::MethodSummary 
+  name: invoke_error
+- !ruby/object:RI::MethodSummary 
+  name: invoke_internal_error
+- !ruby/object:RI::MethodSummary 
+  name: invoke_mail_from
+- !ruby/object:RI::MethodSummary 
+  name: invoke_rcpt_to
+- !ruby/object:RI::MethodSummary 
+  name: invoke_starttls
+- !ruby/object:RI::MethodSummary 
+  name: post_init
+- !ruby/object:RI::MethodSummary 
+  name: receive_auth_response
+- !ruby/object:RI::MethodSummary 
+  name: receive_data_response
+- !ruby/object:RI::MethodSummary 
+  name: receive_ehlo_response
+- !ruby/object:RI::MethodSummary 
+  name: receive_line
+- !ruby/object:RI::MethodSummary 
+  name: receive_mail_from_response
+- !ruby/object:RI::MethodSummary 
+  name: receive_message_response
+- !ruby/object:RI::MethodSummary 
+  name: receive_rcpt_to_response
+- !ruby/object:RI::MethodSummary 
+  name: receive_signon
+- !ruby/object:RI::MethodSummary 
+  name: receive_starttls_response
+- !ruby/object:RI::MethodSummary 
+  name: unbind
+name: SmtpClient
+superclass: Connection

@@ -1,0 +1,21 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: stop_event_loop may called from within a callback method while EventMachine's processing loop is running. It causes the processing loop to stop executing, which will cause all open connections and accepting servers to be run down and closed. <em>Callbacks for connection-termination will be called</em> as part of the processing of stop_event_loop. (There currently is no option to panic-stop the loop without closing connections.) When all of this processing is complete, the call to EventMachine::run which started the processing loop will return and program flow will resume from the statement following EventMachine::run call.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: Usage example
+- !ruby/struct:SM::Flow::VERB 
+  body: " require 'rubygems'\n require 'eventmachine'\n\n module Redmond\n\n   def post_init\n     puts &quot;We're sending a dumb HTTP request to the remote peer.&quot;\n     send_data &quot;GET / HTTP/1.1\\r\\nHost: www.microsoft.com\\r\\n\\r\\n&quot;\n   end\n\n   def receive_data data\n     puts &quot;We received #{data.length} bytes from the remote peer.&quot;\n     puts &quot;We're going to stop the event loop now.&quot;\n     EventMachine::stop_event_loop\n   end\n\n   def unbind\n     puts &quot;A connection has terminated.&quot;\n   end\n\n end\n\n puts &quot;We're starting the event loop now.&quot;\n EventMachine::run {\n   EventMachine::connect &quot;www.microsoft.com&quot;, 80, Redmond\n }\n puts &quot;The event loop has stopped.&quot;\n"
+- !ruby/struct:SM::Flow::P 
+  body: "This program will produce approximately the following output:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " We're starting the event loop now.\n We're sending a dumb HTTP request to the remote peer.\n We received 1440 bytes from the remote peer.\n We're going to stop the event loop now.\n A connection has terminated.\n The event loop has stopped.\n"
+full_name: EventMachine::stop_event_loop
+is_singleton: true
+name: stop_event_loop
+params: ()
+visibility: public

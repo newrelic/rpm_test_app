@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Runner#parser
+is_singleton: false
+name: parser
+params: ()
+visibility: public

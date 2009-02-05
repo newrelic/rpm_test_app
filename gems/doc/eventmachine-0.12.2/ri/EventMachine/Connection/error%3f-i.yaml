@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Returns true if the connection is in an error state, false otherwise. In general, you can detect the occurrence of communication errors or unexpected disconnection by the remote peer by handing the #unbind method. In some cases, however, it's useful to check the status of the connection using #error? before attempting to send data. This function is synchronous: it will return immediately without blocking."
+full_name: EventMachine::Connection#error?
+is_singleton: false
+name: error?
+params: ()
+visibility: public

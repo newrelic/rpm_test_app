@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Connection#post_process
+is_singleton: false
+name: post_process
+params: (result)
+visibility: public

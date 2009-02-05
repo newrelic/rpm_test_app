@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Evma::Protocol#close_after_writing
+is_singleton: false
+name: close_after_writing
+params: ()
+visibility: public

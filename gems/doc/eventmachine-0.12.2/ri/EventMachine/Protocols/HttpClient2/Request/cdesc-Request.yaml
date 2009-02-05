@@ -1,0 +1,70 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: content
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: header_lines
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: headers
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: internal_error
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: status
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: version
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HttpResponseRE
+  value: /\AHTTP\/(1.[01]) ([\d]{3})/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ClenRE
+  value: /\AContent-length:\s*(\d+)/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ChunkedRE
+  value: /\ATransfer-encoding:\s*chunked/i
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ColonRE
+  value: /\:\s*/
+full_name: EventMachine::Protocols::HttpClient2::Request
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Deferrable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: receive_chunk_header
+- !ruby/object:RI::MethodSummary 
+  name: receive_chunk_trailer
+- !ruby/object:RI::MethodSummary 
+  name: receive_chunked_text
+- !ruby/object:RI::MethodSummary 
+  name: receive_header_line
+- !ruby/object:RI::MethodSummary 
+  name: receive_line
+- !ruby/object:RI::MethodSummary 
+  name: receive_sized_text
+- !ruby/object:RI::MethodSummary 
+  name: receive_text
+- !ruby/object:RI::MethodSummary 
+  name: send_request
+name: Request
+superclass: Object

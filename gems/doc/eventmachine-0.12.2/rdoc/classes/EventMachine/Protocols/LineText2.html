@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: EventMachine::Protocols::LineText2</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">EventMachine::Protocols::LineText2</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../files/lib/protocols/linetext2_rb.html">
+                lib/protocols/linetext2.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000345">receive_binary_data</a>&nbsp;&nbsp;
+      <a href="#M000338">receive_data</a>&nbsp;&nbsp;
+      <a href="#M000346">receive_end_of_binary_data</a>&nbsp;&nbsp;
+      <a href="#M000344">receive_line</a>&nbsp;&nbsp;
+      <a href="#M000342">set_binary_mode</a>&nbsp;&nbsp;
+      <a href="#M000339">set_delimiter</a>&nbsp;&nbsp;
+      <a href="#M000340">set_line_mode</a>&nbsp;&nbsp;
+      <a href="#M000341">set_text_mode</a>&nbsp;&nbsp;
+      <a href="#M000343">unbind</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MaxLineLength</td>
+          <td>=</td>
+          <td class="context-item-value">16*1024</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">MaxBinaryLength</td>
+          <td>=</td>
+          <td class="context-item-value">32*1024*1024</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000345" class="method-detail">
+        <a name="M000345"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000345.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000345.html');return false;">
+          <span class="method-name">receive_binary_data</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Stub. Should be subclassed by user code.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000338" class="method-detail">
+        <a name="M000338"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000338.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000338.html');return false;">
+          <span class="method-name">receive_data</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000346" class="method-detail">
+        <a name="M000346"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000346.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000346.html');return false;">
+          <span class="method-name">receive_end_of_binary_data</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Stub. Should be subclassed by user code. This is called when transitioning
+internally from text mode back to line mode. Useful when client code
+doesn&#8216;t want to keep track of how much data it&#8216;s received.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000344" class="method-detail">
+        <a name="M000344"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000344.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000344.html');return false;">
+          <span class="method-name">receive_line</span><span class="method-args">(ln)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Stub. Should be subclassed by user code.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000342" class="method-detail">
+        <a name="M000342"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000342.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000342.html');return false;">
+          <span class="method-name">set_binary_mode</span><span class="method-args">(size=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="LineText2.html#M000341">set_text_mode</a>, added for
+back-compatibility with <a
+href="LineAndTextProtocol.html">LineAndTextProtocol</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000339" class="method-detail">
+        <a name="M000339"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000339.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000339.html');return false;">
+          <span class="method-name">set_delimiter</span><span class="method-args">(delim)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000340" class="method-detail">
+        <a name="M000340"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000340.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000340.html');return false;">
+          <span class="method-name">set_line_mode</span><span class="method-args">(data=&quot;&quot;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Called internally but also exposed to user code, for the case in which
+processing of binary data creates a need to transition back to line mode.
+We support an optional parameter to &quot;throw back&quot; some data, which
+might be an umprocessed chunk of the transmitted binary data, or something
+else entirely.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000341" class="method-detail">
+        <a name="M000341"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000341.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000341.html');return false;">
+          <span class="method-name">set_text_mode</span><span class="method-args">(size=nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000343" class="method-detail">
+        <a name="M000343"></a>
+
+        <div class="method-heading">
+          <a href="LineText2.src/M000343.html" target="Code" class="method-signature"
+            onclick="popupCode('LineText2.src/M000343.html');return false;">
+          <span class="method-name">unbind</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+In case of a dropped connection, we&#8216;ll send a partial buffer to user
+code when in sized text mode. User overrides of <a
+href="LineText2.html#M000345">receive_binary_data</a> need to be aware that
+they may get a short buffer.
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

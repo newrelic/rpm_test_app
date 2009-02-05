@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>header (Rack::Adapter::Rails::CGIWrapper)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/rack/adapter/rails.rb, line 89</span>
+          <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">header</span>(<span class="ruby-identifier">options</span> = <span class="ruby-value str">&quot;text/html&quot;</span>)
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+              <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Content-Type'</span>]     = <span class="ruby-identifier">options</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Content-Type'</span>]
+            <span class="ruby-keyword kw">else</span>
+              <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Content-Length'</span>]   = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'Content-Length'</span>).<span class="ruby-identifier">to_s</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">'Content-Length'</span>]
+            
+              <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Content-Type'</span>]     = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'type'</span>) <span class="ruby-operator">||</span> <span class="ruby-value str">&quot;text/html&quot;</span>
+              <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Content-Type'</span>]    <span class="ruby-operator">+=</span> <span class="ruby-value str">&quot;; charset=&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'charset'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">'charset'</span>]
+                        
+              <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Content-Language'</span>] = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'language'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">'language'</span>]
+              <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Expires'</span>]          = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'expires'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">'expires'</span>]
+
+              <span class="ruby-ivar">@response</span>.<span class="ruby-identifier">status</span>              = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'Status'</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value str">'Status'</span>]
+              
+              <span class="ruby-comment cmt"># Convert 'cookie' header to 'Set-Cookie' headers.</span>
+              <span class="ruby-comment cmt"># Because Set-Cookie header can appear more the once in the response body, </span>
+              <span class="ruby-comment cmt"># we store it in a line break seperated string that will be translated to</span>
+              <span class="ruby-comment cmt"># multiple Set-Cookie header by the handler.</span>
+              <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">cookie</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value str">'cookie'</span>)
+                <span class="ruby-identifier">cookies</span> = []
+                
+                <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">cookie</span>
+                  <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Array</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cookies</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span> }
+                  <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Hash</span>  <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cookies</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span> }
+                  <span class="ruby-keyword kw">else</span>            <span class="ruby-identifier">cookies</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">to_s</span>
+                <span class="ruby-keyword kw">end</span>
+                
+                <span class="ruby-ivar">@output_cookies</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-identifier">cookies</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span> } <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@output_cookies</span>
+                
+                <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Set-Cookie'</span>] = [<span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Set-Cookie'</span>], <span class="ruby-identifier">cookies</span>].<span class="ruby-identifier">compact</span>
+                <span class="ruby-comment cmt"># See http://groups.google.com/group/rack-devel/browse_thread/thread/e8759b91a82c5a10/a8dbd4574fe97d69?#a8dbd4574fe97d69</span>
+                <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Thin</span>.<span class="ruby-identifier">ruby_18?</span>
+                  <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Set-Cookie'</span>].<span class="ruby-identifier">flatten!</span>
+                <span class="ruby-keyword kw">else</span>
+                  <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Set-Cookie'</span>] = <span class="ruby-ivar">@response</span>[<span class="ruby-value str">'Set-Cookie'</span>].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;\n&quot;</span>)
+                <span class="ruby-keyword kw">end</span>
+              <span class="ruby-keyword kw">end</span>
+              
+              <span class="ruby-identifier">options</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@response</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span> }
+            <span class="ruby-keyword kw">end</span>
+            
+            <span class="ruby-value str">&quot;&quot;</span>
+          <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

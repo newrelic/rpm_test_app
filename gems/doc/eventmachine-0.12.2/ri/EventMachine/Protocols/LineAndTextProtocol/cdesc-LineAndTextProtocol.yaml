@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MaxLineLength
+  value: 16*1024
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MaxBinaryLength
+  value: 32*1024*1024
+full_name: EventMachine::Protocols::LineAndTextProtocol
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: receive_data
+- !ruby/object:RI::MethodSummary 
+  name: set_binary_mode
+- !ruby/object:RI::MethodSummary 
+  name: unbind
+name: LineAndTextProtocol
+superclass: Connection

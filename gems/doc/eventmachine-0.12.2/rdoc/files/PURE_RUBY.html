@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: PURE_RUBY</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>PURE_RUBY</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>PURE_RUBY
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Jan 29 11:32:00 -0800 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+$Id: PURE_RUBY 668 2008-01-04 23:00:34Z blackhedd $
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> is supplied in
+three alternative versions.
+</p>
+<p>
+1) A version that includes a Ruby extension written in C++. This version
+requires compilation; 2) A version for JRuby that contains a precompiled
+JAR file written in Java; 3) A pure Ruby version that has no external
+dependencies and can run in any Ruby environment.
+</p>
+<p>
+The Java version of <a href="../classes/EventMachine.html">EventMachine</a>
+is packaged in a distinct manner and must be installed using a special
+procedure. This version is described fully in a different document, and not
+considered further here.
+</p>
+<p>
+The C++ and pure-Ruby versions, however, are shipped in the same
+distribution. You use the same files (either tarball or Ruby gem) to
+install both of these versions.
+</p>
+<p>
+If you intend to use the C++ version, you must successfully compile <a
+href="../classes/EventMachine.html">EventMachine</a> after you install it.
+(The gem installation attempts to perform this step automatically.)
+</p>
+<p>
+If you choose not to compile the <a
+href="../classes/EventMachine.html">EventMachine</a> C++ extension, or if
+your compilation fails for any reason, you still have a fully-functional
+installation of the pure-Ruby version of EM.
+</p>
+<p>
+However, for technical reasons, a default EM installation (whether or not
+the compilation succeeds) will always assume that the compiled
+(&quot;extension&quot;) implementation should be used.
+</p>
+<p>
+If you want your EM program to use the pure Ruby version, you must
+specifically request it. There are two ways to do this: by setting either a
+Ruby global variable, or an environment string.
+</p>
+<p>
+The following code will invoke the pure-Ruby implementation of EM:
+</p>
+<pre>
+ $eventmachine_library = :pure_ruby
+ require 'eventmachine'
+
+ EM.library_type #=&gt; &quot;pure_ruby&quot;
+</pre>
+<p>
+Notice that this requires a code change and is not the preferred way to
+select pure Ruby, unless for some reason you are absolutely sure you will
+never want the compiled implementation.
+</p>
+<p>
+Setting the following environment string has the same effect:
+</p>
+<pre>
+ export EVENTMACHINE_LIBRARY=&quot;pure_ruby&quot;
+</pre>
+<p>
+This technique gives you the flexibility to select either version at
+runtime with no code changes.
+</p>
+<p>
+Support
+</p>
+<p>
+The <a href="../classes/EventMachine.html">EventMachine</a> development
+team has committed to support precisely the same APIs for all the various
+implementations of EM.
+</p>
+<p>
+This means that you can expect any EM program to behave identically,
+whether you use pure Ruby, the compiled C++ extension, or JRuby. Deviations
+from this behavior are to be considered bugs and should be reported as
+such.
+</p>
+<p>
+There is a small number of exceptions to this rule, which arise from
+underlying platform distinctions. Notably, EM#epoll is a silent no-op in
+the pure Ruby implementation.
+</p>
+<p>
+When Should You Use the Pure-Ruby Implementation of EM?
+</p>
+<p>
+Use the pure Ruby implementation of EM when you must support a platform for
+which no C++ compiler is available, or on which the standard EM C++ code
+can&#8216;t be compiled.
+</p>
+<p>
+Keep in mind that you don&#8216;t need a C++ compiler in order to deploy EM
+applications that rely on the compiled version, so long as appropriate C++
+runtime libraries are available on the target platform.
+</p>
+<p>
+In extreme cases, you may find that you can develop software with the
+compiled EM version, but are not allowed to install required runtime
+libraries on the deployment system(s). This would be another case in which
+the pure Ruby implementation can be useful.
+</p>
+<p>
+In general you should avoid the pure Ruby version of EM when performance
+and scalability are important. EM in pure Ruby will necessarily run slower
+than the compiled version. Depending on your application this may or may
+not be a key issue.
+</p>
+<p>
+Also, since EPOLL is not supported in pure Ruby, your applications will be
+affected by Ruby&#8216;s built-in limit of 1024 file and socket descriptors
+that may be open in a single process. For maximum scalability and
+performance, always use EPOLL if possible.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

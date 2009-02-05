@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Controllers::Controller#config
+is_singleton: false
+name: config
+params: ()
+visibility: public

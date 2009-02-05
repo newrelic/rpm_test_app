@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::SASLauth#post_init
+is_singleton: false
+name: post_init
+params: ()
+visibility: public

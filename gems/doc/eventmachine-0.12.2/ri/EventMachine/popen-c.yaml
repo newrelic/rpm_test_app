@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: (c)
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: TODO, must document popen. At this moment, it's only available on Unix. This limitation is expected to go away.
+full_name: EventMachine::popen
+is_singleton: true
+name: popen
+params: (cmd, handler=nil) {|c| ...}
+visibility: public

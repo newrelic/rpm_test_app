@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>receive_line (EventMachine::Protocols::HeaderAndContentProtocol)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/protocols/header_and_content.rb, line 46</span>
+46:             <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive_line</span> <span class="ruby-identifier">line</span>
+47:                 <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@hc_mode</span>
+48:                 <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:discard_blanks</span>
+49:                     <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+50:                         <span class="ruby-ivar">@hc_mode</span> = <span class="ruby-identifier">:headers</span>
+51:                         <span class="ruby-identifier">receive_line</span> <span class="ruby-identifier">line</span>
+52:                     <span class="ruby-keyword kw">end</span>
+53:                 <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:headers</span>
+54:                     <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;&quot;</span>
+55:                         <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;unrecognized state&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@hc_headers</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+56:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_headers</span>)
+57:                             <span class="ruby-identifier">receive_headers</span> <span class="ruby-ivar">@hc_headers</span>
+58:                         <span class="ruby-keyword kw">end</span>
+59:                         <span class="ruby-comment cmt"># @hc_content_length will be nil, not 0, if there was no content-length header.</span>
+60:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@hc_content_length</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+61:                             <span class="ruby-identifier">set_binary_mode</span> <span class="ruby-ivar">@hc_content_length</span>
+62:                         <span class="ruby-keyword kw">else</span>
+63:                             <span class="ruby-identifier">dispatch_request</span>
+64:                         <span class="ruby-keyword kw">end</span>
+65:                     <span class="ruby-keyword kw">else</span>
+66:                         <span class="ruby-ivar">@hc_headers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">line</span>
+67:                         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">ContentLengthPattern</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">line</span>
+68:                             <span class="ruby-comment cmt"># There are some attacks that rely on sending multiple content-length</span>
+69:                             <span class="ruby-comment cmt"># headers. This is a crude protection, but needs to become tunable.</span>
+70:                             <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;extraneous content-length header&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@hc_content_length</span>
+71:                             <span class="ruby-ivar">@hc_content_length</span> = <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">to_i</span>
+72:                         <span class="ruby-keyword kw">end</span>
+73:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@hc_headers</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_first_header_line</span>)
+74:                             <span class="ruby-identifier">receive_first_header_line</span> <span class="ruby-identifier">line</span>
+75:                         <span class="ruby-keyword kw">end</span>
+76:                     <span class="ruby-keyword kw">end</span>
+77:                 <span class="ruby-keyword kw">else</span>
+78:                     <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;internal error, unsupported mode&quot;</span>
+79:                 <span class="ruby-keyword kw">end</span>
+80:             <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

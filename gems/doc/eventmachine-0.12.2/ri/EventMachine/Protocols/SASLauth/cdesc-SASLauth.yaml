@@ -1,0 +1,41 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Implements SASL authd. This is a very, very simple protocol that mimics the one used by saslauthd and pwcheck, two outboard daemons included in the standard SASL library distro. The only thing this is really suitable for is SASL PLAIN (user+password) authentication, but the SASL libs that are linked into standard servers (like imapd and sendmail) implement the other ones.
+- !ruby/struct:SM::Flow::P 
+  body: SASL-auth is intended for reasonably fast operation inside a single machine, so it has no transport-security (although there have been multi-machine extensions incorporating transport-layer encryption).
+- !ruby/struct:SM::Flow::P 
+  body: The standard saslauthd module generally runs privileged and does its work by referring to the system-account files.
+- !ruby/struct:SM::Flow::P 
+  body: This feature was added to EventMachine to enable the development of custom authentication/authorization engines for standard servers.
+- !ruby/struct:SM::Flow::P 
+  body: To use SASLauth, include it in a class that subclasses EM::Connection, and reimplement the validate method.
+- !ruby/struct:SM::Flow::P 
+  body: "The typical way to incorporate this module into an authentication daemon would be to set it as the handler for a UNIX-domain socket. The code might look like this:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " EM.start_unix_domain_server( &quot;/var/run/saslauthd/mux&quot;, MyHandler )\n File.chmod( 0777, &quot;/var/run/saslauthd/mux&quot;)\n"
+- !ruby/struct:SM::Flow::P 
+  body: The chmod is probably needed to ensure that unprivileged clients can access the UNIX-domain socket.
+- !ruby/struct:SM::Flow::P 
+  body: It's also a very good idea to drop superuser privileges (if any), after the UNIX-domain socket has been opened.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MaxFieldSize
+  value: 128*1024
+full_name: EventMachine::Protocols::SASLauth
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: post_init
+- !ruby/object:RI::MethodSummary 
+  name: receive_data
+- !ruby/object:RI::MethodSummary 
+  name: validate
+name: SASLauth
+superclass: 

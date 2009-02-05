@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::HttpClient2::Request#receive_chunk_header
+is_singleton: false
+name: receive_chunk_header
+params: (ln)
+visibility: public

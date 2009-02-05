@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Thin::Request)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/request.rb, line 45</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+      <span class="ruby-ivar">@parser</span>   = <span class="ruby-constant">HttpParser</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-ivar">@data</span>     = <span class="ruby-value str">''</span>
+      <span class="ruby-ivar">@nparsed</span>  = <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@body</span>     = <span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-ivar">@env</span>      = {
+        <span class="ruby-constant">SERVER_SOFTWARE</span>   =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">SERVER</span>,
+
+        <span class="ruby-comment cmt"># Rack stuff</span>
+        <span class="ruby-constant">RACK_INPUT</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@body</span>,
+
+        <span class="ruby-constant">RACK_VERSION</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">VERSION</span><span class="ruby-operator">::</span><span class="ruby-constant">RACK</span>,
+        <span class="ruby-constant">RACK_ERRORS</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">STDERR</span>,
+
+        <span class="ruby-constant">RACK_MULTITHREAD</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>,
+        <span class="ruby-constant">RACK_MULTIPROCESS</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>,
+        <span class="ruby-constant">RACK_RUN_ONCE</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword kw">false</span>
+      }
+    <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

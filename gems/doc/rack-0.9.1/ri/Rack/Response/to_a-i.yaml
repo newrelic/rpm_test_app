@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Alias for #finish"
+full_name: Rack::Response#to_a
+is_singleton: false
+name: to_a
+params: (&block)
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::SmtpClient#invoke_rcpt_to
+is_singleton: false
+name: invoke_rcpt_to
+params: ()
+visibility: public

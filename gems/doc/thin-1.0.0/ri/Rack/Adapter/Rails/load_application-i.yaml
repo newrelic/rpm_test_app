@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Adapter::Rails#load_application
+is_singleton: false
+name: load_application
+params: ()
+visibility: public

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect (Evma::TcpSocket)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/evma/factory.rb, line 48</span>
+48:   <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">connect</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">port</span>, <span class="ruby-identifier">protocol_handler</span> = <span class="ruby-constant">Evma</span><span class="ruby-operator">::</span><span class="ruby-constant">Protocol</span>
+49:     <span class="ruby-constant">Evma</span><span class="ruby-operator">::</span><span class="ruby-constant">Reactor</span>.<span class="ruby-identifier">instance</span> <span class="ruby-comment cmt"># ensure initialization</span>
+50:     <span class="ruby-identifier">sig</span> = <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">connect_server</span> <span class="ruby-identifier">server</span>, <span class="ruby-identifier">port</span>
+51:     <span class="ruby-constant">Evma</span><span class="ruby-operator">::</span><span class="ruby-constant">Container</span>.<span class="ruby-identifier">store</span> <span class="ruby-identifier">protocol_handler</span>.<span class="ruby-identifier">new</span>( <span class="ruby-identifier">sig</span> )
+52:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Called when all data was received and the request is ready to be processed.
+full_name: Thin::Connection#process
+is_singleton: false
+name: process
+params: ()
+visibility: public

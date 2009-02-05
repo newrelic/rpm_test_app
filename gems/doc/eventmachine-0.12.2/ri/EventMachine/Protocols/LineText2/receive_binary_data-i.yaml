@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Stub. Should be subclassed by user code.
+full_name: EventMachine::Protocols::LineText2#receive_binary_data
+is_singleton: false
+name: receive_binary_data
+params: (data)
+visibility: public

@@ -1,0 +1,22 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: open
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "EM::DeferrableChildProcess is a sugaring of a common use-case involving EM::popen. Call the #open method on EM::DeferrableChildProcess, passing a command-string. #open immediately returns an EM::Deferrable object. It also schedules the forking of a child process, which will execute the command passed to #open. When the forked child terminates, the Deferrable will be signalled and execute its callbacks, passing the data that the child process wrote to stdout."
+constants: []
+
+full_name: EventMachine::DeferrableChildProcess
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: EventMachine::Deferrable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: receive_data
+- !ruby/object:RI::MethodSummary 
+  name: unbind
+name: DeferrableChildProcess
+superclass: EventMachine::Connection

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: <tt>true</tt> if <tt>app.call</tt> will be called inside a thread. You can set all requests as threaded setting <tt>Connection#threaded=true</tt> or on a per-request case returning <tt>true</tt> in <tt>app.deferred?</tt>.
+full_name: Thin::Connection#threaded?
+is_singleton: false
+name: threaded?
+params: ()
+visibility: public

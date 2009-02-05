@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#connection_completed is called by the event loop when a remote TCP connection attempt completes successfully. You can expect to get this notification after calls to EventMachine#connect. Remember that EventMachine makes remote connections asynchronously, just as with any other kind of network event. #connection_completed is intended primarily to assist with network diagnostics. For normal protocol handling, use #post_init to perform initial work on a new connection (such as send an initial set of data). #post_init will always be called. #connection_completed will only be called in case of a successful completion. A connection-attempt which fails will receive a call to #unbind after the failure."
+full_name: EventMachine::Connection#connection_completed
+is_singleton: false
+name: connection_completed
+params: ()
+visibility: public

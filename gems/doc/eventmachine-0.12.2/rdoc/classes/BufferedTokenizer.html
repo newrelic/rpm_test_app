@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: BufferedTokenizer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">BufferedTokenizer</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/protocols/buftok_rb.html">
+                lib/protocols/buftok.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+<a href="BufferedTokenizer.html">BufferedTokenizer</a> takes a delimiter
+upon instantiation, or acts line-based by default. It allows input to be
+spoon-fed from some outside source which receives arbitrary length
+datagrams which may-or-may-not contain the token by which entities are
+delimited.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000245">empty?</a>&nbsp;&nbsp;
+      <a href="#M000243">extract</a>&nbsp;&nbsp;
+      <a href="#M000244">flush</a>&nbsp;&nbsp;
+      <a href="#M000242">new</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000242" class="method-detail">
+        <a name="M000242"></a>
+
+        <div class="method-heading">
+          <a href="BufferedTokenizer.src/M000242.html" target="Code" class="method-signature"
+            onclick="popupCode('BufferedTokenizer.src/M000242.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(delimiter = &quot;\n&quot;, size_limit = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+New BufferedTokenizers will operate on lines delimited by &quot;\n&quot; by
+default or allow you to specify any delimiter token you so choose, which
+will then be used by String#split to tokenize the input data
+</p>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000245" class="method-detail">
+        <a name="M000245"></a>
+
+        <div class="method-heading">
+          <a href="BufferedTokenizer.src/M000245.html" target="Code" class="method-signature"
+            onclick="popupCode('BufferedTokenizer.src/M000245.html');return false;">
+          <span class="method-name">empty?</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000243" class="method-detail">
+        <a name="M000243"></a>
+
+        <div class="method-heading">
+          <a href="BufferedTokenizer.src/M000243.html" target="Code" class="method-signature"
+            onclick="popupCode('BufferedTokenizer.src/M000243.html');return false;">
+          <span class="method-name">extract</span><span class="method-args">(data)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Extract takes an arbitrary string of input data and returns an array of
+tokenized entities, provided there were any available to <a
+href="BufferedTokenizer.html#M000243">extract</a>. This makes for easy
+processing of datagrams using a pattern like:
+</p>
+<pre>
+  tokenizer.extract(data).map { |entity| Decode(entity) }.each do ...
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000244" class="method-detail">
+        <a name="M000244"></a>
+
+        <div class="method-heading">
+          <a href="BufferedTokenizer.src/M000244.html" target="Code" class="method-signature"
+            onclick="popupCode('BufferedTokenizer.src/M000244.html');return false;">
+          <span class="method-name">flush</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Flush the contents of the input buffer, i.e. return the input buffer even
+though a token has not yet been encountered
+</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

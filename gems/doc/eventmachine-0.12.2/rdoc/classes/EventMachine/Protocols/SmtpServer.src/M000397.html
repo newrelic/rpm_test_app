@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>process_helo (EventMachine::Protocols::SmtpServer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpserver.rb, line 225</span>
+225:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_helo</span> <span class="ruby-identifier">domain</span>
+226:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">receive_ehlo_domain</span> <span class="ruby-identifier">domain</span>.<span class="ruby-identifier">dup</span>
+227:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-node">&quot;250 #{get_server_domain}\r\n&quot;</span>
+228:                                 <span class="ruby-identifier">reset_protocol_state</span>
+229:                                 <span class="ruby-ivar">@state</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">:ehlo</span>
+230:                         <span class="ruby-keyword kw">else</span>
+231:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;550 Requested action not taken\r\n&quot;</span>
+232:                         <span class="ruby-keyword kw">end</span>
+233:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

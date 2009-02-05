@@ -1,0 +1,23 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: connect
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: EventMachine::EvmaTCPClient
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: eventable_write
+- !ruby/object:RI::MethodSummary 
+  name: select_for_reading?
+- !ruby/object:RI::MethodSummary 
+  name: select_for_writing?
+name: EvmaTCPClient
+superclass: StreamObject

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Request#cookies
+is_singleton: false
+name: cookies
+params: ()
+visibility: public

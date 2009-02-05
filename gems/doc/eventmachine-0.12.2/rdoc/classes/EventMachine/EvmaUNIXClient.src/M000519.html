@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect (EventMachine::EvmaUNIXClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 722</span>
+722:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">connect</span> <span class="ruby-identifier">chain</span>
+723:       <span class="ruby-identifier">sd</span> = <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">new</span>( <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_LOCAL</span>, <span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SOCK_STREAM</span>, <span class="ruby-value">0</span> )
+724:       <span class="ruby-keyword kw">begin</span>
+725:         <span class="ruby-comment cmt"># TODO, this assumes a current Ruby snapshot.</span>
+726:         <span class="ruby-comment cmt"># We need to degrade to a nonblocking connect otherwise.</span>
+727:         <span class="ruby-identifier">sd</span>.<span class="ruby-identifier">connect_nonblock</span>( <span class="ruby-constant">Socket</span>.<span class="ruby-identifier">pack_sockaddr_un</span>( <span class="ruby-identifier">chain</span> ))
+728:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EINPROGRESS</span>
+729:       <span class="ruby-keyword kw">end</span>
+730:       <span class="ruby-constant">EvmaUNIXClient</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">sd</span>
+731:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

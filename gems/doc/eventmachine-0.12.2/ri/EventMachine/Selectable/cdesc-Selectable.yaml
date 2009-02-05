@@ -1,0 +1,34 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: io
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: uuid
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: EventMachine::Selectable
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: close_scheduled?
+- !ruby/object:RI::MethodSummary 
+  name: get_peername
+- !ruby/object:RI::MethodSummary 
+  name: heartbeat
+- !ruby/object:RI::MethodSummary 
+  name: select_for_reading?
+- !ruby/object:RI::MethodSummary 
+  name: select_for_writing?
+- !ruby/object:RI::MethodSummary 
+  name: set_inactivity_timeout
+name: Selectable
+superclass: Object

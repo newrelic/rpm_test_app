@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: part
+comment: 
+full_name: Rack::File#each
+is_singleton: false
+name: each
+params: () {|part| ...}
+visibility: public

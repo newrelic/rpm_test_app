@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::SmtpServer#process_unknown
+is_singleton: false
+name: process_unknown
+params: ()
+visibility: public

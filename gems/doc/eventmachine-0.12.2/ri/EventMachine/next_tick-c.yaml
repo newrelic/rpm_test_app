@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Schedules a proc for execution immediately after the next &quot;turn&quot; through the reactor core. An advanced technique, this can be useful for improving memory management and/or application responsiveness, especially when scheduling large amounts of data for writing to a network connection. TODO, we need a FAQ entry on this subject.
+- !ruby/struct:SM::Flow::P 
+  body: "#next_tick takes either a single argument (which must be a Proc) or a block. And I'm taking suggestions for a better name for this method."
+full_name: EventMachine::next_tick
+is_singleton: true
+name: next_tick
+params: (pr=nil, &block)
+visibility: public

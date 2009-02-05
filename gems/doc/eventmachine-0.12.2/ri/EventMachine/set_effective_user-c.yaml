@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "A wrapper over the setuid system call. Particularly useful when opening a network server on a privileged port because you can use this call to drop privileges after opening the port. Also very useful after a call to #set_descriptor_table_size, which generally requires that you start your process with root privileges."
+- !ruby/struct:SM::Flow::P 
+  body: "This method has no effective implementation on Windows or in the pure-Ruby implementation of EventMachine. Call #set_effective_user by passing it a string containing the effective name of the user whose privilege-level your process should attain. This method is intended for use in enforcing security requirements, consequently it will throw a fatal error and end your program if it fails."
+full_name: EventMachine::set_effective_user
+is_singleton: true
+name: set_effective_user
+params: (username)
+visibility: public

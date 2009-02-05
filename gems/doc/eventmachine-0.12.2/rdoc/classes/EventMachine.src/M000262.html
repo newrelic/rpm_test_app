@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect_unix_domain (EventMachine)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/eventmachine.rb, line 786</span>
+786:         <span class="ruby-keyword kw">def</span> <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">connect_unix_domain</span> <span class="ruby-identifier">socketname</span>, <span class="ruby-identifier">handler</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+787:                 <span class="ruby-identifier">klass</span> = <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">handler</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">handler</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Class</span>))
+788:                         <span class="ruby-identifier">handler</span>
+789:                 <span class="ruby-keyword kw">else</span>
+790:                         <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>( <span class="ruby-constant">Connection</span> ) {<span class="ruby-identifier">handler</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">include</span> <span class="ruby-identifier">handler</span>}
+791:                 <span class="ruby-keyword kw">end</span>
+792: 
+793:     <span class="ruby-identifier">arity</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">instance_method</span>(<span class="ruby-identifier">:initialize</span>).<span class="ruby-identifier">arity</span>
+794:     <span class="ruby-identifier">expected</span> = <span class="ruby-identifier">arity</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">arity</span> <span class="ruby-operator">:</span> <span class="ruby-operator">-</span>(<span class="ruby-identifier">arity</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+795:     <span class="ruby-keyword kw">if</span> (<span class="ruby-identifier">arity</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">expected</span>) <span class="ruby-keyword kw">or</span> (<span class="ruby-identifier">arity</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">expected</span>)
+796:       <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;wrong number of arguments for #{klass}#initialize (#{args.size} for #{expected})&quot;</span>
+797:     <span class="ruby-keyword kw">end</span>
+798: 
+799:                 <span class="ruby-identifier">s</span> = <span class="ruby-identifier">connect_unix_server</span> <span class="ruby-identifier">socketname</span>
+800:                 <span class="ruby-identifier">c</span> = <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">s</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>
+801:                 <span class="ruby-ivar">@conns</span>[<span class="ruby-identifier">s</span>] = <span class="ruby-identifier">c</span>
+802:                 <span class="ruby-identifier">block_given?</span> <span class="ruby-keyword kw">and</span> <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">c</span>
+803:                 <span class="ruby-identifier">c</span>
+804:         <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

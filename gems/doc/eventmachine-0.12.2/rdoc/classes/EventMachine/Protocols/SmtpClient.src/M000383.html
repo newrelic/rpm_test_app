@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>invoke_rcpt_to (EventMachine::Protocols::SmtpClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpclient.rb, line 240</span>
+240:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">invoke_rcpt_to</span>
+241:                         <span class="ruby-ivar">@rcpt_responses</span> <span class="ruby-operator">||=</span> []
+242:                         <span class="ruby-identifier">l</span> = <span class="ruby-ivar">@rcpt_responses</span>.<span class="ruby-identifier">length</span>
+243:                         <span class="ruby-identifier">to</span> = <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:to</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>) <span class="ruby-operator">?</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:to</span>] <span class="ruby-operator">:</span> [<span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:to</span>].<span class="ruby-identifier">to_s</span>]
+244:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">l</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">to</span>.<span class="ruby-identifier">length</span>
+245:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-node">&quot;RCPT TO: &lt;#{to[l]}&gt;\r\n&quot;</span>
+246:                                 <span class="ruby-ivar">@responder</span> = <span class="ruby-identifier">:receive_rcpt_to_response</span>
+247:                         <span class="ruby-keyword kw">else</span>
+248:                                 <span class="ruby-identifier">e</span> = <span class="ruby-ivar">@rcpt_responses</span>.<span class="ruby-identifier">select</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">rr</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rr</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>}
+249:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">e</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+250:                                         <span class="ruby-identifier">invoke_data</span>
+251:                                 <span class="ruby-keyword kw">else</span>
+252:                                         <span class="ruby-identifier">invoke_error</span>
+253:                                 <span class="ruby-keyword kw">end</span>
+254:                         <span class="ruby-keyword kw">end</span>
+255:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

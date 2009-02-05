@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>eventable_write (EventMachine::EvmaUDPSocket)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 956</span>
+956:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eventable_write</span>
+957:       <span class="ruby-value">40</span>.<span class="ruby-identifier">times</span> {
+958:         <span class="ruby-keyword kw">break</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@outbound_q</span>.<span class="ruby-identifier">empty?</span>
+959:         <span class="ruby-keyword kw">begin</span>
+960:           <span class="ruby-identifier">data</span>,<span class="ruby-identifier">target</span> = <span class="ruby-ivar">@outbound_q</span>.<span class="ruby-identifier">first</span>
+961: 
+962:           <span class="ruby-comment cmt"># This damn better be nonblocking.</span>
+963:           <span class="ruby-identifier">io</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">target</span>
+964: 
+965:           <span class="ruby-ivar">@outbound_q</span>.<span class="ruby-identifier">shift</span>
+966:         <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EAGAIN</span>
+967:           <span class="ruby-comment cmt"># It's not been observed in testing that we ever get here.</span>
+968:           <span class="ruby-comment cmt"># True to the definition, packets will be accepted and quietly dropped</span>
+969:           <span class="ruby-comment cmt"># if the system is under pressure.</span>
+970:           <span class="ruby-keyword kw">break</span>
+971:         <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNRESET</span>
+972:           <span class="ruby-ivar">@close_scheduled</span> = <span class="ruby-keyword kw">true</span>
+973:           <span class="ruby-ivar">@outbound_q</span>.<span class="ruby-identifier">clear</span>
+974:         <span class="ruby-keyword kw">end</span>
+975:       }
+976:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

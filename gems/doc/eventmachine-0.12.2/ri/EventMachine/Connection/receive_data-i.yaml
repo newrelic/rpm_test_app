@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine::Connection#receive_data is called by the event loop whenever data has been received by the network connection. It is never called by user code. receive_data is called with a single parameter, a String containing the network protocol data, which may of course be binary. You will generally redefine this method to perform your own processing of the incoming data.
+- !ruby/struct:SM::Flow::P 
+  body: "Here's a key point which is essential to understanding the event-driven programming model: <em>EventMachine knows absolutely nothing about the protocol which your code implements.</em> You must not make any assumptions about the size of the incoming data packets, or about their alignment on any particular intra-message or PDU boundaries (such as line breaks). receive_data can and will send you arbitrary chunks of data, with the only guarantee being that the data is presented to your code in the order it was collected from the network. Don't even assume that the chunks of data will correspond to network packets, as EventMachine can and will coalesce several incoming packets into one, to improve performance. The implication for your code is that you generally will need to implement some kind of a state machine in your redefined implementation of receive_data. For a better understanding of this, read through the examples of specific protocol handlers given elsewhere in this package. (STUB, WE MUST ADD THESE!)"
+- !ruby/struct:SM::Flow::P 
+  body: The base-class implementation of receive_data (which will be invoked if you don't redefine it) simply prints the size of each incoming data packet to stdout.
+full_name: EventMachine::Connection#receive_data
+is_singleton: false
+name: receive_data
+params: (data)
+visibility: public

@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "In SMTP, the server talks first. But by a (perhaps flawed) axiom in EM, #post_init will execute BEFORE the block passed to #start_server, for any given accepted connection. Since in this class we'll probably be getting a lot of initialization parameters, we want the guts of post_init to run AFTER the application has initialized the connection object. So we use a spawn to schedule the post_init to run later. It's a little weird, I admit. A reasonable alternative would be to set parameters as a class variable and to do that before accepting any connections."
+- !ruby/struct:SM::Flow::P 
+  body: OBSOLETE, now we have @@parms. But the spawn is nice to keep as an illustration.
+full_name: EventMachine::Protocols::SmtpServer#post_init
+is_singleton: false
+name: post_init
+params: ()
+visibility: public

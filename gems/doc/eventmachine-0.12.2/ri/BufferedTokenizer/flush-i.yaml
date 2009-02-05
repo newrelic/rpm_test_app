@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Flush the contents of the input buffer, i.e. return the input buffer even though a token has not yet been encountered
+full_name: BufferedTokenizer#flush
+is_singleton: false
+name: flush
+params: ()
+visibility: public

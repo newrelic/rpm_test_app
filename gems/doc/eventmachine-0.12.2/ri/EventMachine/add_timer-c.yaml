@@ -1,0 +1,23 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine#add_timer adds a one-shot timer to the event loop. Call it with one or two parameters. The first parameters is a delay-time expressed in <em>seconds</em> (not milliseconds). The second parameter, if present, must be a proc object. If a proc object is not given, then you can also simply pass a block to the method call.
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine#add_timer may be called from the block passed to EventMachine#run or from any callback method. It schedules execution of the proc or block passed to add_timer, after the passage of an interval of time equal to <em>at least</em> the number of seconds specified in the first parameter to the call.
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine#add_timer is a <em>non-blocking</em> call. Callbacks can and will be called during the interval of time that the timer is in effect. There is no built-in limit to the number of timers that can be outstanding at any given time.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: Usage example
+- !ruby/struct:SM::Flow::P 
+  body: This example shows how easy timers are to use. Observe that two timers are initiated simultaneously. Also, notice that the event loop will continue to run even after the second timer event is processed, since there was no call to EventMachine#stop_event_loop. There will be no activity, of course, since no network clients or servers are defined. Stop the program with Ctrl-C.
+- !ruby/struct:SM::Flow::VERB 
+  body: " require 'rubygems'\n require 'eventmachine'\n\n EventMachine::run {\n   puts &quot;Starting the run now: #{Time.now}&quot;\n   EventMachine::add_timer 5, proc { puts &quot;Executing timer event: #{Time.now}&quot; }\n   EventMachine::add_timer( 10 ) { puts &quot;Executing timer event: #{Time.now}&quot; }\n }\n"
+full_name: EventMachine::add_timer
+is_singleton: true
+name: add_timer
+params: (*args, &block)
+visibility: public

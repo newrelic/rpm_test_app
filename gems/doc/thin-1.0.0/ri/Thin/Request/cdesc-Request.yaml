@@ -1,0 +1,127 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Request body
+  name: body
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Unparsed data of the request
+  name: data
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: CGI-like request environment variables
+  name: env
+  rw: R
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A request sent by the client to the server.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Maximum request body size before it is moved out of memory and into a tempfile for reading.
+  name: MAX_BODY
+  value: 1024 * (80 + 32)
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BODY_TMPFILE
+  value: "'thin-body'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MAX_HEADER
+  value: 1024 * (80 + 32)
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Freeze some HTTP header names &amp; values
+  name: SERVER_SOFTWARE
+  value: "'SERVER_SOFTWARE'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HTTP_VERSION
+  value: "'HTTP_VERSION'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HTTP_1_0
+  value: "'HTTP/1.0'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: REMOTE_ADDR
+  value: "'REMOTE_ADDR'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: FORWARDED_FOR
+  value: "'HTTP_X_FORWARDED_FOR'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONTENT_LENGTH
+  value: "'CONTENT_LENGTH'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONNECTION
+  value: "'HTTP_CONNECTION'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEEP_ALIVE_REGEXP
+  value: /\bkeep-alive\b/i.freeze
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CLOSE_REGEXP
+  value: /\bclose\b/i.freeze
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Freeze some Rack header names
+  name: RACK_INPUT
+  value: "'rack.input'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RACK_VERSION
+  value: "'rack.version'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RACK_ERRORS
+  value: "'rack.errors'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RACK_MULTITHREAD
+  value: "'rack.multithread'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RACK_MULTIPROCESS
+  value: "'rack.multiprocess'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: RACK_RUN_ONCE
+  value: "'rack.run_once'.freeze"
+full_name: Thin::Request
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: content_length
+- !ruby/object:RI::MethodSummary 
+  name: finished?
+- !ruby/object:RI::MethodSummary 
+  name: forwarded_for
+- !ruby/object:RI::MethodSummary 
+  name: parse
+- !ruby/object:RI::MethodSummary 
+  name: persistent?
+- !ruby/object:RI::MethodSummary 
+  name: remote_address=
+- !ruby/object:RI::MethodSummary 
+  name: threaded=
+name: Request
+superclass: Object

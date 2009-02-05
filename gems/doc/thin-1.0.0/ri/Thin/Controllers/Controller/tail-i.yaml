@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Acts like GNU tail command. Taken from Rails.
+full_name: Thin::Controllers::Controller#tail
+is_singleton: false
+name: tail
+params: (file)
+visibility: protected

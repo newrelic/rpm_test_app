@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine::Connection#close_connection is called only by user code, and never by the event loop. You may call this method against a connection object in any callback handler, whether or not the callback was made against the connection you want to close. close_connection <em>schedules</em> the connection to be closed at the next available opportunity within the event loop. You may not assume that the connection is closed when close_connection returns. In particular, the framework will callback the unbind method for the particular connection at a point shortly after you call close_connection. You may assume that the unbind callback will take place sometime after your call to close_connection completes. In other words, the unbind callback will not re-enter your code &quot;inside&quot; of your call to close_connection. However, it's not guaranteed that a future version of EventMachine will not change this behavior.
+- !ruby/struct:SM::Flow::P 
+  body: close_connection will <em>silently discard</em> any outbound data which you have sent to the connection using EventMachine::Connection#send_data but which has not yet been sent across the network. If you want to avoid this behavior, use EventMachine::Connection#close_connection_after_writing.
+full_name: EventMachine::Connection#close_connection
+is_singleton: false
+name: close_connection
+params: (after_writing = false)
+visibility: public

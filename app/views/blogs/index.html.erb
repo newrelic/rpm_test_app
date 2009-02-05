@@ -1,0 +1,22 @@
+<h1>Listing blogs</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+
+<% for blog in @blogs %>
+  <tr>
+    <td><%=h blog.title %></td>
+    <td><%=h blog.author.name %></td>
+    <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New blog', new_blog_path %>

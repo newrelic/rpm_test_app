@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>run (EventMachine)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/eventmachine.rb, line 216</span>
+216:         <span class="ruby-keyword kw">def</span> <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">run</span> <span class="ruby-identifier">blk</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">tail</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+217:                 <span class="ruby-ivar">@tails</span> <span class="ruby-operator">||=</span> []
+218:                 <span class="ruby-identifier">tail</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@tails</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">tail</span>)
+219: 
+220:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">reactor_running?</span>
+221:                         (<span class="ruby-identifier">b</span> = <span class="ruby-identifier">blk</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">call</span> <span class="ruby-comment cmt"># next_tick(b)</span>
+222:                 <span class="ruby-keyword kw">else</span>
+223:                         <span class="ruby-ivar">@conns</span> = {}
+224:                         <span class="ruby-ivar">@acceptors</span> = {}
+225:                         <span class="ruby-ivar">@timers</span> = {}
+226:                         <span class="ruby-ivar">@wrapped_exception</span> = <span class="ruby-keyword kw">nil</span>
+227:                         <span class="ruby-keyword kw">begin</span>
+228:                                 <span class="ruby-ivar">@reactor_running</span> = <span class="ruby-keyword kw">true</span>
+229:                                 <span class="ruby-identifier">initialize_event_machine</span>
+230:                                 (<span class="ruby-identifier">b</span> = <span class="ruby-identifier">blk</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">block</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">add_timer</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">b</span>)
+231:                                 <span class="ruby-identifier">run_machine</span>
+232:                         <span class="ruby-keyword kw">ensure</span>
+233:                                 <span class="ruby-identifier">release_machine</span>
+234:                                 <span class="ruby-ivar">@reactor_running</span> = <span class="ruby-keyword kw">false</span>
+235:                         <span class="ruby-keyword kw">end</span>
+236: 
+237:                         <span class="ruby-keyword kw">until</span> <span class="ruby-ivar">@tails</span>.<span class="ruby-identifier">empty?</span>
+238:                                 <span class="ruby-ivar">@tails</span>.<span class="ruby-identifier">pop</span>.<span class="ruby-identifier">call</span>
+239:                         <span class="ruby-keyword kw">end</span>
+240: 
+241:                         <span class="ruby-identifier">raise</span> <span class="ruby-ivar">@wrapped_exception</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@wrapped_exception</span>
+242:                 <span class="ruby-keyword kw">end</span>
+243:         <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

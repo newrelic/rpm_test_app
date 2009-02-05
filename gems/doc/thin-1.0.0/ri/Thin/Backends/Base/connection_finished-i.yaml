@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Called by a connection when it's unbinded.
+full_name: Thin::Backends::Base#connection_finished
+is_singleton: false
+name: connection_finished
+params: (connection)
+visibility: public

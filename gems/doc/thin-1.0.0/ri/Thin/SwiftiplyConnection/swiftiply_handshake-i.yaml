@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::SwiftiplyConnection#swiftiply_handshake
+is_singleton: false
+name: swiftiply_handshake
+params: (key)
+visibility: protected

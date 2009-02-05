@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: If we have to close, or a close-after-writing has been requested, then don't read any more data.
+full_name: EventMachine::StreamObject#select_for_reading?
+is_singleton: false
+name: select_for_reading?
+params: ()
+visibility: public

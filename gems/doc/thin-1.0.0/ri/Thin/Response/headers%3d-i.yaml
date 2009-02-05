@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Ruby 1.9 doesn't have a String#each anymore. Rack spec doesn't take care of that yet, for now we just use <tt>each</tt> but fallback to <tt>each_line</tt> on strings. I wish we could remove that condition. To be reviewed when a new Rack spec comes out.
+full_name: Thin::Response#headers=
+is_singleton: false
+name: headers=
+params: (key_value_pairs)
+visibility: public

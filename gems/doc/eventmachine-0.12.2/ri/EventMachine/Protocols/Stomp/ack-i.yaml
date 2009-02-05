@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::Stomp#ack
+is_singleton: false
+name: ack
+params: (msgid)
+visibility: public

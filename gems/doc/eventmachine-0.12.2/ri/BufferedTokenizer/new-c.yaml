@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: New BufferedTokenizers will operate on lines delimited by &quot;\n&quot; by default or allow you to specify any delimiter token you so choose, which will then be used by String#split to tokenize the input data
+full_name: BufferedTokenizer::new
+is_singleton: true
+name: new
+params: (delimiter = "\n", size_limit = nil)
+visibility: public

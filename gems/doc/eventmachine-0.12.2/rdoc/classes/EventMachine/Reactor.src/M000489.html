@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>install_oneshot_timer (EventMachine::Reactor)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 274</span>
+274:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">install_oneshot_timer</span> <span class="ruby-identifier">interval</span>
+275:     <span class="ruby-identifier">uuid</span> = <span class="ruby-constant">UuidGenerator</span><span class="ruby-operator">::</span><span class="ruby-identifier">generate</span>
+276:     <span class="ruby-comment cmt">#@timers &lt;&lt; [Time.now + interval, uuid]</span>
+277:     <span class="ruby-comment cmt">#@timers.sort! {|a,b| a.first &lt;=&gt; b.first}</span>
+278:     <span class="ruby-ivar">@timers</span>.<span class="ruby-identifier">add</span>([<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">interval</span>, <span class="ruby-identifier">uuid</span>])
+279:     <span class="ruby-identifier">uuid</span>
+280:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

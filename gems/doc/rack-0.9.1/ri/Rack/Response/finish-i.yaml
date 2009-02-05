@@ -1,0 +1,11 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: 
+- !ruby/object:RI::AliasName 
+  name: to_a
+block_params: 
+comment: 
+full_name: Rack::Response#finish
+is_singleton: false
+name: finish
+params: (&block)
+visibility: public

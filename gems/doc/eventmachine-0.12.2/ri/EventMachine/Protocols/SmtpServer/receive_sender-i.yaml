@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Receives the argument of the MAIL FROM command. Return false to indicate to the remote client that the sender is not accepted. This can only be successfully called once per transaction.
+full_name: EventMachine::Protocols::SmtpServer#receive_sender
+is_singleton: false
+name: receive_sender
+params: (sender)
+visibility: public

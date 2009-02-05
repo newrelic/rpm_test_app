@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Taken from Mongrel cgi_multipart_eof_fix Ruby 1.8.5 has a security bug in cgi.rb, we need to patch it.
+full_name: Thin::Server#load_cgi_multipart_eof_fix
+is_singleton: false
+name: load_cgi_multipart_eof_fix
+params: ()
+visibility: protected

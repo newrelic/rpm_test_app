@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Request#remote_address=
+is_singleton: false
+name: remote_address=
+params: (address)
+visibility: public

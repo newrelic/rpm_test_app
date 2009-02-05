@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>generate (EventMachine::UuidGenerator)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 229</span>
+229:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">generate</span>
+230:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@ix</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@ix</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">10000</span>
+231:         <span class="ruby-ivar">@ix</span> = <span class="ruby-keyword kw">nil</span>
+232:         <span class="ruby-ivar">@seed</span> = <span class="ruby-keyword kw">nil</span>
+233:       <span class="ruby-keyword kw">end</span>
+234: 
+235:       <span class="ruby-ivar">@seed</span> <span class="ruby-operator">||=</span> <span class="ruby-value">`uuidgen`</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/-/</span>,<span class="ruby-value str">&quot;&quot;</span>)
+236:       <span class="ruby-ivar">@ix</span> <span class="ruby-operator">||=</span> <span class="ruby-value">0</span>
+237: 
+238:       <span class="ruby-node">&quot;#{@seed}#{@ix += 1}&quot;</span>
+239:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#get_sockname is used with stream-connections to obtain the identity of the local side of the connection. If a local name is available, this method returns a sockaddr structure. The method returns nil if no local name is available. You can use Socket#unpack_sockaddr_in and its variants to obtain the values contained in the local-name structure returned from #get_sockname."
+full_name: EventMachine::Connection#get_sockname
+is_singleton: false
+name: get_sockname
+params: ()
+visibility: public

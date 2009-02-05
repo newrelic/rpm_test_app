@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Builder#use
+is_singleton: false
+name: use
+params: (middleware, *args, &block)
+visibility: public

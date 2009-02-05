@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>unbind (EventMachine::Protocols::LineAndTextProtocol)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File lib/protocols/line_and_text.rb, line 74</span>
+74:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unbind</span>
+75:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@lbp_mode</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:binary</span> <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@lbp_binary_limit</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+76:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:receive_binary_data</span>)
+77:             <span class="ruby-identifier">receive_binary_data</span>( <span class="ruby-ivar">@lbp_binary_buffer</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-ivar">@lbp_binary_bytes_received</span>] )
+78:           <span class="ruby-keyword kw">end</span>
+79:         <span class="ruby-keyword kw">end</span>
+80:       <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

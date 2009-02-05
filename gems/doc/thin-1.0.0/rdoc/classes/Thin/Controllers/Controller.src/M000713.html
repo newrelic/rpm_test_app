@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>stop (Thin::Controllers::Controller)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/controllers/controller.rb, line 83</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">stop</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">OptionRequired</span>, <span class="ruby-identifier">:pid</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:pid</span>]
+      
+        <span class="ruby-identifier">tail_log</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:log</span>]) <span class="ruby-keyword kw">do</span>
+          <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Server</span>.<span class="ruby-identifier">kill</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:pid</span>], <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:force</span>] <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> (<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:timeout</span>] <span class="ruby-operator">||</span> <span class="ruby-value">60</span>))
+            <span class="ruby-identifier">wait_for_file</span> <span class="ruby-identifier">:deletion</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:pid</span>]
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

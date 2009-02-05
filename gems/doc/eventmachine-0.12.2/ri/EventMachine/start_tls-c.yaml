@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::start_tls
+is_singleton: true
+name: start_tls
+params: (sig)
+visibility: public

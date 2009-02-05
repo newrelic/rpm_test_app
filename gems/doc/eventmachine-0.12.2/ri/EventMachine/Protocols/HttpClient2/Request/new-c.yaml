@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::HttpClient2::Request::new
+is_singleton: true
+name: new
+params: (conn, args)
+visibility: public

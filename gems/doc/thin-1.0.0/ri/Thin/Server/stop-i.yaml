@@ -1,0 +1,15 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::H 
+  level: 2
+  text: Gracefull shutdown
+- !ruby/struct:SM::Flow::P 
+  body: Stops the server after processing all current connections. As soon as this method is called, the server stops accepting new requests and wait for all current connections to finish. Calling twice is the equivalent of calling <tt>stop!</tt>.
+full_name: Thin::Server#stop
+is_singleton: false
+name: stop
+params: ()
+visibility: public

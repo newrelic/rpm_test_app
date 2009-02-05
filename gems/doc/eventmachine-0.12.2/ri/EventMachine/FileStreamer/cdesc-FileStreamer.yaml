@@ -1,0 +1,29 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: MappingThreshold
+  value: "16384"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: BackpressureLevel
+  value: "50000"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ChunkSize
+  value: "16384"
+full_name: EventMachine::FileStreamer
+includes: 
+- !ruby/object:RI::IncludedModule 
+  name: Deferrable
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: stream_one_chunk
+name: FileStreamer
+superclass: Object

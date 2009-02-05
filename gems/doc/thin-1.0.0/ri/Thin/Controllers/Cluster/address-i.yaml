@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Thin::Controllers::Cluster#address
+is_singleton: false
+name: address
+params: ()
+visibility: public

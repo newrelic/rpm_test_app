@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#defer is for integrating blocking operations into EventMachine's control flow. Call #defer with one or two blocks, as shown below (the second block is <em>optional</em>):"
+- !ruby/struct:SM::Flow::VERB 
+  body: " operation = proc {\n   # perform a long-running operation here, such as a database query.\n   &quot;result&quot; # as usual, the last expression evaluated in the block will be the return value.\n }\n callback = proc {|result|\n   # do something with result here, such as send it back to a network client.\n }\n\n EventMachine.defer( operation, callback )\n"
+- !ruby/struct:SM::Flow::P 
+  body: "The action of #defer is to take the block specified in the first parameter (the &quot;operation&quot;) and schedule it for asynchronous execution on an internal thread pool maintained by EventMachine. When the operation completes, it will pass the result computed by the block (if any) back to the EventMachine reactor. Then, EventMachine calls the block specified in the second parameter to #defer (the &quot;callback&quot;), as part of its normal, synchronous event handling loop. The result computed by the operation block is passed as a parameter to the callback. You may omit the callback parameter if you don't need to execute any code after the operation completes."
+- !ruby/struct:SM::Flow::P 
+  body: <em>Caveats:</em> Note carefully that the code in your deferred operation will be executed on a separate thread from the main EventMachine processing and all other Ruby threads that may exist in your program. Also, multiple deferred operations may be running at once! Therefore, you are responsible for ensuring that your operation code is threadsafe. [Need more explanation and examples.] Don't write a deferred operation that will block forever. If so, the current implementation will not detect the problem, and the thread will never be returned to the pool. EventMachine limits the number of threads in its pool, so if you do this enough times, your subsequent deferred operations won't get a chance to run. [We might put in a timer to detect this problem.]
+full_name: EventMachine::defer
+is_singleton: true
+name: defer
+params: (op, callback = nil)
+visibility: public

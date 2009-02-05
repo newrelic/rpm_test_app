@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Like EventMachine::Connection#send_data, this sends data to the remote end of the network connection. EventMachine::Connection@send_file_data takes a filename as an argument, though, and sends the contents of the file, in one chunk. Contributed by Kirk Haines.
+full_name: EventMachine::Connection#send_file_data
+is_singleton: false
+name: send_file_data
+params: (filename)
+visibility: public

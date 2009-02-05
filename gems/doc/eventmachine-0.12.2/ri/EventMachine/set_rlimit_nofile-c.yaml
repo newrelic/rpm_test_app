@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::set_rlimit_nofile
+is_singleton: true
+name: set_rlimit_nofile
+params: (n_descriptors)
+visibility: public

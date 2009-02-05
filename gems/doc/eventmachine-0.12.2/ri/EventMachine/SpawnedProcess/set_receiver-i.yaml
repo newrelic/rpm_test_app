@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: I know I'm missing something stupid, but the inside of class &lt;&lt; s can't see locally-bound values. It can see globals, though.
+full_name: EventMachine::SpawnedProcess#set_receiver
+is_singleton: false
+name: set_receiver
+params: (blk)
+visibility: public

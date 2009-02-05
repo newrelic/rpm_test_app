@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Specify a block to be executed if and when the Deferrable object receives a status of :failed. See #set_deferred_status for more information."
+full_name: EventMachine::Deferrable#errback
+is_singleton: false
+name: errback
+params: (&block)
+visibility: public

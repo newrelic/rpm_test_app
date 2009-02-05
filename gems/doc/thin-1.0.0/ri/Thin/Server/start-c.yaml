@@ -1,0 +1,18 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Lil' shortcut to turn this:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Server.new(...).start\n"
+- !ruby/struct:SM::Flow::P 
+  body: "into this:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  Server.start(...)\n"
+full_name: Thin::Server::start
+is_singleton: true
+name: start
+params: (*args, &block)
+visibility: public

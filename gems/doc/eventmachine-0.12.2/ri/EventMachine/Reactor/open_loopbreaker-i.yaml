@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Reactor#open_loopbreaker
+is_singleton: false
+name: open_loopbreaker
+params: ()
+visibility: public

@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Reactor#crank_selectables
+is_singleton: false
+name: crank_selectables
+params: ()
+visibility: public

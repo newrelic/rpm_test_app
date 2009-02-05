@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::SmtpServer#init_protocol_state
+is_singleton: false
+name: init_protocol_state
+params: ()
+visibility: public

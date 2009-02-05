@@ -1,0 +1,61 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Arguments to be passed to the command.
+  name: arguments
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Name of the command to be runned.
+  name: command
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Parsed options
+  name: options
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: commands
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: CLI runner. Parse options and send command to the correct Controller.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: COMMANDS
+  value: "%w(start stop restart config)"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LINUX_ONLY_COMMANDS
+  value: "%w(install)"
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Commands that wont load options from the config file
+  name: CONFIGLESS_COMMANDS
+  value: "%w(config install)"
+full_name: Thin::Runner
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: cluster?
+- !ruby/object:RI::MethodSummary 
+  name: parse!
+- !ruby/object:RI::MethodSummary 
+  name: parser
+- !ruby/object:RI::MethodSummary 
+  name: run!
+- !ruby/object:RI::MethodSummary 
+  name: run_command
+- !ruby/object:RI::MethodSummary 
+  name: service?
+name: Runner
+superclass: Object

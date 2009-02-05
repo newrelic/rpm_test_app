@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: []
+
+full_name: EventMachine::StreamObject
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: eventable_read
+- !ruby/object:RI::MethodSummary 
+  name: eventable_write
+- !ruby/object:RI::MethodSummary 
+  name: get_outbound_data_size
+- !ruby/object:RI::MethodSummary 
+  name: get_peername
+- !ruby/object:RI::MethodSummary 
+  name: heartbeat
+- !ruby/object:RI::MethodSummary 
+  name: schedule_close
+- !ruby/object:RI::MethodSummary 
+  name: select_for_reading?
+- !ruby/object:RI::MethodSummary 
+  name: select_for_writing?
+- !ruby/object:RI::MethodSummary 
+  name: send_data
+name: StreamObject
+superclass: Selectable

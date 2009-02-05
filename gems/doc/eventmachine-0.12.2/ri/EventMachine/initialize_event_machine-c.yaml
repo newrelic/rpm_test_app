@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::initialize_event_machine
+is_singleton: true
+name: initialize_event_machine
+params: ()
+visibility: public

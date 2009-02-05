@@ -1,0 +1,235 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: add_oneshot_timer
+- !ruby/object:RI::MethodSummary 
+  name: add_oneshot_timer
+- !ruby/object:RI::MethodSummary 
+  name: add_periodic_timer
+- !ruby/object:RI::MethodSummary 
+  name: add_timer
+- !ruby/object:RI::MethodSummary 
+  name: attach
+- !ruby/object:RI::MethodSummary 
+  name: close_connection
+- !ruby/object:RI::MethodSummary 
+  name: close_connection
+- !ruby/object:RI::MethodSummary 
+  name: connect
+- !ruby/object:RI::MethodSummary 
+  name: connect_server
+- !ruby/object:RI::MethodSummary 
+  name: connect_server
+- !ruby/object:RI::MethodSummary 
+  name: connect_unix_domain
+- !ruby/object:RI::MethodSummary 
+  name: connect_unix_server
+- !ruby/object:RI::MethodSummary 
+  name: defer
+- !ruby/object:RI::MethodSummary 
+  name: epoll
+- !ruby/object:RI::MethodSummary 
+  name: epoll
+- !ruby/object:RI::MethodSummary 
+  name: event_callback
+- !ruby/object:RI::MethodSummary 
+  name: fork_reactor
+- !ruby/object:RI::MethodSummary 
+  name: get_outbound_data_size
+- !ruby/object:RI::MethodSummary 
+  name: get_peername
+- !ruby/object:RI::MethodSummary 
+  name: initialize_event_machine
+- !ruby/object:RI::MethodSummary 
+  name: initialize_event_machine
+- !ruby/object:RI::MethodSummary 
+  name: invoke_popen
+- !ruby/object:RI::MethodSummary 
+  name: library_type
+- !ruby/object:RI::MethodSummary 
+  name: library_type
+- !ruby/object:RI::MethodSummary 
+  name: next_tick
+- !ruby/object:RI::MethodSummary 
+  name: open_datagram_socket
+- !ruby/object:RI::MethodSummary 
+  name: open_keyboard
+- !ruby/object:RI::MethodSummary 
+  name: open_udp_socket
+- !ruby/object:RI::MethodSummary 
+  name: open_udp_socket
+- !ruby/object:RI::MethodSummary 
+  name: popen
+- !ruby/object:RI::MethodSummary 
+  name: reactor_running?
+- !ruby/object:RI::MethodSummary 
+  name: read_keyboard
+- !ruby/object:RI::MethodSummary 
+  name: read_keyboard
+- !ruby/object:RI::MethodSummary 
+  name: reconnect
+- !ruby/object:RI::MethodSummary 
+  name: release_machine
+- !ruby/object:RI::MethodSummary 
+  name: release_machine
+- !ruby/object:RI::MethodSummary 
+  name: run
+- !ruby/object:RI::MethodSummary 
+  name: run_block
+- !ruby/object:RI::MethodSummary 
+  name: run_machine
+- !ruby/object:RI::MethodSummary 
+  name: run_machine
+- !ruby/object:RI::MethodSummary 
+  name: run_without_threads
+- !ruby/object:RI::MethodSummary 
+  name: send_data
+- !ruby/object:RI::MethodSummary 
+  name: send_data
+- !ruby/object:RI::MethodSummary 
+  name: send_datagram
+- !ruby/object:RI::MethodSummary 
+  name: send_datagram
+- !ruby/object:RI::MethodSummary 
+  name: send_file_data
+- !ruby/object:RI::MethodSummary 
+  name: set_comm_inactivity_timeout
+- !ruby/object:RI::MethodSummary 
+  name: set_comm_inactivity_timeout
+- !ruby/object:RI::MethodSummary 
+  name: set_descriptor_table_size
+- !ruby/object:RI::MethodSummary 
+  name: set_effective_user
+- !ruby/object:RI::MethodSummary 
+  name: set_max_timer_count
+- !ruby/object:RI::MethodSummary 
+  name: set_max_timer_count
+- !ruby/object:RI::MethodSummary 
+  name: set_max_timers
+- !ruby/object:RI::MethodSummary 
+  name: set_quantum
+- !ruby/object:RI::MethodSummary 
+  name: set_rlimit_nofile
+- !ruby/object:RI::MethodSummary 
+  name: set_rlimit_nofile
+- !ruby/object:RI::MethodSummary 
+  name: set_timer_quantum
+- !ruby/object:RI::MethodSummary 
+  name: set_timer_quantum
+- !ruby/object:RI::MethodSummary 
+  name: signal_loopbreak
+- !ruby/object:RI::MethodSummary 
+  name: signal_loopbreak
+- !ruby/object:RI::MethodSummary 
+  name: spawn
+- !ruby/object:RI::MethodSummary 
+  name: start_server
+- !ruby/object:RI::MethodSummary 
+  name: start_tcp_server
+- !ruby/object:RI::MethodSummary 
+  name: start_tcp_server
+- !ruby/object:RI::MethodSummary 
+  name: start_tls
+- !ruby/object:RI::MethodSummary 
+  name: start_unix_domain_server
+- !ruby/object:RI::MethodSummary 
+  name: start_unix_server
+- !ruby/object:RI::MethodSummary 
+  name: start_unix_server
+- !ruby/object:RI::MethodSummary 
+  name: stop
+- !ruby/object:RI::MethodSummary 
+  name: stop
+- !ruby/object:RI::MethodSummary 
+  name: stop_event_loop
+- !ruby/object:RI::MethodSummary 
+  name: stop_server
+- !ruby/object:RI::MethodSummary 
+  name: stop_tcp_server
+- !ruby/object:RI::MethodSummary 
+  name: stop_tcp_server
+- !ruby/object:RI::MethodSummary 
+  name: yield
+- !ruby/object:RI::MethodSummary 
+  name: yield_and_notify
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "$Id: tcptest.rb 668 2008-01-04 23:00:34Z blackhedd $"
+- !ruby/object:SM::Flow::LIST 
+  contents: 
+  - !ruby/struct:SM::Flow::LI 
+    label: "Author:"
+    body: "Francis Cianfrocca (gmail: blackhedd)"
+  - !ruby/struct:SM::Flow::LI 
+    label: "Homepage:"
+    body: http://rubyeventmachine.com
+  - !ruby/struct:SM::Flow::LI 
+    label: "Date:"
+    body: 16 July 2006
+  type: :NOTE
+- !ruby/struct:SM::Flow::P 
+  body: See EventMachine and EventMachine::Connection for documentation and usage examples.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: VERSION
+  value: "\"0.12.2\""
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "TODO: These event numbers are defined in way too many places. DRY them up."
+  name: TimerFired
+  value: "100"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionData
+  value: "101"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionUnbound
+  value: "102"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionAccepted
+  value: "103"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionCompleted
+  value: "104"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LoopbreakSignalled
+  value: "105"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: TimerFired
+  value: "100"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionData
+  value: "101"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionUnbound
+  value: "102"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionAccepted
+  value: "103"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ConnectionCompleted
+  value: "104"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: LoopbreakSignalled
+  value: "105"
+full_name: EventMachine
+includes: []
+
+instance_methods: []
+
+name: EventMachine
+superclass: 

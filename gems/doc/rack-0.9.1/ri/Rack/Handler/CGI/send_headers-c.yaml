@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Handler::CGI::send_headers
+is_singleton: true
+name: send_headers
+params: (status, headers)
+visibility: public

@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Adapter to run a Rails app with any supported Rack handler. By default it will try to load the Rails application in the current directory in the development environment.
+- !ruby/struct:SM::Flow::P 
+  body: "Options:"
+- !ruby/struct:SM::Flow::VERB 
+  body: " root: Root directory of the Rails app\n environment: Rails environment to run in (development [default], production or test)\n prefix: Set the relative URL root.\n"
+- !ruby/struct:SM::Flow::P 
+  body: Based on http://fuzed.rubyforge.org/ Rails adapter
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: "Mapping used to guess which adapter to use in <tt>Adapter.for</tt>. Framework &lt;name&gt; =&gt; &lt;file unique to this framework&gt; in order they will be tested. <tt>nil</tt> for value to never guess. NOTE: If a framework has a file that is not unique, make sure to place it at the end."
+  name: ADAPTERS
+  value: "[     [:rails,   'config/environment.rb'],     [:ramaze,  'start.rb'],     [:halcyon, 'runner.ru'],     [:merb,    'config/init.rb'],     [:mack,    'config/app_config/default.yml'],     [:mack,    'config/configatron/default.rb'],     [:file,    nil]"
+full_name: Rack
+includes: []
+
+instance_methods: []
+
+name: Rack
+superclass: 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>config (Thin::Backends::Base)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/backends/base.rb, line 83</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">config</span>
+        <span class="ruby-comment cmt"># See http://rubyeventmachine.com/pub/rdoc/files/EPOLL.html</span>
+        <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">epoll</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@no_epoll</span>
+        
+        <span class="ruby-comment cmt"># Set the maximum number of socket descriptors that the server may open.</span>
+        <span class="ruby-comment cmt"># The process needs to have required privilege to set it higher the 1024 on</span>
+        <span class="ruby-comment cmt"># some systems.</span>
+        <span class="ruby-ivar">@maximum_connections</span> = <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">set_descriptor_table_size</span>(<span class="ruby-ivar">@maximum_connections</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">Thin</span>.<span class="ruby-identifier">win?</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

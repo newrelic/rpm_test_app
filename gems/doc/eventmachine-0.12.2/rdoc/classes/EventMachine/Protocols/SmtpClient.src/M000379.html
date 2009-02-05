@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>invoke_auth (EventMachine::Protocols::SmtpClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpclient.rb, line 208</span>
+208:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">invoke_auth</span>
+209:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:auth</span>]
+210:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:auth</span>][<span class="ruby-identifier">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">:plain</span>
+211:                                         <span class="ruby-identifier">psw</span> = <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:auth</span>][<span class="ruby-identifier">:password</span>]
+212:                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">psw</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:call</span>)
+213:                                                 <span class="ruby-identifier">psw</span> = <span class="ruby-identifier">psw</span>.<span class="ruby-identifier">call</span>
+214:                                         <span class="ruby-keyword kw">end</span>
+215:                                         <span class="ruby-comment cmt">#str = Base64::encode64(&quot;\0#{@args[:auth][:username]}\0#{psw}&quot;).chomp</span>
+216:                                         <span class="ruby-identifier">str</span> = [<span class="ruby-node">&quot;\0#{@args[:auth][:username]}\0#{psw}&quot;</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-value str">&quot;m&quot;</span>).<span class="ruby-identifier">chomp</span>
+217:                                         <span class="ruby-identifier">send_data</span> <span class="ruby-node">&quot;AUTH PLAIN #{str}\r\n&quot;</span>
+218:                                         <span class="ruby-ivar">@responder</span> = <span class="ruby-identifier">:receive_auth_response</span>
+219:                                 <span class="ruby-keyword kw">else</span>
+220:                                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">invoke_internal_error</span>(<span class="ruby-value str">&quot;unsupported auth type&quot;</span>)
+221:                                 <span class="ruby-keyword kw">end</span>
+222:                         <span class="ruby-keyword kw">else</span>
+223:                                 <span class="ruby-identifier">invoke_mail_from</span>
+224:                         <span class="ruby-keyword kw">end</span>
+225:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

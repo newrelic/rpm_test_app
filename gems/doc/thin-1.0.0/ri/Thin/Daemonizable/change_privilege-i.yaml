@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Change privileges of the process to the specified user and group.
+full_name: Thin::Daemonizable#change_privilege
+is_singleton: false
+name: change_privilege
+params: (user, group=user)
+visibility: public

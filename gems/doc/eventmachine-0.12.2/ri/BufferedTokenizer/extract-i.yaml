@@ -1,0 +1,14 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Extract takes an arbitrary string of input data and returns an array of tokenized entities, provided there were any available to extract. This makes for easy processing of datagrams using a pattern like:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  tokenizer.extract(data).map { |entity| Decode(entity) }.each do ...\n"
+full_name: BufferedTokenizer#extract
+is_singleton: false
+name: extract
+params: (data)
+visibility: public

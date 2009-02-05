@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HTTP_METHODS
+  value: "%w(GET HEAD PUT POST DELETE OPTIONS)"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: METHOD_OVERRIDE_PARAM_KEY
+  value: "\"_method\".freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HTTP_METHOD_OVERRIDE_HEADER
+  value: "\"HTTP_X_HTTP_METHOD_OVERRIDE\".freeze"
+full_name: Rack::MethodOverride
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: call
+name: MethodOverride
+superclass: Object

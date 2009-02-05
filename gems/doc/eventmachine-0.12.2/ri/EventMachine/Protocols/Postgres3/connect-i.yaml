@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::Protocols::Postgres3#connect
+is_singleton: false
+name: connect
+params: (db, user, psw=nil)
+visibility: public

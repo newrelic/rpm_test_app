@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: handler
+comment: 
+full_name: EventMachine::reconnect
+is_singleton: true
+name: reconnect
+params: (server, port, handler) {|handler| ...}
+visibility: public

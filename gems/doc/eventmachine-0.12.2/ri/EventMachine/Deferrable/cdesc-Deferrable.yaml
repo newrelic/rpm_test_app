@@ -1,0 +1,33 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: future
+comment: 
+constants: []
+
+full_name: EventMachine::Deferrable
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: callback
+- !ruby/object:RI::MethodSummary 
+  name: cancel_timeout
+- !ruby/object:RI::MethodSummary 
+  name: errback
+- !ruby/object:RI::MethodSummary 
+  name: fail
+- !ruby/object:RI::MethodSummary 
+  name: set_deferred_failure
+- !ruby/object:RI::MethodSummary 
+  name: set_deferred_status
+- !ruby/object:RI::MethodSummary 
+  name: set_deferred_success
+- !ruby/object:RI::MethodSummary 
+  name: succeed
+- !ruby/object:RI::MethodSummary 
+  name: timeout
+name: Deferrable
+superclass: 

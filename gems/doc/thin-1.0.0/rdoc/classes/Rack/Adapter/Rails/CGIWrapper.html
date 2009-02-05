@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: Rack::Adapter::Rails::CGIWrapper</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">Rack::Adapter::Rails::CGIWrapper</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../../../files/lib/rack/adapter/rails_rb.html">
+                lib/rack/adapter/rails.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                ::CGI
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000664">args</a>&nbsp;&nbsp;
+      <a href="#M000662">cookies</a>&nbsp;&nbsp;
+      <a href="#M000665">env_table</a>&nbsp;&nbsp;
+      <a href="#M000660">header</a>&nbsp;&nbsp;
+      <a href="#M000659">new</a>&nbsp;&nbsp;
+      <a href="#M000661">params</a>&nbsp;&nbsp;
+      <a href="#M000663">query_string</a>&nbsp;&nbsp;
+      <a href="#M000666">stdinput</a>&nbsp;&nbsp;
+      <a href="#M000667">stdoutput</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000659" class="method-detail">
+        <a name="M000659"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000659.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000659.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(request, response, *args)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000664" class="method-detail">
+        <a name="M000664"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000664.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000664.html');return false;">
+          <span class="method-name">args</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used to wrap the normal <a href="CGIWrapper.html#M000664">args</a> variable
+used inside CGI.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000662" class="method-detail">
+        <a name="M000662"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000662.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000662.html');return false;">
+          <span class="method-name">cookies</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000665" class="method-detail">
+        <a name="M000665"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000665.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000665.html');return false;">
+          <span class="method-name">env_table</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used to wrap the normal <a href="CGIWrapper.html#M000665">env_table</a>
+variable used inside CGI.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000660" class="method-detail">
+        <a name="M000660"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000660.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000660.html');return false;">
+          <span class="method-name">header</span><span class="method-args">(options = &quot;text/html&quot;)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000661" class="method-detail">
+        <a name="M000661"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000661.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000661.html');return false;">
+          <span class="method-name">params</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000663" class="method-detail">
+        <a name="M000663"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000663.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000663.html');return false;">
+          <span class="method-name">query_string</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000666" class="method-detail">
+        <a name="M000666"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000666.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000666.html');return false;">
+          <span class="method-name">stdinput</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Used to wrap the normal <a href="CGIWrapper.html#M000666">stdinput</a>
+variable used inside CGI.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000667" class="method-detail">
+        <a name="M000667"></a>
+
+        <div class="method-heading">
+          <a href="CGIWrapper.src/M000667.html" target="Code" class="method-signature"
+            onclick="popupCode('CGIWrapper.src/M000667.html');return false;">
+          <span class="method-name">stdoutput</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>receive_data_response (EventMachine::Protocols::SmtpClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpclient.rb, line 265</span>
+265:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive_data_response</span>
+266:                         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">invoke_error</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@range</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
+267: 
+268:                         <span class="ruby-comment cmt"># The data to send can be given either in @args[:content] (an array or string of raw data</span>
+269:                         <span class="ruby-comment cmt"># which MUST be in correct SMTP body format, including a trailing dot line), or a header and</span>
+270:                         <span class="ruby-comment cmt"># body given in @args[:header] and @args[:body].</span>
+271:                         <span class="ruby-comment cmt">#</span>
+272:                         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:content</span>]
+273:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:content</span>].<span class="ruby-identifier">to_s</span>
+274:                         <span class="ruby-keyword kw">else</span>
+275:                                 <span class="ruby-comment cmt"># The header can be a hash or an array.</span>
+276:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:header</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+277:                                         (<span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:header</span>] <span class="ruby-operator">||</span> {}).<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">send_data</span> <span class="ruby-node">&quot;#{k}: #{v}\r\n&quot;</span> }
+278:                                 <span class="ruby-keyword kw">else</span>
+279:                                         <span class="ruby-identifier">send_data</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:header</span>].<span class="ruby-identifier">to_s</span>
+280:                                 <span class="ruby-keyword kw">end</span>
+281:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;\r\n&quot;</span>
+282: 
+283:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:body</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+284:                                         <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:body</span>].<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">send_data</span> <span class="ruby-identifier">e</span>}
+285:                                 <span class="ruby-keyword kw">else</span>
+286:                                         <span class="ruby-identifier">send_data</span> <span class="ruby-ivar">@args</span>[<span class="ruby-identifier">:body</span>].<span class="ruby-identifier">to_s</span>
+287:                                 <span class="ruby-keyword kw">end</span>
+288: 
+289:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;\r\n.\r\n&quot;</span>
+290:                         <span class="ruby-keyword kw">end</span>
+291: 
+292:                         <span class="ruby-ivar">@responder</span> = <span class="ruby-identifier">:receive_message_response</span>
+293:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

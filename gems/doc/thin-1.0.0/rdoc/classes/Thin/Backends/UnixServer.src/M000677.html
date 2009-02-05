@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>connect (Thin::Backends::UnixServer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/thin/backends/unix_server.rb, line 15</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">connect</span>
+        <span class="ruby-identifier">at_exit</span> { <span class="ruby-identifier">remove_socket_file</span> } <span class="ruby-comment cmt"># In case it crashes</span>
+        <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">start_unix_domain_server</span>(<span class="ruby-ivar">@socket</span>, <span class="ruby-constant">UnixConnection</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">method</span>(<span class="ruby-identifier">:initialize_connection</span>))
+        <span class="ruby-comment cmt"># HACK EventMachine.start_unix_domain_server doesn't return the connection signature</span>
+        <span class="ruby-comment cmt">#      so we have to go in the internal stuff to find it.</span>
+        <span class="ruby-ivar">@signature</span> = <span class="ruby-constant">EventMachine</span>.<span class="ruby-identifier">instance_eval</span>{<span class="ruby-ivar">@acceptors</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>}
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

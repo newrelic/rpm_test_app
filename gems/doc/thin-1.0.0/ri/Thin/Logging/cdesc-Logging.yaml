@@ -1,0 +1,50 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: debug
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: silent
+  rw: W
+- !ruby/object:RI::Attribute 
+  comment: 
+  name: trace
+  rw: W
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: debug?
+- !ruby/object:RI::MethodSummary 
+  name: silent?
+- !ruby/object:RI::MethodSummary 
+  name: trace?
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "To be included in classes to allow some basic logging that can be silenced (<tt>Logging.silent=</tt>) or made more verbose. <tt>Logging.debug=</tt>: log all error backtrace and messages"
+- !ruby/struct:SM::Flow::VERB 
+  body: "                         logged with <tt>debug</tt>.\n"
+- !ruby/struct:SM::Flow::P 
+  body: "<tt>Logging.trace=</tt>: log all raw request and response and"
+- !ruby/struct:SM::Flow::VERB 
+  body: "                         messages logged with <tt>trace</tt>.\n"
+constants: []
+
+full_name: Thin::Logging
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: debug
+- !ruby/object:RI::MethodSummary 
+  name: log
+- !ruby/object:RI::MethodSummary 
+  name: log_error
+- !ruby/object:RI::MethodSummary 
+  name: silent
+- !ruby/object:RI::MethodSummary 
+  name: silent=
+- !ruby/object:RI::MethodSummary 
+  name: trace
+name: Logging
+superclass: 

@@ -1,0 +1,27 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: EventMachine::start_server initiates a TCP server (socket acceptor) on the specified IP address and port. The IP address must be valid on the machine where the program runs, and the process must be privileged enough to listen on the specified port (on Unix-like systems, superuser privileges are usually required to listen on any port lower than 1024). Only one listener may be running on any given address/port combination. start_server will fail if the given address and port are already listening on the machine, either because of a prior call to start_server or some unrelated process running on the machine. If start_server succeeds, the new network listener becomes active immediately and starts accepting connections from remote peers, and these connections generate callback events that are processed by the code specified in the handler parameter to start_server.
+- !ruby/struct:SM::Flow::P 
+  body: The optional handler which is passed to start_server is the key to EventMachine's ability to handle particular network protocols. The handler parameter passed to start_server must be a Ruby Module that you must define. When the network server that is started by start_server accepts a new connection, it instantiates a new object of an anonymous class that is inherited from EventMachine::Connection, <em>into which the methods from your handler have been mixed.</em> Your handler module may redefine any of the methods in EventMachine::Connection in order to implement the specific behavior of the network protocol.
+- !ruby/struct:SM::Flow::P 
+  body: Callbacks invoked in response to network events <em>always</em> take place within the execution context of the object derived from EventMachine::Connection extended by your handler module. There is one object per connection, and all of the callbacks invoked for a particular connection take the form of instance methods called against the corresponding EventMachine::Connection object. Therefore, you are free to define whatever instance variables you wish, in order to contain the per-connection state required by the network protocol you are implementing.
+- !ruby/struct:SM::Flow::P 
+  body: start_server is often called inside the block passed to EventMachine::run, but it can be called from any EventMachine callback. start_server will fail unless the EventMachine event loop is currently running (which is why it's often called in the block suppled to EventMachine::run).
+- !ruby/struct:SM::Flow::P 
+  body: You may call start_server any number of times to start up network listeners on different address/port combinations. The servers will all run simultaneously. More interestingly, each individual call to start_server can specify a different handler module and thus implement a different network protocol from all the others.
+- !ruby/struct:SM::Flow::H 
+  level: 3
+  text: Usage example
+- !ruby/struct:SM::Flow::P 
+  body: Here is an example of a server that counts lines of input from the remote peer and sends back the total number of lines received, after each line. Try the example with more than one client connection opened via telnet, and you will see that the line count increments independently on each of the client connections. Also very important to note, is that the handler for the receive_data function, which our handler redefines, may not assume that the data it receives observes any kind of message boundaries. Also, to use this example, be sure to change the server and port parameters to the start_server call to values appropriate for your environment.
+- !ruby/struct:SM::Flow::VERB 
+  body: " require 'rubygems'\n require 'eventmachine'\n\n module LineCounter\n\n   MaxLinesPerConnection = 10\n\n   def post_init\n     puts &quot;Received a new connection&quot;\n     @data_received = &quot;&quot;\n     @line_count = 0\n   end\n\n   def receive_data data\n     @data_received &lt;&lt; data\n     while @data_received.slice!( /^[^\\n]*[\\n]/m )\n       @line_count += 1\n       send_data &quot;received #{@line_count} lines so far\\r\\n&quot;\n       @line_count == MaxLinesPerConnection and close_connection_after_writing\n     end\n   end\n\n end # module LineCounter\n\n EventMachine::run {\n   host,port = &quot;192.168.0.100&quot;, 8090\n   EventMachine::start_server host, port, LineCounter\n   puts &quot;Now accepting connections on address #{host}, port #{port}...&quot;\n   EventMachine::add_periodic_timer( 10 ) { $stderr.write &quot;*&quot; }\n }\n"
+full_name: EventMachine::start_server
+is_singleton: true
+name: start_server
+params: (server, port, handler=nil, *args, &block)
+visibility: public

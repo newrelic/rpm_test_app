@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Restart the server by sending HUP signal.
+full_name: Thin::Daemonizable::ClassMethods#restart
+is_singleton: false
+name: restart
+params: (pid_file)
+visibility: public

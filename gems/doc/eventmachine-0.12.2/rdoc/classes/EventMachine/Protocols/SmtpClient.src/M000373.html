@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>invoke_error (EventMachine::Protocols::SmtpClient)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpclient.rb, line 153</span>
+153:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">invoke_error</span>
+154:                         <span class="ruby-ivar">@return_values</span>.<span class="ruby-identifier">elapsed_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@return_values</span>.<span class="ruby-identifier">start_time</span>
+155:                         <span class="ruby-ivar">@return_values</span>.<span class="ruby-identifier">responder</span> = <span class="ruby-ivar">@responder</span>
+156:                         <span class="ruby-ivar">@return_values</span>.<span class="ruby-identifier">code</span> = <span class="ruby-ivar">@code</span>
+157:                         <span class="ruby-ivar">@return_values</span>.<span class="ruby-identifier">message</span> = <span class="ruby-ivar">@msg</span>
+158:                         <span class="ruby-identifier">set_deferred_status</span> <span class="ruby-identifier">:failed</span>, <span class="ruby-ivar">@return_values</span>
+159:                         <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;QUIT\r\n&quot;</span>
+160:                         <span class="ruby-identifier">close_connection_after_writing</span>
+161:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

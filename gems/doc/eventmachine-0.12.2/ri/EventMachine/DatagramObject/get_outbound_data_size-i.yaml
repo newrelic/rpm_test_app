@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "#get_outbound_data_size"
+full_name: EventMachine::DatagramObject#get_outbound_data_size
+is_singleton: false
+name: get_outbound_data_size
+params: ()
+visibility: public

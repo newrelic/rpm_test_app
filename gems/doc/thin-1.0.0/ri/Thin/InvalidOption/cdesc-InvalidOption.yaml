@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Raised when an option is not valid.
+constants: []
+
+full_name: Thin::InvalidOption
+includes: []
+
+instance_methods: []
+
+name: InvalidOption
+superclass: RunnerError

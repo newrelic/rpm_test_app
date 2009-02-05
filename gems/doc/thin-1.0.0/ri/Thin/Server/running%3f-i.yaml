@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Return <tt>true</tt> if the server is running and ready to receive requests. Note that the server might still be running and return <tt>false</tt> when shuting down and waiting for active connections to complete.
+full_name: Thin::Server#running?
+is_singleton: false
+name: running?
+params: ()
+visibility: public

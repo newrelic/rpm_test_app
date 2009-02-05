@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Stop and start the servers.
+full_name: Thin::Controllers::Cluster#restart
+is_singleton: false
+name: restart
+params: ()
+visibility: public

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>eventable_read (EventMachine::StreamObject)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/pr_eventmachine.rb, line 535</span>
+535:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eventable_read</span>
+536:       <span class="ruby-ivar">@last_activity</span> = <span class="ruby-constant">Reactor</span>.<span class="ruby-identifier">instance</span>.<span class="ruby-identifier">current_loop_time</span>
+537:       <span class="ruby-keyword kw">begin</span>
+538:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:read_nonblock</span>)
+539:           <span class="ruby-value">10</span>.<span class="ruby-identifier">times</span> {
+540:             <span class="ruby-identifier">data</span> = <span class="ruby-identifier">io</span>.<span class="ruby-identifier">read_nonblock</span>(<span class="ruby-value">4096</span>)
+541:             <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">event_callback</span> <span class="ruby-identifier">uuid</span>, <span class="ruby-constant">ConnectionData</span>, <span class="ruby-identifier">data</span>
+542:           }
+543:         <span class="ruby-keyword kw">else</span>
+544:           <span class="ruby-identifier">data</span> = <span class="ruby-identifier">io</span>.<span class="ruby-identifier">sysread</span>(<span class="ruby-value">4096</span>)
+545:           <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">event_callback</span> <span class="ruby-identifier">uuid</span>, <span class="ruby-constant">ConnectionData</span>, <span class="ruby-identifier">data</span>
+546:         <span class="ruby-keyword kw">end</span>
+547:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EAGAIN</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EWOULDBLOCK</span>
+548:         <span class="ruby-comment cmt"># no-op</span>
+549:       <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNRESET</span>, <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ECONNREFUSED</span>, <span class="ruby-constant">EOFError</span>
+550:         <span class="ruby-ivar">@close_scheduled</span> = <span class="ruby-keyword kw">true</span>
+551:         <span class="ruby-constant">EventMachine</span><span class="ruby-operator">::</span><span class="ruby-identifier">event_callback</span> <span class="ruby-identifier">uuid</span>, <span class="ruby-constant">ConnectionUnbound</span>, <span class="ruby-keyword kw">nil</span>
+552:       <span class="ruby-keyword kw">end</span>
+553: 
+554:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

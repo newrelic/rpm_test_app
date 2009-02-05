@@ -1,0 +1,16 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Open a file on the filesystem and send it to the remote peer. This returns an object of type EventMachine::Deferrable. The object's callbacks will be executed on the reactor main thread when the file has been completely scheduled for transmission to the remote peer. Its errbacks will be called in case of an error (such as file-not-found). #stream_file_data employs various strategems to achieve the fastest possible performance, balanced against minimum consumption of memory."
+- !ruby/struct:SM::Flow::P 
+  body: "You can control the behavior of #stream_file_data with the optional arguments parameter. Currently-supported arguments are: :http_chunks, a boolean flag which defaults false. If true, this flag streams the file data in a format compatible with the HTTP chunked-transfer encoding."
+- !ruby/struct:SM::Flow::P 
+  body: "Warning: this feature has an implicit dependency on an outboard extension, evma_fastfilereader. You must install this extension in order to use #stream_file_data with files larger than a certain size (currently 8192 bytes)."
+full_name: EventMachine::Connection#stream_file_data
+is_singleton: false
+name: stream_file_data
+params: (filename, args={})
+visibility: public

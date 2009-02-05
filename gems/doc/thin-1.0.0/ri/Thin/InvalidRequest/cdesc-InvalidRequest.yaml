@@ -1,0 +1,17 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Raised when an incoming request is not valid and the server can not process it.
+constants: []
+
+full_name: Thin::InvalidRequest
+includes: []
+
+instance_methods: []
+
+name: InvalidRequest
+superclass: IOError

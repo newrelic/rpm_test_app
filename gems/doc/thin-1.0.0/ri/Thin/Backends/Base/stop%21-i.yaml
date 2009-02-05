@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Force stop of the backend NOW, too bad for the current connections.
+full_name: Thin::Backends::Base#stop!
+is_singleton: false
+name: stop!
+params: ()
+visibility: public

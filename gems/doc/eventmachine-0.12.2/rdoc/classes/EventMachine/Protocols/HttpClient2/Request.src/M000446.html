@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>receive_chunk_header (EventMachine::Protocols::HttpClient2::Request)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/httpcli2.rb, line 116</span>
+116:                         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">receive_chunk_header</span> <span class="ruby-identifier">ln</span>
+117:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">ln</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+118:                                         <span class="ruby-identifier">chunksize</span> = <span class="ruby-identifier">ln</span>.<span class="ruby-identifier">to_i</span>(<span class="ruby-value">16</span>)
+119:                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">chunksize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+120:                                                 <span class="ruby-ivar">@conn</span>.<span class="ruby-identifier">set_text_mode</span>(<span class="ruby-identifier">ln</span>.<span class="ruby-identifier">to_i</span>(<span class="ruby-value">16</span>))
+121:                                         <span class="ruby-keyword kw">else</span>
+122:                                                 <span class="ruby-ivar">@content</span> = <span class="ruby-ivar">@content</span>.<span class="ruby-identifier">join</span>
+123:                                                 <span class="ruby-ivar">@chunk_trailer</span> = <span class="ruby-keyword kw">true</span>
+124:                                         <span class="ruby-keyword kw">end</span>
+125:                                 <span class="ruby-keyword kw">else</span>
+126:                                         <span class="ruby-comment cmt"># We correctly come here after each chunk gets read.</span>
+127:                                         <span class="ruby-identifier">p</span> <span class="ruby-value str">&quot;Got A BLANK chunk line&quot;</span>
+128:                                 <span class="ruby-keyword kw">end</span>
+129: 
+130:                         <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

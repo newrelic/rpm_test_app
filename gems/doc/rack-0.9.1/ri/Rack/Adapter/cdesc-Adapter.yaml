@@ -1,0 +1,21 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: <b>Adapters</b> connect Rack with third party web frameworks.
+- !ruby/struct:SM::Flow::P 
+  body: Rack includes an adapter for Camping, see README for other frameworks supporting Rack in their code bases.
+- !ruby/struct:SM::Flow::P 
+  body: Refer to the submodules for framework-specific calling details.
+constants: []
+
+full_name: Rack::Adapter
+includes: []
+
+instance_methods: []
+
+name: Adapter
+superclass: 

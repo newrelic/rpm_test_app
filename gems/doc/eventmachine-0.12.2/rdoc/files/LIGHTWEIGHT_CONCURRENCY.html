@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: LIGHTWEIGHT_CONCURRENCY</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>LIGHTWEIGHT_CONCURRENCY</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>LIGHTWEIGHT_CONCURRENCY
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Jan 29 11:32:00 -0800 2009</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+$Id: LIGHTWEIGHT_CONCURRENCY 668 2008-01-04 23:00:34Z blackhedd $
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> (EM) adds two
+different formalisms for lightweight concurrency to the Ruby
+programmer&#8216;s toolbox: spawned processes and deferrables. This note
+will show you how to use them.
+</p>
+<h3>What is Lightweight Concurrency?</h3>
+<p>
+We use the term &quot;Lightweight Concurrency&quot; (LC) to refer to
+concurrency mechanisms that are lighter than Ruby threads. By
+&quot;lighter,&quot; we mean: less resource-intensive in one or more
+dimensions, usually including memory and CPU usage. In general, you turn to
+LC in the hope of improving the performance and scalability of your
+programs.
+</p>
+<p>
+In addition to the two <a
+href="../classes/EventMachine.html">EventMachine</a> mechanisms we will
+discuss here, Ruby has at least one other LC construct: Fibers, which are
+currently under development in Ruby 1.9.
+</p>
+<p>
+The technical feature that makes all of these LC mechanisms different from
+standard Ruby threads is that they are not scheduled automatically.
+</p>
+<p>
+When you create and run Ruby threads, you can assume (within certain
+constraints) that your threads will all be scheduled fairly by Ruby&#8216;s
+runtime. Ruby itself is responsible for giving each of your threads its own
+share of the total runtime.
+</p>
+<p>
+But with LC, your program is responsible for causing different execution
+paths to run. In effect, your program has to act as a &quot;thread
+scheduler.&quot; Scheduled entities in LC run to completion and are never
+preempted. The runtime system has far less work to do since it has no need
+to interrupt threads or to schedule them fairly. This is what makes LC
+lighter and faster.
+</p>
+<p>
+You&#8216;ll learn exactly how LC scheduling works in practice as we work
+through specific examples.
+</p>
+<h3><a href="../classes/EventMachine.html">EventMachine</a> Lightweight Concurrency</h3>
+<p>
+Recall that EM provides a reactor loop that must be running in order for
+your programs to perform event-driven logic. An EM program typically has a
+structure like this:
+</p>
+<pre>
+ require 'eventmachine'
+
+ # your initializations
+
+ EM.run {
+     # perform event-driven I/O here, including network clients,
+     # servers, timers, and thread-pool operations.
+ }
+
+ # your cleanup
+ # end of the program
+</pre>
+<p>
+<a href="../classes/EventMachine.html#M000249">EventMachine#run</a>
+executes the reactor loop, which causes your code to be called as events of
+interest to your program occur. The block you pass to <a
+href="../classes/EventMachine.html#M000249">EventMachine#run</a> is
+executed right after the reactor loop starts, and is the right place to
+start socket acceptors, etc.
+</p>
+<p>
+Because the reactor loop runs constantly in an EM program (until it is
+stopped by a call to <a
+href="../classes/EventMachine.html#M000278">EventMachine#stop</a>), it has
+the ability to schedule blocks of code for asynchronous execution. Unlike a
+pre-emptive thread scheduler, it&#8216;s NOT able to interrupt code blocks
+while they execute. But the scheduling capability it does have is enough to
+enable lightweight concurrency.
+</p>
+<p>
+For information on Spawned Processes, see the separate document
+SPAWNED_PROCESSES.
+</p>
+<p>
+For information on Deferrables, see the separate document DEFERRABLES.
+</p>
+<h3>[SIDEBAR]: I Heard That <a href="../classes/EventMachine.html">EventMachine</a> Doesn&#8216;t Work With Ruby Threads.</h3>
+<p>
+This is incorrect. EM is fully interoperable with all versions of Ruby
+threads, and has been since its earliest releases.
+</p>
+<p>
+It&#8216;s very true that EM encourages an &quot;evented&quot;
+(non-threaded) programming style. The specific benefits of event-driven
+programming are far better performance and scalabiity for well-written
+programs, and far easier debugging.
+</p>
+<p>
+The benefit of using threads for similar applications is a possibly more
+intuitive programming model, as well as the fact that threads are already
+familiar to most programmers. Also, bugs in threaded programs often fail to
+show up until programs go into production. These factors create the
+illusion that threaded programs are easier to write.
+</p>
+<p>
+However, some operations that occur frequently in professional-caliber
+applications simply can&#8216;t be done without threads. (The classic
+example is making calls to database client-libraries that block on network
+I/O until they complete.)
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> not only allows the
+use of Ruby threads in these cases, but it even provides a built-in
+thread-pool object to make them easier to work with.
+</p>
+<p>
+You may have heard a persistent criticism that evented I/O is fundamentally
+incompatible with Ruby threads. It is true that some well-publicized
+attempts to incorporate event-handling libraries into Ruby were not
+successful. But <a href="../classes/EventMachine.html">EventMachine</a> was
+designed from the ground up with Ruby compatibility in mind, so EM never
+suffered from the problems that defeated the earlier attempts.
+</p>
+<h3>[SIDEBAR]: I Heard That <a href="../classes/EventMachine.html">EventMachine</a> Doesn&#8216;t Work Very Well On Windows.</h3>
+<p>
+This too is incorrect. <a
+href="../classes/EventMachine.html">EventMachine</a> is an extension
+written in C++ and Java, and therefore it requires compilation. Many
+Windows computers (and some Unix computers, especially in production
+environments) don&#8216;t have a build stack. Attempting to install <a
+href="../classes/EventMachine.html">EventMachine</a> on a machine without a
+compiler usually produces a confusing error.
+</p>
+<p>
+In addition, Ruby has a much-debated issue with Windows compiler versions.
+Ruby on Windows works best with Visual Studio 6, a compiler version that is
+long out-of-print, no longer supported by Microsoft, and difficult to
+obtain. (This problem is not specific to <a
+href="../classes/EventMachine.html">EventMachine</a>.)
+</p>
+<p>
+Shortly after <a href="../classes/EventMachine.html">EventMachine</a> was
+first released, the compiler issues led to criticism that EM was
+incompatible with Windows. Since that time, every <a
+href="../classes/EventMachine.html">EventMachine</a> release has been
+supplied in a precompiled binary form for Windows users, that does not
+require you to compile the code yourself. EM binary Gems for Windows are
+compiled using Visual Studio 6.
+</p>
+<p>
+<a href="../classes/EventMachine.html">EventMachine</a> does supply some
+advanced features (such as Linux EPOLL support, reduced-privilege
+operation, UNIX-domain sockets, etc.) that have no meaningful
+implementation on Windows. Apart from these special cases, all EM
+functionality (including lightweight concurrency) works perfectly well on
+Windows.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

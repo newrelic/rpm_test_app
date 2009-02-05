@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Sent when the remote peer issues the RSET command. Since RSET is not allowed to fail (according to the protocol), we ignore any return value from user overrides of this method.
+full_name: EventMachine::Protocols::SmtpServer#receive_reset
+is_singleton: false
+name: receive_reset
+params: ()
+visibility: public

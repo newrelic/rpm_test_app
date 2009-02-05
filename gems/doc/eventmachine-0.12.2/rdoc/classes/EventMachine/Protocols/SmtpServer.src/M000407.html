@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>process_rcpt_to (EventMachine::Protocols::SmtpServer)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/smtpserver.rb, line 371</span>
+371:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">process_rcpt_to</span> <span class="ruby-identifier">rcpt</span>
+372:                         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:mail_from</span>)
+373:                                 <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;503 MAIL is required before RCPT\r\n&quot;</span>
+374:                         <span class="ruby-keyword kw">else</span>
+375:                                 <span class="ruby-identifier">succeeded</span> = <span class="ruby-identifier">proc</span> {
+376:                                         <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;250 Ok\r\n&quot;</span>
+377:                                         <span class="ruby-ivar">@state</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">:rcpt</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">:rcpt</span>)
+378:                                 }
+379:                                 <span class="ruby-identifier">failed</span> = <span class="ruby-identifier">proc</span> {
+380:                                         <span class="ruby-identifier">send_data</span> <span class="ruby-value str">&quot;550 recipient is unacceptable\r\n&quot;</span>
+381:                                 }
+382: 
+383:                                 <span class="ruby-identifier">d</span> = <span class="ruby-identifier">receive_recipient</span> <span class="ruby-identifier">rcpt</span>
+384: 
+385:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">d</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:set_deferred_status</span>)
+386:                                         <span class="ruby-identifier">d</span>.<span class="ruby-identifier">callback</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">succeeded</span>
+387:                                         <span class="ruby-identifier">d</span>.<span class="ruby-identifier">errback</span> <span class="ruby-operator">&amp;</span><span class="ruby-identifier">failed</span>
+388:                                 <span class="ruby-keyword kw">else</span>
+389:                                         (<span class="ruby-identifier">d</span> <span class="ruby-value">? </span><span class="ruby-identifier">succeeded</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">failed</span>).<span class="ruby-identifier">call</span>
+390:                                 <span class="ruby-keyword kw">end</span>
+391: 
+392: ??
+393:                         <span class="ruby-keyword kw">end</span>
+394:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

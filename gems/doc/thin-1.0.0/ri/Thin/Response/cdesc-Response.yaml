@@ -1,0 +1,69 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: 
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Response body, must respond to <tt>each</tt>.
+  name: body
+  rw: RW
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Headers key-value hash
+  name: headers
+  rw: R
+- !ruby/object:RI::Attribute 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: Status code
+  name: status
+  rw: RW
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: A response sent to the client.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONNECTION
+  value: "'Connection'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CLOSE
+  value: "'close'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: KEEP_ALIVE
+  value: "'keep-alive'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: SERVER
+  value: "'Server'.freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: CONTENT_LENGTH
+  value: "'Content-Length'.freeze"
+full_name: Thin::Response
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: close
+- !ruby/object:RI::MethodSummary 
+  name: each
+- !ruby/object:RI::MethodSummary 
+  name: head
+- !ruby/object:RI::MethodSummary 
+  name: headers=
+- !ruby/object:RI::MethodSummary 
+  name: headers=
+- !ruby/object:RI::MethodSummary 
+  name: headers_output
+- !ruby/object:RI::MethodSummary 
+  name: persistent!
+- !ruby/object:RI::MethodSummary 
+  name: persistent?
+name: Response
+superclass: Object

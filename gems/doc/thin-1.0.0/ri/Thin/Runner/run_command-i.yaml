@@ -1,0 +1,12 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "Send the command to the controller: single instance or cluster."
+full_name: Thin::Runner#run_command
+is_singleton: false
+name: run_command
+params: ()
+visibility: public

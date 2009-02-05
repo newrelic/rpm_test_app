@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Adapter::Rails#serve_rails
+is_singleton: false
+name: serve_rails
+params: (env)
+visibility: public

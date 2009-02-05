@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>headers_2_hash (EventMachine::Protocols::HeaderAndContentProtocol)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File lib/protocols/header_and_content.rb, line 114</span>
+114:                 <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">headers_2_hash</span> <span class="ruby-identifier">hdrs</span>
+115:                     <span class="ruby-identifier">hash</span> = {}
+116:                     <span class="ruby-identifier">hdrs</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">h</span><span class="ruby-operator">|</span>
+117:                         <span class="ruby-keyword kw">if</span> <span class="ruby-regexp re">/\A([^\s:]+)\s*:\s*/</span> <span class="ruby-operator">=~</span> <span class="ruby-identifier">h</span>
+118:                             <span class="ruby-identifier">tail</span> = <span class="ruby-identifier">$'</span>.<span class="ruby-identifier">dup</span>
+119:                             <span class="ruby-identifier">hash</span>[ <span class="ruby-identifier">$1</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/-/</span>,<span class="ruby-value str">&quot;_&quot;</span>).<span class="ruby-identifier">intern</span> ] = <span class="ruby-identifier">tail</span>
+120:                         <span class="ruby-keyword kw">end</span>
+121:                     }
+122:                     <span class="ruby-identifier">hash</span>
+123:                 <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

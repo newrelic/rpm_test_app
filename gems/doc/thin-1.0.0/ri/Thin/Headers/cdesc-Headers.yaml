@@ -1,0 +1,30 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: new
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: Store HTTP header name-value pairs direcly to a string and allow duplicated entries on some names.
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  name: HEADER_FORMAT
+  value: "\"%s: %s\\r\\n\".freeze"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: ALLOWED_DUPLICATES
+  value: "%w(Set-Cookie Set-Cookie2 Warning WWW-Authenticate).freeze"
+full_name: Thin::Headers
+includes: []
+
+instance_methods: 
+- !ruby/object:RI::MethodSummary 
+  name: "[]="
+- !ruby/object:RI::MethodSummary 
+  name: has_key?
+- !ruby/object:RI::MethodSummary 
+  name: to_s
+name: Headers
+superclass: Object

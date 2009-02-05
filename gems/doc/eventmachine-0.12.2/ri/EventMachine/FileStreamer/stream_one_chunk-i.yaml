@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: EventMachine::FileStreamer#stream_one_chunk
+is_singleton: false
+name: stream_one_chunk
+params: ()
+visibility: public
