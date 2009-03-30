@@ -17,7 +17,7 @@ common: &default_settings
   # RPM will then auto-map instances of your application into a RPM "application"
   # on your home dashboard page. This setting does not prevent you from manually
   # defining applications.
-  app_name: Rails (master) Blog
+  app_name: Rails 2.2 Blog
 
   # the 'enabled' setting is used to turn on the NewRelic Agent.  When false,
   # your application is not instrumented and the Agent does not start up or
@@ -115,8 +115,8 @@ development:
   # http://localhost:3000/newrelic
   developer: true
   
-#  host: rpm
-#  port: 80
+  host: rpm
+  port: 80
 
 test:
   <<: *default_settings
