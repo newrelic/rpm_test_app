@@ -29,7 +29,7 @@ class NewRelic::Config::Rails < NewRelic::Config
   def install_developer_mode(rails_config)
     controller_path = File.join(newrelic_root, 'ui', 'controllers')
     helper_path = File.join(newrelic_root, 'ui', 'helpers')
-    $LOAD_PATH << controller_path
+#    $LOAD_PATH << controller_path
     $LOAD_PATH << helper_path
  
     if defined? ActiveSupport::Dependencies

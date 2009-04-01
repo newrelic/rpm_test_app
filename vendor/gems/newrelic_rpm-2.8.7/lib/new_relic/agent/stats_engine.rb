@@ -23,6 +23,8 @@ module NewRelic::Agent
       @sampled_items = []
       @scope_stack_listener = nil
       @log = log
+
+      log.warn "GOT SI: #{self.object_id}"
       
       # Makes the unit tests happy
       Thread::current[:newrelic_scope_stack] = nil
