@@ -1,1 +1,0 @@
-require_plugin 'acts_as_spiffy'
