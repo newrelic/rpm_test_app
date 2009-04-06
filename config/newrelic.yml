@@ -17,7 +17,7 @@ common: &default_settings
   # RPM will then auto-map instances of your application into a RPM "application"
   # on your home dashboard page. This setting does not prevent you from manually
   # defining applications.
-  app_name: My Application
+  app_name: Rails (master) Blog
 
   # the 'enabled' setting is used to turn on the NewRelic Agent.  When false,
   # your application is not instrumented and the Agent does not start up or
@@ -107,13 +107,16 @@ development:
   # turn off communication to RPM service in development mode.
   # NOTE: for initial evaluation purposes, you may want to temporarily turn
   # the agent on in development mode.
-  enabled: false
+  enabled: true
 
   # When running in Developer Mode, the New Relic Agent will present 
   # performance information on the last 100 transactions you have 
   # executed since starting the mongrel.  to view this data, go to 
   # http://localhost:3000/newrelic
   developer: true
+  
+#  host: rpm
+#  port: 80
 
 test:
   <<: *default_settings

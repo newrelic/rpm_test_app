@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @blog }
     end
-    raise "Here is an error."
+
   end
 
   # GET /blogs/1/edit
