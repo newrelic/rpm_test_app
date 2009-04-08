@@ -115,7 +115,8 @@ development:
   # http://localhost:3000/newrelic
   developer: true
   
-  host: rpm
+  license_key: bd0e1d52adade840f7ca727d29a86249e89a6f1c
+  host: staging.newrelic.com
   port: 80
 
 test:
