@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :posts
 
-  map.resources :blogs
+  map.resources :blogs do |blog |
+    blog.resources 'posts'
+  end
 
   map.resources :authors
   
