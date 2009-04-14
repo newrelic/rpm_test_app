@@ -4,6 +4,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :blogs
 
   map.resources :authors
+  
+  map.namespace :admin do |admin|
+    admin.blogs 'blogs', :controller => 'blogs', :action => 'index'
+  end
 
   map.root :controller => 'blogs'
   

@@ -3,3 +3,8 @@ tmp/
 .project
 log/
 db/development.sqlite3
+.DS\_Store
+.svn/
+*~
+pkg/
+*.gem
