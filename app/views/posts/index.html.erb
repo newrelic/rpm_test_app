@@ -16,13 +16,13 @@
     <td><%=h post.published %></td>
     <td><%=h post.updated_at %></td>
     <td><%=h post.blog_id %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', blog_post_path(@blog, post) %></td>
+    <td><%= link_to 'Edit', edit_blog_post_path(@blog, post) %></td>
+    <td><%= link_to 'Destroy', blog_post_path(@blog, post), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New post', new_post_path(:blog_id => @blog) %>
+<%= link_to 'New post', new_blog_post_path(:blog_id => @blog) %>

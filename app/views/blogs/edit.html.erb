@@ -13,12 +13,15 @@
     <th>Title</th>
     <th>Published?</th>
     <th>Created at</th>
+<th>Actions</th>
   </tr>
   <% @blog.posts.each do |post| -%>
     <tr>
       <td><%= post.title %></td>
       <td><%= post.published? %></td>
       <td><%= post.created_at %></td>
+<td>[<%= link_to "edit", edit_blog_post_path(@blog, post) %>]
+	</td>
     </tr>
   <% end -%>
   </table>

@@ -4,6 +4,7 @@ tmp/
 log/
 db/*.sqlite3
 vendor/plugins
+.DS_Store
 .DS\_Store
 .svn/
 *~
