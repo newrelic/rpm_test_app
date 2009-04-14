@@ -2,7 +2,8 @@
 tmp/
 .project
 log/
-db/development.sqlite3
+db/*.sqlite3
+vendor/plugins
 .DS\_Store
 .svn/
 *~
