@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-  map.resources :blogs do |blog |
+  map.resources :blogs, :collection => {'about' => :get} do |blog |
     blog.resources 'posts'
   end
 
