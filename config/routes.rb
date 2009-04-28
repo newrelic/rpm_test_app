@@ -1,9 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :posts
 
-  map.resources :blogs
+  map.resources :blogs, :collection => {'about' => :get} do |blog |
+    blog.resources 'posts'
+  end
 
   map.resources :authors
+  
+  map.namespace :admin do |admin|
+    admin.blogs 'blogs', :controller => 'blogs', :action => 'index'
+  end
 
   map.root :controller => 'blogs'
   

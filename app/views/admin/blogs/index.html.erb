@@ -1,7 +1,6 @@
-<h2>Listing Blogs</h2>
+<h2>Admin Listing blogs</h2>
 
-<p>Go to <%= link_to "Admin Page", admin_blogs_path %></p>
-<p>Here is an <%= link_to "About Page", :action => 'about'%> which links to a template without a controller action.
+<p>Back to <%= link_to "Non-admin page", blogs_url %></p>
 <table>
   <tr>
     <th>Title</th>
@@ -13,6 +12,8 @@
     <td><%=h blog.title %></td>
     <td><%=h blog.author.name %></td>
     <td><%= link_to 'Show', blog %></td>
+    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+    <td><%= link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

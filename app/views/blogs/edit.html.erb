@@ -7,18 +7,21 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
-  <p><%= link_to 'New', new_post_path(:blog_id => @blog) %>
+  <p><%= link_to 'New Post', new_blog_post_path(:blog_id => @blog) %>
   <table>
   <tr>
     <th>Title</th>
     <th>Published?</th>
     <th>Created at</th>
+<th>Actions</th>
   </tr>
   <% @blog.posts.each do |post| -%>
     <tr>
       <td><%= post.title %></td>
       <td><%= post.published? %></td>
       <td><%= post.created_at %></td>
+<td>[<%= link_to "edit", edit_blog_post_path(@blog, post) %>]
+	</td>
     </tr>
   <% end -%>
   </table>

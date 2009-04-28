@@ -1,7 +1,7 @@
 <h1>Editing post</h1>
 <h2>Blog: <%= @post.blog.title %></h2>
 
-<% form_for(@post) do |f| %>
+<% form_for(@post, :url => blog_post_path) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -22,5 +22,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Show', blog_post_path(@post, @post) %> |
+<%= link_to 'Back', blog_posts_path(@blog) %>

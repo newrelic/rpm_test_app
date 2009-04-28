@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
-  before_filter :load_blog, :only => :new
+  before_filter :load_blog
     
   def index
     @posts = Post.find(:all)
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.save
         flash[:notice] = 'Post was successfully created.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to(blog_url(:id => @blog.id)) } #:blog => @blog,:post_id => @post)) }
         format.xml  { render :xml => @post, :status => :created, :location => @post }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to(blog_post_url(@blog, @post)) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to(posts_url) }
+      format.html { redirect_to(blog_posts_url(@blog)) }
       format.xml  { head :ok }
     end
   end

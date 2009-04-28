@@ -2,5 +2,11 @@
 tmp/
 .project
 log/
-db/development.sqlite3
-vendor/gems/newrelic_rpm*
+db/*.sqlite3
+vendor/plugins
+.DS_Store
+.DS\_Store
+.svn/
+*~
+pkg/
+*.gem

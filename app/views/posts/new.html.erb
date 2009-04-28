@@ -1,7 +1,7 @@
-<h1>New post</h1>
-<h2><%= @blog.title %></h2>
+<h2>New Post</h2>
+<h3><%= @blog.title %></h3>
 
-<% form_for(@post) do |f| %>
+<% form_for(@post, :url => blog_posts_url) do |f| %>
   <%= f.hidden_field :blog_id %>
   <%= f.error_messages %>
   <p>
@@ -21,4 +21,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', blog_posts_path %>
