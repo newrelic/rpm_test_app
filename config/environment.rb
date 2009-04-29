@@ -16,7 +16,7 @@ Rails::Initializer.run do |config|
 #config.gem "newrelic_rpm"
 #config.gem "facebooker"
 #config.gem "newrelic_rpm", :version => '2.8.1'
-config.gem "newrelic_rpm", :version => '2.8.9'
+#config.gem "newrelic_rpm", :version => '2.8.9'
   # Settings in config/environments/* take precedence over those specified here
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
