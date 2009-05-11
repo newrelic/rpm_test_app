@@ -12,6 +12,7 @@ RAILS_GEM_VERSION = '2.3.2' #unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
+  config.threadsafe!
 #config.gem "newrelic_rpm"
 #config.gem "newrelic_rpm", :version => '2.8.1'
 #config.gem "newrelic_rpm", :version => '2.9.0'
