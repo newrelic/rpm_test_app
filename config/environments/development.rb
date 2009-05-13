@@ -16,5 +16,5 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-config.gem "mocha"
+config.gem "mocha", :version => '>= 0.9.5'
 config.gem "sqlite3-ruby", :lib => "sqlite3"
