@@ -1,6 +1,6 @@
 require 'application'
 module Admin
-  class BlogsController < ApplicationController
+  class BlogsController < ::ApplicationController
     # GET /blogs
     # GET /blogs.xml
     def index
