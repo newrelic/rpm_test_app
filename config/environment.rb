@@ -13,7 +13,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 #  config.threadsafe!
-  config.gem 'ci_reporter'
+  config.gem 'ci_reporter', :lib => false
 #config.gem "newrelic_rpm"
 #config.gem "facebooker"
 #config.gem "newrelic_rpm", :version => '2.8.1'
