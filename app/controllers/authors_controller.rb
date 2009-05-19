@@ -1,6 +1,9 @@
 class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.xml
+  
+  newrelic_ignore :only => :index
+  
   def index
     @authors = Author.find(:all)
 

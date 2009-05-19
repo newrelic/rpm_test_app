@@ -13,7 +13,7 @@
     <td><%= link_to 'Show', author %></td>
     <td><%= link_to 'Edit', edit_author_path(author) %></td>
     <td><%= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'Blogs', blogs_path(:author => self) %></td>
+    <td><%= link_to 'Blogs', blogs_path(:author => author) %></td>
   </tr>
 <% end %>
 </table>

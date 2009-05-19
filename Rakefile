@@ -6,5 +6,14 @@ require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
-
+if RAILS_ENV=='test'
+  require 'rubygems'
+  # Load the CI gem if available
+  begin
+    gem 'ci_reporter'
+    require 'ci/reporter/rake/test_unit'
+    require 'ci/reporter/rake/rspec'
+  rescue Exception => e
+  end
+end
 require 'tasks/rails'
