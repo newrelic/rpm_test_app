@@ -28,7 +28,7 @@ common: &default_settings
   # RPM will then auto-map instances of your application into a RPM "application"
   # on your home dashboard page. This setting does not prevent you from manually
   # defining applications.
-  app_name: All Rails Blogs;Rails Blog 2.3.2
+  app_name: Rails Blog 2.3.2;All Rails Blogs
 
   # When 'enabled' is turned on, the agent collects performance data by inserting lightweight
   # tracers on key methods inside the rails framework and asynchronously aggregating
