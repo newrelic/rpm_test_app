@@ -1,8 +1,8 @@
 test/reports/
+coverage/
 .idea/
 tmp/
 .project
-log/
 db/*.sqlite3
 vendor/plugins
 .DS_Store
