@@ -14,7 +14,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 GC.enable_stats if GC.respond_to?(:enable_stats) 
 
 Rails::Initializer.run do |config|
-  config.threadsafe!
+#  config.threadsafe!
 #config.gem "newrelic_rpm"
 #config.gem "newrelic_rpm", :version => '2.8.1'
 #config.gem "newrelic_rpm", :version => '2.9.0'
