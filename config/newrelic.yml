@@ -11,9 +11,9 @@ common: &default_settings
   # ============================== LICENSE KEY ===============================
   # You must specify the licence key associated with your New Relic account.
   # This key binds your Agent's data to your account in the New Relic RPM service.
-  license_key: 'bootstrap_newrelic_admin_license_key_000'
-  host: rpm
-  port: 80
+  license_key: '6a06cfce650024c07ff003d8e914e2d84d09c802'
+  #host: www.google.com #rpm.newrelic.com
+  #port: 80
 
   # Agent Enabled
   # Use this setting to force the agent to run or not run.
@@ -33,7 +33,7 @@ common: &default_settings
   # When 'enabled' is turned on, the agent collects performance data by inserting lightweight
   # tracers on key methods inside the rails framework and asynchronously aggregating
   # and reporting this performance data to the NewRelic RPM service at newrelic.com.
-  enabled: false
+  enabled: true
 
   # The newrelic agent generates its own log file to keep its logging information
   # separate from that of your application.  Specify its log level here.
@@ -45,7 +45,8 @@ common: &default_settings
   # CPU overhead to perform the encryption involved in SSL communication, but this
   # work is done asynchronously to the threads that process your application code, so
   # it should not impact response times.
-  ssl: false
+  ssl: true
+  verify_certificate: true
   
   # Set your application's Apdex threshold value with the 'apdex_t' setting, in seconds. The
   # apdex_t value determines the buckets used to compute your overall Apdex score. Requests
