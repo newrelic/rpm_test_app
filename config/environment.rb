@@ -11,6 +11,8 @@ RAILS_GEM_VERSION = '2.3.2' #unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+GC.enable_stats if GC.respond_to?(:enable_stats) 
+
 Rails::Initializer.run do |config|
 #  config.threadsafe!
   config.gem 'ci_reporter', :lib => false
