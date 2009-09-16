@@ -16,8 +16,8 @@ sqlite3: &sqlite3
   host: localhost
   
 common: &defaults
-  <<: *sqlite3
-#  <<: *mysql
+#  <<: *sqlite3
+  <<: *mysql
 
 # SQLite version 3.x
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
