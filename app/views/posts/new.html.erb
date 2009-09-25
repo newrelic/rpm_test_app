@@ -1,6 +1,7 @@
 <h2>New Post</h2>
 <h3><%= @blog.title %></h3>
 
+<p>Note: Metrics for the create are ignored. </p>
 <% form_for(@post, :url => blog_posts_url) do |f| %>
   <%= f.hidden_field :blog_id %>
   <%= f.error_messages %>

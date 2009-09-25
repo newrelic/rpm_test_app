@@ -7,6 +7,8 @@
 #
 # here are the settings that are common to all environments
 common: &default_settings
+  send_environment_info: false
+
   # ============================== LICENSE KEY ===============================
   # You must specify the licence key associated with your New Relic account.
   # This key binds your Agent's data to your account in the New Relic RPM service.
@@ -36,7 +38,7 @@ common: &default_settings
 
   # The newrelic agent generates its own log file to keep its logging information
   # separate from that of your application.  Specify its log level here.
-  log_level: info
+  log_level: debug
   
   # The newrelic agent communicates with the RPM service via http by default.
   # If you want to communicate via https to increase security, then turn on
@@ -141,6 +143,7 @@ test:
   # it almost never makes sense to turn on the agent when running unit, functional or
   # integration tests or the like.
   enabled: false
+  log_level: debug
 
 # Turn on the agent in production for 24x7 monitoring.  NewRelic testing shows
 # an average performance impact of < 5 ms per transaction, you you can leave this on
