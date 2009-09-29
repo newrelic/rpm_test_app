@@ -1,7 +1,11 @@
 # Shared properties for mysql db
 mysql: &mysql
+  <% if defined?(JRuby) %>
   adapter: mysql
   socket: <%= (`uname -s` =~ /Linux/ ) ? "" :"/tmp/mysql.sock" %>
+  <% else %>
+  adapter: jdbcmysql
+  <% end %>
   username: root
   host: localhost
   database: rails_blog
@@ -21,7 +25,7 @@ development:
   <<: *mysql
 
 test:
-  <<: *sqlite3
+  <<: *mysql
 
 production:
   <<: *mysql
