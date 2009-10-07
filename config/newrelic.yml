@@ -86,7 +86,7 @@ common: &default_settings
     # a controller action exceeds this threshold, a transaction trace will be recorded and sent
     # to RPM. Valid values are any float value, or (default) "apdex_f", which will use the
     # threshold for an dissatisfying Apdex controller action - four times the Apdex T value.
-    transaction_threshold: apdex_f
+    transaction_threshold: 0.2
  
     # When transaction tracer is on, SQL statements can optionally be recorded. The recorder
     # has three modes, "off" which sends no SQL, "raw" which sends the SQL statement in its 
@@ -96,7 +96,7 @@ common: &default_settings
     # Threshold in seconds for when to collect stack trace for a SQL call. In other words, 
     # when SQL statements exceed this threshold, then capture and send to RPM the current
     # stack trace. This is helpful for pinpointing where long SQL calls originate from  
-    stack_trace_threshold: 0.500
+    stack_trace_threshold: 0.200
   
   # Error collector captures information about uncaught exceptions and sends them to RPM for
   # viewing
