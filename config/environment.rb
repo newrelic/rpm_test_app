@@ -15,7 +15,7 @@ GC.enable_stats if GC.respond_to?(:enable_stats)
 
 Rails::Initializer.run do |config|
 config.gem "mocha", :version => '>= 0.9.5'
-config.gem "sqlite3-ruby", :lib => "sqlite3"  
+config.gem "sqlite3-ruby", :lib => "sqlite3" unless defined?(JRuby) 
   #config.threadsafe!
   #config.gem "newrelic_rpm"
   #config.gem "newrelic_rpm", :version => '2.8.1'
