@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.4' #unless defined? RAILS_GEM_VERSION
+#RAILS_GEM_VERSION = '2.3.2' #unless defined? RAILS_GEM_VERSION
 #RAILS_GEM_VERSION = '2.3.0' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
@@ -14,10 +14,13 @@ require File.join(File.dirname(__FILE__), 'boot')
 GC.enable_stats if GC.respond_to?(:enable_stats) 
 
 Rails::Initializer.run do |config|
-#config.threadsafe!
-#config.gem "newrelic_rpm"
-#config.gem "newrelic_rpm", :version => '2.8.1'
-#config.gem "newrelic_rpm", :version => '2.9.0'
+config.gem "mocha", :version => '>= 0.9.5'
+config.gem "sqlite3-ruby", :lib => "sqlite3"  
+  #config.threadsafe!
+  #config.gem "newrelic_rpm"
+  #config.gem "newrelic_rpm", :version => '2.8.1'
+  #config.gem "newrelic_rpm", :version => '2.9.0'
+
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -81,4 +84,4 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 end
 
-require 'application'
+require 'application_controller'

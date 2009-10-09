@@ -1,4 +1,4 @@
-require 'application'
+require 'application_controller'
 class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.xml

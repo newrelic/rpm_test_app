@@ -1,4 +1,4 @@
-require 'application'
+require 'application_controller'
 class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.xml
