@@ -7,7 +7,6 @@
 #
 # here are the settings that are common to all environments
 common: &default_settings
-  send_environment_info: false
 
   # ============================== LICENSE KEY ===============================
   # You must specify the licence key associated with your New Relic account.
