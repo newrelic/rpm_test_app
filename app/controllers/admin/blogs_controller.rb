@@ -11,6 +11,18 @@ module Admin
         format.xml  { render :xml => @blogs }
       end
     end
+    def rpm_status
+      request = Net::HTTP::Get.new('/status/mongrel', 'HOST' => 'rpm.newrelic.com')
+      response = nil
+      http = Net::HTTP.new('rpm.newrelic.com', 80)
+      response = http.request(request)
+      if !(response.is_a? Net::HTTPSuccess)
+        text =  "Unexpected response from server: #{response.code}: #{response.message}"
+      else
+        text = response.body
+      end
+      render :text => text
+    end
 
     # GET /blogs/1
     # GET /blogs/1.xml
