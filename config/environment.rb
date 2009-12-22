@@ -80,7 +80,14 @@ config.gem "newrelic_rpm"
 
   # Activate observers that should always be running
   # Please note that observers generated using script/generate observer need to have an _observer suffix
-  # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+  # config.active_record.observers = :cacher, :garbage_collector,
+  # :forum_observer
+
+  require "#{RAILS_ROOT}/vendor/plugins/newrelic_rpm/lib/new_relic/version.rb"
+    config.metals = []
+    if NewRelic::VERSION::STRING =~ /^2\.1[01]/
+      config.metals << 'Logins'
+    end
 end
 
 require 'application'
