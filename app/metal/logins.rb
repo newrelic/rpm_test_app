@@ -1,5 +1,3 @@
-# Allow the metal piece to run in isolation
-require(File.dirname(__FILE__) + "/../../config/environment") unless defined?(Rails)
 require 'new_relic/agent/instrumentation/rack'
 class Logins
   def self.call(env)
