@@ -12,16 +12,19 @@ module Admin
       end
     end
     def rpm_status
-      request = Net::HTTP::Get.new('/status/mongrel', 'HOST' => 'rpm.newrelic.com')
-      response = nil
-      http = Net::HTTP.new('rpm.newrelic.com', 80)
-      response = http.request(request)
+      response = Net::HTTP.start('rpm.newrelic.com', 80) do | http |
+        http.get('/status/mongrel')
+      end
       if !(response.is_a? Net::HTTPSuccess)
         text =  "Unexpected response from server: #{response.code}: #{response.message}"
       else
         text = response.body
       end
       render :text => text
+    end
+    
+    def readme
+      render :file => "#{RAILS_ROOT}/README", :type => 'text/plain'
     end
 
     # GET /blogs/1
