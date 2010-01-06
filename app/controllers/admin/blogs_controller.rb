@@ -22,7 +22,10 @@ module Admin
       end
       render :text => text
     end
-
+    
+    def readme
+      render :file => "#{RAILS_ROOT}/README", :type => 'text/plain'
+    end
     # GET /blogs/1
     # GET /blogs/1.xml
     def show
