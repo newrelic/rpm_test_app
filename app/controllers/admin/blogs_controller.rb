@@ -24,7 +24,7 @@ module Admin
     end
     
     def readme
-      render :file => "#{RAILS_ROOT}/README", :type => 'text/plain'
+      render :file => "#{RAILS_ROOT}/README", :use_full_path => false
     end
 
     # GET /blogs/1

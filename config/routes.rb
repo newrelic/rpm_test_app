@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.namespace :admin do |admin|
     admin.blogs 'blogs', :controller => 'blogs', :action => 'index'
+    admin.readme 'readme', :controller => 'blogs', :action => 'readme'
     admin.status 'status', :controller => 'blogs', :action => 'rpm_status'
   end
 
