@@ -1,7 +1,7 @@
 #!/bin/sh
 # Script executed by hudson
 git checkout origin/$BRANCH
-rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems
+rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems vendor/newrelic_rpm
 mkdir -p tmp
 mkdir -p log
 mkdir -p vendor/gems
@@ -16,7 +16,7 @@ if [ $BRANCH == "rails20" ] ; then
   mv tmp/newrelic_rpm vendor/plugins
 else
   (cd tmp/newrelic_rpm; $RUBY -S rake build )
-  $RUBY -S gem install vendor/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
+  $RUBY -S gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 fi
 export RAILS_ENV=test
 $RUBY -S rake ci:setup:testunit test:newrelic || echo "Unit test failures"
