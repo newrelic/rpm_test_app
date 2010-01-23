@@ -17,7 +17,7 @@ if [ $BRANCH == "rails20" ] ; then
 else
   (cd tmp/newrelic_rpm; $RUBY -S rake build )
   $RUBY -S gem install vendor/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
-end
+fi
 export RAILS_ENV=test
 $RUBY -S rake ci:setup:testunit test:newrelic || echo "Unit test failures"
 
