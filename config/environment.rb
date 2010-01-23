@@ -14,12 +14,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 GC.enable_stats if GC.respond_to?(:enable_stats) 
 
 Rails::Initializer.run do |config|
-#  config.threadsafe!
-#  config.gem 'ci_reporter', :lib => false
-#config.gem 'datamapper'
-#config.gem "newrelic_rpm"
-#config.gem "newrelic_rpm", :version => '2.8.1'
-#config.gem "newrelic_rpm", :version => '2.9.0'
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
