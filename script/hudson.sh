@@ -9,7 +9,10 @@ mkdir -p vendor/gems
 mkdir -p vendor/plugins
 
 svn export http://repo.newrelic.com/rpm/projects/Agent/trunk tmp/newrelic_rpm
-
+#if [ $BRANCH == "rails30" ]; then
+#  rake rails:unfreeze
+#  rake rails:freeze:edge
+#fi
 (cd tmp/newrelic_rpm; $RUBY -S rake build )
 $RUBY -S gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
