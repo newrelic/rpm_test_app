@@ -1,7 +1,7 @@
 #!/bin/sh
 # Script executed by hudson
 git checkout origin/$BRANCH
-rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems
+rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems vendor/newrelic_rpm
 mkdir -p tmp
 mkdir -p log
 mkdir -p vendor/gems
