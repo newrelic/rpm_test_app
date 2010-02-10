@@ -2,7 +2,6 @@
 # Script executed by hudson
 echo "Executing $0"
 echo "Running in $(pwd)"
-git checkout origin/$BRANCH
 rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems vendor/newrelic_rpm
 mkdir -p tmp
 mkdir -p log
