@@ -6,7 +6,7 @@ require(File.join(File.dirname(__FILE__), 'config', 'boot'))
 require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
-Dir["#{RAILS_ROOT}/vendor/gems/**/tasks/**/*.rake"].sort.each { |ext| load ext }
+Dir["#{File.dirname(__FILE__)}/vendor/gems/**/tasks/**/*.rake"].sort.each { |ext| load ext }
 if RAILS_ENV=='test'
   require 'rubygems'
   # Load the CI gem if available
