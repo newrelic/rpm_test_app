@@ -7,7 +7,7 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 Dir["#{File.dirname(__FILE__)}/vendor/gems/**/tasks/**/*.rake"].sort.each { |ext| load ext }
-if RAILS_ENV=='test'
+if ENV['RAILS_ENV'] == 'test'
   require 'rubygems'
   # Load the CI gem if available
   begin
