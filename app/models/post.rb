@@ -5,4 +5,9 @@ class Post < ActiveRecord::Base
   after_save do
     sleep 5
   end
+
+  def evaluate
+    # does nothing
+  end
+  
 end

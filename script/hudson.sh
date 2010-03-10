@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Script executed by hudson
 echo "Executing $0"
 echo "Running in $(pwd)"
@@ -8,11 +8,14 @@ mkdir -p log
 mkdir -p vendor/gems
 mkdir -p vendor/plugins
 
+rvm $RUBY
+
 svn export http://repo.newrelic.com/rpm/projects/Agent/trunk tmp/newrelic_rpm
 
-(cd tmp/newrelic_rpm; $RUBY -S rake build )
-$RUBY -S gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
+(cd tmp/newrelic_rpm; rake build )
+gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
-$RUBY -S rake ci:setup:testunit test:newrelic || echo "Unit test failures"
+rake gems:install
+rake ci:setup:testunit test:newrelic || echo "Unit test failures"
 
