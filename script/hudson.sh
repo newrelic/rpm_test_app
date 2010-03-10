@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Script executed by hudson
 echo "Executing $0"
 echo "Running in $(pwd)"
