@@ -11,4 +11,3 @@ vendor/plugins
 .svn/
 *~
 pkg/
-*.gem
