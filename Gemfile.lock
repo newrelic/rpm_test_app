@@ -3,7 +3,7 @@ dependencies:
   rails: 
     group: 
     - :default
-    version: = 2.3.4
+    version: = 2.3.5
   sqlite3-ruby: 
     group: 
     - :default
@@ -32,11 +32,11 @@ specs:
 - rake: 
     version: 0.8.7
 - activeresource: 
-    version: 2.3.4
+    version: 2.3.5
 - rails: 
-    version: 2.3.4
+    version: 2.3.5
 - activerecord: 
-    version: 2.3.4
+    version: 2.3.5
 - sqlite3-ruby: 
     version: 1.2.5
 - mysql: 
@@ -54,9 +54,9 @@ specs:
 - git: 
     version: 1.2.5
 - actionmailer: 
-    version: 2.3.4
+    version: 2.3.5
 - actionpack: 
-    version: 2.3.4
+    version: 2.3.5
 - ci_reporter: 
     version: 1.6.0
 - json_pure: 
@@ -64,8 +64,8 @@ specs:
 - builder: 
     version: 2.1.2
 - activesupport: 
-    version: 2.3.4
-hash: e8d58dc2a388d010b808dc39ead88b7ae8e97df5
+    version: 2.3.5
+hash: 86d654aae23c8d2e60c894a4e73fedeb23a8d001
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
