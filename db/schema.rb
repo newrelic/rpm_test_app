@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20081124213650) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
-    t.integer  "author_id"
+    t.integer  "author_id",  :limit => nil
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20081124213650) do
     t.string   "title"
     t.text     "body"
     t.boolean  "published"
-    t.integer  "blog_id"
+    t.integer  "blog_id",    :limit => nil
     t.datetime "created_at"
     t.datetime "updated_at"
   end
