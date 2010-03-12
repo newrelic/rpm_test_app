@@ -1,8 +1,8 @@
 # A sample Gemfile
 source :gemcutter
 
-gem "rails", "2.3.4"
-# gem "rails", "2.0.2"
+# gem "rails", "2.3.4"
+gem "rails", "2.0.2"
 # gem "rails", "2.1.2"
 # gem "rails", "2.2.2"
 
