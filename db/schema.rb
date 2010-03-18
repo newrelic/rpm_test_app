@@ -20,16 +20,23 @@ ActiveRecord::Schema.define(:version => 20081124213650) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
-    t.integer  "author_id",  :limit => nil
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "newrelic_test_orders", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "newrelic_test_shipment", :force => true do |t|
   end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.boolean  "published"
-    t.integer  "blog_id",    :limit => nil
+    t.integer  "blog_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
