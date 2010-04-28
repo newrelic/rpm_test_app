@@ -8,6 +8,8 @@ mkdir -p log
 mkdir -p vendor/gems
 mkdir -p vendor/plugins
 
+source ~/.rvm/scripts/rvm
+
 rvm $RUBY
 
 svn export http://repo.newrelic.com/rpm/projects/Agent/trunk tmp/newrelic_rpm
@@ -17,5 +19,5 @@ gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
 rake gems:install
-rake ci:setup:testunit test:newrelic || echo "Unit test failures"
+rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
 
