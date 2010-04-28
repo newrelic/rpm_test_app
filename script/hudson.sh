@@ -17,5 +17,5 @@ gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
 rake gems:install
-rake ci:setup:testunit test:newrelic || echo "Unit test failures"
+rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
 
