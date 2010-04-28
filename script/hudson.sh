@@ -8,6 +8,8 @@ mkdir -p log
 mkdir -p vendor/gems
 mkdir -p vendor/plugins
 
+source ~/.rvm/scripts/rvm
+
 rvm $RUBY
 
 svn export http://repo.newrelic.com/rpm/projects/Agent/trunk tmp/newrelic_rpm
