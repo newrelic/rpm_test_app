@@ -1,4 +1,3 @@
-require 'new_relic/agent/instrumentation/rack'
 class Logins
   def self.call(env)
     if env["PATH_INFO"] =~ /^\/logins$/
@@ -10,5 +9,8 @@ class Logins
       [404, {"Content-Type" => "text/html"}, ["Not Found"]]
     end
   end
-  extend NewRelic::Agent::Instrumentation::Rack
-end
+  if defined? ::NewRelic
+    require 'new_relic/agent/instrumentation/rack'
+    extend NewRelic::Agent::Instrumentation::Rack
+  end
+end 

@@ -82,12 +82,14 @@ config.gem "newrelic_rpm"
   # Please note that observers generated using script/generate observer need to have an _observer suffix
   # config.active_record.observers = :cacher, :garbage_collector,
   # :forum_observer
-
-  require "new_relic/version.rb"
+  
+  config.after_initialize do
+    require "new_relic/version.rb"
     config.metals = []
     if NewRelic::VERSION::STRING =~ /^2\.1[01]/
       config.metals << 'Logins'
     end
+  end
 end
 
 require 'application'
