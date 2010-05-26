@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100202223130) do
+ActiveRecord::Schema.define(:version => 20100514225438) do
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -39,13 +39,6 @@ ActiveRecord::Schema.define(:version => 20100202223130) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
-
-  create_table "newrelic_test_orders", :force => true do |t|
-    t.string "name"
-  end
-
-  create_table "newrelic_test_shipment", :force => true do |t|
-  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
