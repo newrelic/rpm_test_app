@@ -11,9 +11,13 @@ common: &default_settings
   # ============================== LICENSE KEY ===============================
   # You must specify the licence key associated with your New Relic account.
   # This key binds your Agent's data to your account in the New Relic RPM service.
-  license_key: 'bootstrap_newrelic_admin_license_key_000'
-  host: localhost
-  port: 3000
+
+  #license_key: 'bootstrap_newrelic_admin_license_key_000'
+  #host: localhost
+  #port: 3000
+
+  license_key: 'bd0e1d52adade840f7ca727d29a86249e89a6f1c'
+  host: staging-collector.newrelic.com
 
   # Agent Enabled
   # Use this setting to force the agent to run or not run.
