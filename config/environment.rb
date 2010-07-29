@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
 #  config.threadsafe!
   config.gem 'ci_reporter', :lib => false
 #config.gem 'datamapper'
-#config.gem "newrelic_rpm"
+  config.gem "newrelic_rpm"
 #config.gem "newrelic_rpm", :version => '2.8.1'
 #config.gem "newrelic_rpm", :version => '2.9.0'
   # Settings in config/environments/* take precedence over those specified here.
