@@ -12,9 +12,9 @@ source ~/.rvm/scripts/rvm
 
 rvm $RUBY
 
-svn export http://repo.newrelic.com/rpm/projects/Agent/trunk tmp/newrelic_rpm
+git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
-(cd tmp/newrelic_rpm; rake build )
+(cd tmp/newrelic_rpm; git checkout integration; rake build )
 gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
