@@ -14,7 +14,9 @@ source ~/.rvm/scripts/rvm
 
 rvm $RUBY
 
-svn export http://repo.newrelic.com/rpm/projects/Agent/trunk vendor/plugins/newrelic_rpm
+git clone hudson@repo.newrelic.com:/git/ruby_agent.git vendor/plugins/newrelic_rpm
+
+(cd vendor/plugins/newrelic_rpm; git checkout integration; cd ../../..)
 export RAILS_ENV=test
 
 #rake gems:install
