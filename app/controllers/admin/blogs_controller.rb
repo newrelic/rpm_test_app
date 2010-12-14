@@ -1,4 +1,3 @@
-require 'application'
 module Admin
   class BlogsController < ::ApplicationController
     # GET /blogs
