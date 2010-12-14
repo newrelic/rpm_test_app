@@ -1,71 +1,94 @@
---- 
-dependencies: 
-  rails: 
-    group: 
-    - :default
-    version: = 2.3.5
-  sqlite3-ruby: 
-    group: 
-    - :default
-    version: = 1.2.5
-  mysql: 
-    group: 
-    - :default
-    version: = 2.8.1
-  gemcutter: 
-    group: 
-    - :default
-    version: = 0.5.0
-  mocha: 
-    group: 
-    - :default
-    version: = 0.9.8
-  jeweler: 
-    group: 
-    - :default
-    version: = 1.4.0
-  ci_reporter: 
-    group: 
-    - :default
-    version: = 1.6.0
-specs: 
-- rake: 
-    version: 0.8.7
-- activeresource: 
-    version: 2.3.5
-- rails: 
-    version: 2.3.5
-- activerecord: 
-    version: 2.3.5
-- sqlite3-ruby: 
-    version: 1.2.5
-- mysql: 
-    version: 2.8.1
-- rubyforge: 
-    version: 2.0.4
-- gemcutter: 
-    version: 0.5.0
-- rack: 
-    version: 1.0.1
-- mocha: 
-    version: 0.9.8
-- jeweler: 
-    version: 1.4.0
-- git: 
-    version: 1.2.5
-- actionmailer: 
-    version: 2.3.5
-- actionpack: 
-    version: 2.3.5
-- ci_reporter: 
-    version: 1.6.0
-- json_pure: 
-    version: 1.2.3
-- builder: 
-    version: 2.1.2
-- activesupport: 
-    version: 2.3.5
-hash: 86d654aae23c8d2e60c894a4e73fedeb23a8d001
-sources: 
-- Rubygems: 
-    uri: http://gemcutter.org
+GEM
+  remote: http://rubygems.org/
+  specs:
+    abstract (1.0.0)
+    actionmailer (3.0.1)
+      actionpack (= 3.0.1)
+      mail (~> 2.2.5)
+    actionpack (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
+      builder (~> 2.1.2)
+      erubis (~> 2.6.6)
+      i18n (~> 0.4.1)
+      rack (~> 1.2.1)
+      rack-mount (~> 0.6.12)
+      rack-test (~> 0.5.4)
+      tzinfo (~> 0.3.23)
+    activemodel (3.0.1)
+      activesupport (= 3.0.1)
+      builder (~> 2.1.2)
+      i18n (~> 0.4.1)
+    activerecord (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
+      arel (~> 1.0.0)
+      tzinfo (~> 0.3.23)
+    activeresource (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
+    activesupport (3.0.1)
+    arel (1.0.1)
+      activesupport (~> 3.0.0)
+    builder (2.1.2)
+    ci_reporter (1.6.0)
+      builder (>= 2.1.2)
+    erubis (2.6.6)
+      abstract (>= 1.0.0)
+    gemcutter (0.5.0)
+      json_pure
+    git (1.2.5)
+    i18n (0.4.2)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
+    json_pure (1.4.6)
+    mail (2.2.12)
+      activesupport (>= 2.3.6)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.16)
+    mocha (0.9.8)
+      rake
+    mysql (2.8.1)
+    polyglot (0.3.1)
+    rack (1.2.1)
+    rack-mount (0.6.13)
+      rack (>= 1.0.0)
+    rack-test (0.5.6)
+      rack (>= 1.0)
+    rails (3.0.1)
+      actionmailer (= 3.0.1)
+      actionpack (= 3.0.1)
+      activerecord (= 3.0.1)
+      activeresource (= 3.0.1)
+      activesupport (= 3.0.1)
+      bundler (~> 1.0.0)
+      railties (= 3.0.1)
+    railties (3.0.1)
+      actionpack (= 3.0.1)
+      activesupport (= 3.0.1)
+      rake (>= 0.8.4)
+      thor (~> 0.14.0)
+    rake (0.8.7)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    sqlite3-ruby (1.2.5)
+    thor (0.14.6)
+    treetop (1.4.9)
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.23)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ci_reporter (= 1.6.0)
+  gemcutter (= 0.5.0)
+  jeweler (= 1.4.0)
+  mocha (= 0.9.8)
+  mysql (= 2.8.1)
+  rails (= 3.0.1)
+  sqlite3-ruby (= 1.2.5)
