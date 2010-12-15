@@ -8,10 +8,15 @@ mkdir -p log
 mkdir -p vendor/gems
 mkdir -p vendor/plugins
 
+echo "source ~/.rvm/scripts/rvm"
 source ~/.rvm/scripts/rvm
-
+echo "rvm "; echo $RUBY
 rvm $RUBY
+echo 'using ruby:'
+echo `which ruby`
+echo "bundle install"
 bundle install
+echo "export RAILS_ENV=test"
 export RAILS_ENV=test
 
 rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
