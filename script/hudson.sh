@@ -11,7 +11,7 @@ mkdir -p vendor/plugins
 source ~/.rvm/scripts/rvm
 
 rvm $RUBY
-
+bundle install
 export RAILS_ENV=test
 
 rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
