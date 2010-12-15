@@ -12,3 +12,5 @@ vendor/plugins
 *~
 pkg/
 /tmp
+log/*.log
+tmp/**/*
