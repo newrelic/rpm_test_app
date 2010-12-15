@@ -1,5 +1,7 @@
-PATH
-  remote: ~/work/ruby_agent
+GIT
+  remote: repo.newrelic.com:/git/ruby_agent.git
+  revision: 71c183dd878004e90e0055fb6472da82eab2fde1
+  branch: integration
   specs:
     newrelic_rpm (2.13.4)
 
