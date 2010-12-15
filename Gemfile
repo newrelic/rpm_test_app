@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.1'
-gem 'newrelic_rpm', :path => '~/work/ruby_agent'
+gem 'newrelic_rpm', :git => 'repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
 gem "ci_reporter", "1.6.0"
 gem "mocha", "0.9.8"
 gem "jeweler", "1.4.0"
