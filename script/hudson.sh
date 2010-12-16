@@ -14,8 +14,8 @@ echo "rvm use"; echo $RUBY
 rvm use $RUBY
 echo 'using ruby:'
 echo `which ruby`
-echo "bundle install"
-bundle install
+echo "bundle update"
+bundle update
 echo "export RAILS_ENV=test"
 export RAILS_ENV=test
 
