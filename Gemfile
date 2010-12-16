@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
+gem 'test-unit'
 gem 'rails', '3.0.1'
 gem 'newrelic_rpm', :git => 'repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
 gem "ci_reporter", "1.6.3"
-gem "mocha", "0.9.8"
-gem "jeweler", "1.4.0"
-gem "gemcutter", "0.5.0"
+gem "mocha"
+gem "jeweler"
 gem 'shoulda'
 
 if defined? JRuby
@@ -15,8 +15,8 @@ gem "activerecord-jdbcsqlite3-adapter"
 
 else
 
-gem "mysql", "2.8.1"
-gem "sqlite3-ruby", "1.2.5"
+gem "mysql"
+gem "sqlite3-ruby"
 
 end
 

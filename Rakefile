@@ -8,9 +8,9 @@ RpmTestApp::Application.load_tasks
 begin
   gem 'test-unit'
   require 'test/unit'
-  require 'ci/reporter/rake/test_unit_loader'  
+  require 'ci/reporter/rake/test_unit'  
 rescue Exception => e
-  puts 'not using CI gem'
+  puts "not using CI gem: #{e}"
 end
 
 
