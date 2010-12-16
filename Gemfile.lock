@@ -38,7 +38,7 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     builder (2.1.2)
-    ci_reporter (1.6.0)
+    ci_reporter (1.6.3)
       builder (>= 2.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -93,7 +93,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ci_reporter (= 1.6.0)
+  ci_reporter (= 1.6.3)
   gemcutter (= 0.5.0)
   jeweler (= 1.4.0)
   mocha (= 0.9.8)
