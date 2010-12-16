@@ -19,5 +19,5 @@ bundle update
 echo "export RAILS_ENV=test"
 export RAILS_ENV=test
 
-bundle exec rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
+rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
 
