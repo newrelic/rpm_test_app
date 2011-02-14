@@ -18,3 +18,5 @@ if ENV['RAILS_ENV'] == 'test'
   end
 end
 require 'tasks/rails'
+gem 'newrelic_rpm'
+require 'tasks/all'
