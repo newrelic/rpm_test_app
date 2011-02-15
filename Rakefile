@@ -17,4 +17,7 @@ if ENV['RAILS_ENV'] == 'test'
   rescue Exception => e
   end
 end
+gem 'newrelic_rpm'
+require 'tasks/all'
+
 require 'tasks/rails'
