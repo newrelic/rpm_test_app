@@ -18,6 +18,7 @@ git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
+bundle install
 rake gems:install
 rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
 
