@@ -18,8 +18,7 @@ gem "newrelic_rpm", :git => 'repo.newrelic.com:/git/ruby_agent.git', :branch => 
 
 if defined? JRuby
 
-gem "jdbc-sqlite3"
-gem "activerecord-jdbcsqlite3-adapter"
+gem "activerecord-jdbcmysql-adapter"
 
 else
 
