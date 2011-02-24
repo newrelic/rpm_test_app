@@ -2,7 +2,7 @@ require 'application'
 class AuthorsController < ApplicationController
   # GET /authors
   # GET /authors.xml
-  
+  include NewRelic::Agent::Instrumentation::ControllerInstrumentation
   newrelic_ignore :only => :index
   
   def index
