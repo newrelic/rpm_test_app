@@ -17,7 +17,7 @@ rvm gemset create rails30_agent_tests
 
 rvm gemset use rails30_agent_tests
 
-gem install bundler jeweler
+gem install bundler jeweler shoulda mocha
 
 echo `which ruby`
 bundle update
