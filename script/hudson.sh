@@ -26,7 +26,7 @@ gem install jeweler bundler shoulda mocha rack
 git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
 (cd tmp/newrelic_rpm; git checkout -b integration origin/integration; rake build )
-gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
+gem install tmp/newrelic_rpm/pkg/*.gem --no-rdoc --no-ri
 export RAILS_ENV=test
 
 rake gems:install
