@@ -12,6 +12,8 @@ source ~/.rvm/scripts/rvm
 
 rvm $RUBY@rails22_agent_tests --create
 
+rvm --force gemset empty rails22_agent_tests
+
 gem install rails --version=2.2.2
 
 git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
