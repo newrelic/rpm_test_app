@@ -21,7 +21,7 @@ rvm gemset use rails22_agent_tests
 
 gem install rails --version=2.2.2
 
-gem install jeweler bundler
+gem install jeweler bundler shoulda mocha
 
 git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
