@@ -18,7 +18,7 @@ rvm gemset create rails23_agent_tests
 
 rvm gemset use rails23_agent_tests
 
-gem install bundler jeweler
+gem install bundler jeweler shoulda mocha
 
 export RAILS_ENV=test
 
