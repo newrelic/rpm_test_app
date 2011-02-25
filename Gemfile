@@ -16,7 +16,7 @@ gem "gemcutter", "0.5.0"
 
 gem "newrelic_rpm", :git => 'repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
 
-if defined? JRuby
+if(RUBY_PLATFORM == 'java')
 
 gem "activerecord-jdbcmysql-adapter"
 
