@@ -21,3 +21,4 @@ gem 'newrelic_rpm'
 require 'tasks/all'
 
 require 'tasks/rails'
+require File.dirname(`gem which newrelic_rpm`) + "/tasks/all"
