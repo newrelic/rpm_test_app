@@ -14,7 +14,9 @@ rvm $RUBY
 
 rvm --force gemset delete rails20_agent_tests
 
-rvm gemset use rails20_agent_tests --create
+rvm gemset create rails20_agent_tests
+
+rvm gemset use rails20_agent_tests
 
 gem install rails --version=2.0.2
 
