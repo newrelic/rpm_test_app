@@ -10,7 +10,7 @@ mkdir -p vendor/plugins
 
 source ~/.rvm/scripts/rvm
 
-rvm $RUBY
+rvm $RUBY@rails22_agent_tests --create
 
 git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
