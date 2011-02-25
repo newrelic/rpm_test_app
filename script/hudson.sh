@@ -18,6 +18,8 @@ rvm gemset create rails23_agent_tests
 
 rvm gemset use rails23_agent_tests
 
+gem install bundler jeweler
+
 export RAILS_ENV=test
 
 bundle update
