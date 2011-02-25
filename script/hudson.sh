@@ -14,7 +14,9 @@ rvm $RUBY
 
 rvm --force gemset delete rails23_agent_tests
 
-rvm gemset use rails23_agent_tests --create
+rvm gemset create rails23_agent_tests
+
+rvm gemset use rails23_agent_tests
 
 export RAILS_ENV=test
 
