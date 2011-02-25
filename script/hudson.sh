@@ -14,7 +14,9 @@ rvm $RUBY
 
 rvm --force gemset delete rails21_agent_tests
 
-rvm gemset use rails21_agent_tests --create
+rvm gemset create rails21_agent_tests
+
+rvm gemset use rails21_agent_tests
 
 gem install rails --version=2.1.2
 
