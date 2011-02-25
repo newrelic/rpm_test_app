@@ -8,7 +8,7 @@ gem "mocha"
 gem "jeweler"
 gem 'shoulda'
 
-if defined? JRuby
+if (RUBY_PLATFORM == 'java')
 
 gem "activerecord-jdbcmysql-adapter"
 
