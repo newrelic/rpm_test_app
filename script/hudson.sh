@@ -11,13 +11,8 @@ mkdir -p vendor/plugins
 source ~/.rvm/scripts/rvm
 
 rvm --create $RUBY@rails23_agent_tests
-
-git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
-
-(cd tmp/newrelic_rpm; git checkout -b integration origin/integration; rake build )
-gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
-bundle install
+bundle update
 rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
 
