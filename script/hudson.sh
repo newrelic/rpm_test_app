@@ -13,7 +13,9 @@ rvm $RUBY
 
 rvm --force gemset delete rails30_agent_tests
 
-rvm gemset use rails30_agent_tests --create
+rvm gemset create rails30_agent_tests
+
+rvm gemset use rails30_agent_tests
 
 
 echo `which ruby`
