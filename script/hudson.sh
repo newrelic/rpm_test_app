@@ -11,6 +11,9 @@ mkdir -p vendor/plugins
 source ~/.rvm/scripts/rvm
 
 rvm --create $RUBY@rails23_agent_tests
+
+rvm --force gemset empty rails23_agent_tests
+
 export RAILS_ENV=test
 
 bundle update
