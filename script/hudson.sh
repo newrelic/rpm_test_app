@@ -10,6 +10,9 @@ mkdir -p vendor/plugins
 
 source ~/.rvm/scripts/rvm
 rvm $RUBY@rails30_agent_tests --create
+
+rvm --force gemset empty rails30_agent_tests
+
 echo `which ruby`
 bundle update
 export RAILS_ENV=test
