@@ -10,9 +10,12 @@ mkdir -p vendor/plugins
 
 source ~/.rvm/scripts/rvm
 
-rvm $RUBY@rails22_agent_tests --create
+rvm $RUBY
 
 rvm --force gemset empty rails22_agent_tests
+
+rvm gemset use rails22_agent_tests --create
+
 
 gem install rails --version=2.2.2
 
