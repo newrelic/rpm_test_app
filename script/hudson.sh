@@ -9,9 +9,12 @@ mkdir -p vendor/gems
 mkdir -p vendor/plugins
 
 source ~/.rvm/scripts/rvm
-rvm $RUBY@rails30_agent_tests --create
+rvm $RUBY
 
-rvm --force gemset empty rails30_agent_tests
+rvm --force gemset delete rails30_agent_tests
+
+rvm gemset use rails30_agent_tests --create
+
 
 echo `which ruby`
 bundle update
