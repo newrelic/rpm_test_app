@@ -10,9 +10,11 @@ mkdir -p vendor/plugins
 
 source ~/.rvm/scripts/rvm
 
-rvm $RUBY@rails21_agent_tests --create
+rvm $RUBY
 
-rvm --force gemset empty rails21_agent_tests
+rvm --force gemset delete rails21_agent_tests
+
+rvm gemset use rails21_agent_tests --create
 
 gem install rails --version=2.1.2
 
