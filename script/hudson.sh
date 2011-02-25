@@ -21,6 +21,8 @@ rvm gemset use rails22_agent_tests
 
 gem install rails --version=2.2.2
 
+gem install jeweler bundler
+
 git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
 (cd tmp/newrelic_rpm; git checkout -b integration origin/integration; rake build )
