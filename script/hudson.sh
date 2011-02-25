@@ -10,9 +10,11 @@ mkdir -p vendor/plugins
 
 source ~/.rvm/scripts/rvm
 
+rvm $RUBY
+
 rvm --force gemset delete rails23_agent_tests
 
-rvm --create $RUBY@rails23_agent_tests
+rvm gemset use rails23_agent_tests --create
 
 export RAILS_ENV=test
 
