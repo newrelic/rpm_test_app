@@ -12,6 +12,8 @@ source ~/.rvm/scripts/rvm
 
 rvm $RUBY@rails21_agent_tests --create
 
+rvm --force gemset empty rails21_agent_tests
+
 gem install rails --version=2.1.2
 
 git clone hudson@repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
