@@ -11,11 +11,11 @@ gem "mocha", "0.9.8"
 gem 'shoulda'
 gem "jeweler", "1.4.0"
 gem "gemcutter", "0.5.0"
+gem 'rack'
 
-if defined? JRuby
+if (RUBY_PLATFORM == 'java')
 
-gem "jdbc-sqlite3"
-gem "activerecord-jdbcsqlite3-adapter"
+gem "activerecord-jdbcmysql-adapter"
 
 else
 
