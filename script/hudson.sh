@@ -12,7 +12,7 @@ source ~/.rvm/scripts/rvm
 
 rvm $RUBY
 
-rvm --force gemset empty rails22_agent_tests
+rvm --force gemset delete rails22_agent_tests
 
 rvm gemset create rails22_agent_tests
 
