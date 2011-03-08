@@ -25,7 +25,7 @@ gem install jeweler bundler shoulda mocha rack ci_reporter
 
 bundle install
 
-git clone repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
+git clone chi-repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
 (cd tmp/newrelic_rpm; git checkout -b integration origin/integration; rake build )
 gem install tmp/newrelic_rpm/pkg/*.gem --no-rdoc --no-ri
