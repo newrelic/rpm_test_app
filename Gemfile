@@ -8,7 +8,7 @@ gem "rails", "2.3.11"
 # gem "rails", "2.1.2"
 # gem "rails", "2.2.2"
 
-gem "ci_reporter", :git => 'git://github.com/newrelic/ci_reporter.git'
+gem "ci_reporter"
 gem "mocha", "0.9.8"
 gem "shoulda"
 gem "jeweler", "1.4.0"
