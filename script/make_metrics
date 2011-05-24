@@ -1,0 +1,43 @@
+#!/Users/justin/.rvm/rubies/ree-1.8.7-2011.01/bin/ruby
+GC.copy_on_write_friendly = true
+require 'newrelic_rpm'
+require 'new_relic/agent/instrumentation/controller_instrumentation'
+NewRelic::Agent.manual_start
+module MyModule
+  include NewRelic::Agent::Instrumentation::ControllerInstrumentation
+  def other_method
+    sleep(0.1)
+  end
+
+  add_method_tracer :other_method, 'Custom/test/method'
+
+  def fake_transaction
+    sleep(1 + rand(100) * 0.01)
+    NewRelic::Agent.notice_error(TypeError.new('whee'))
+    other_method
+  end
+
+  add_transaction_tracer :fake_transaction, :category => :task
+  
+  def run_transaction(number)
+    puts "running transaction #{number}"
+    pid = Kernel.fork do
+      NewRelic::Agent.after_fork(:force_reconnect => false)
+      fake_transaction
+      NewRelic::Agent.shutdown
+    end
+    pid
+  end
+  
+end
+
+extend MyModule
+# waiting for this process to connect
+sleep(20)
+pids = []
+(1..100).each do |x|
+  sleep(0.1 * rand(10))
+  Process.detach(run_transaction(x))
+end
+sleep(60)
+NewRelic::Agent.shutdown(:force_send => true)
