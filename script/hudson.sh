@@ -17,6 +17,7 @@ rvm gemset create rails30_agent_tests
 
 rvm gemset use rails30_agent_tests
 
+gem uninstall rake -x # work around rake 0.9.0 bug
 gem install bundler jeweler shoulda mocha
 
 echo `which ruby`
