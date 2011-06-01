@@ -17,9 +17,9 @@ rvm gemset create rails30_agent_tests
 
 rvm gemset use rails30_agent_tests
 
-gem install bundler jeweler shoulda mocha
-gem install rake -v '0.8.7'
-gem uninstall rake -v '0.9.0'
+gem install bundler jeweler shoulda mocha --no-rdoc --no-ri
+gem install rake -v '0.8.7' --no-rdoc --no-ri
+gem uninstall rake -v '>=0.9.0'
 echo `which ruby`
 bundle update
 export RAILS_ENV=test
