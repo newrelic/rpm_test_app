@@ -20,7 +20,7 @@ rvm gemset use rails20_agent_tests
 
 gem install rails --version=2.0.2
 
-gem install jeweler bundler shoulda mocha rack ci_reporter
+gem install jeweler bundler shoulda mocha rack ci_reporter --no-rdoc --no-ri
 
 bundle install
 
