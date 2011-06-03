@@ -21,7 +21,7 @@ rvm gemset use rails22_agent_tests
 
 gem install rails --version=2.2.2
 
-gem install jeweler bundler shoulda mocha rack ci_reporter
+gem install jeweler bundler shoulda mocha rack ci_reporter --no-rdoc --no-ri
 
 bundle install
 

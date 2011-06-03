@@ -11,6 +11,7 @@ gem "mocha", "0.9.8"
 gem "jeweler", "1.4.0"
 gem "gemcutter", "0.5.0"
 gem 'rack'
+gem 'rack-test'
 
 if (RUBY_PLATFORM == 'java')
 
