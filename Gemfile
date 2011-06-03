@@ -13,6 +13,8 @@ gem "mocha", "0.9.8"
 gem "shoulda"
 gem "jeweler", "1.4.0"
 gem "gemcutter", "0.5.0"
+gem 'rack'
+gem 'rack-test'
 
 gem "newrelic_rpm", :git => 'chi-repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
 
