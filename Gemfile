@@ -10,13 +10,11 @@ gem "jeweler"
 gem 'shoulda'
 
 if (RUBY_PLATFORM == 'java')
-
-gem "activerecord-jdbcmysql-adapter"
-
+  gem "activerecord-jdbcmysql-adapter"
+  gem "activerecord-jdbcsqlite3-adapter"
+  gem "jruby-openssl"
 else
-
-gem "mysql"
-gem "sqlite3-ruby"
-
+  gem "mysql"
+  gem "sqlite3-ruby"
 end
 
