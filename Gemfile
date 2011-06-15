@@ -8,6 +8,8 @@ gem "ci_reporter", :git => 'git://github.com/newrelic/ci_reporter.git'
 gem "mocha"
 gem "jeweler"
 gem 'shoulda'
+gem 'rack'
+gem 'rack-test'
 
 if (RUBY_PLATFORM == 'java')
   gem "activerecord-jdbcmysql-adapter"
