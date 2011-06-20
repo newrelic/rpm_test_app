@@ -5,7 +5,7 @@
 
 <p>
   <b>Author:</b>
-  <%=h @blog.author.name %>
+  <%=h @blog.author.try(:name) %>
 </p>
 
 <h1>Published Posts</h1>
