@@ -1,7 +1,26 @@
 RpmTestApp::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  resources :blogs do
+    collection do
+      get 'about'
+    end
+    resources :posts
+  end
 
+  resources :authors
+  
+  namespace :admin do
+    # admin.blogs 'blogs', :controller => 'blogs', :action => 'index'
+    match 'blogs' => 'blogs#index'
+    # admin.readme 'readme', :controller => 'blogs', :action => 'readme'
+    match 'readme' => 'blogs#readme'
+    # admin.status 'status', :controller => 'blogs', :action => 'rpm_status'
+    match 'status' => 'blogs#rpm_status'
+  end
+
+  root :to => 'blogs#index'
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

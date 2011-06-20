@@ -13,7 +13,7 @@
 <% for blog in @blogs %>
   <tr>
     <td><%=h blog.title %></td>
-    <td><%=h blog.author.name %></td>
+    <td><%=h blog.author.try(:name) %></td>
     <td><%= link_to 'Show', blog %></td>
   </tr>
 <% end %>

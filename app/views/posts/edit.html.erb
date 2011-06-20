@@ -1,9 +1,7 @@
 <h1>Editing post</h1>
-<h2>Blog: <%= @post.blog.title %></h2>
+<h2>Blog: <%= @post.blog.try(:title) %></h2>
 
 <% form_for(@post, :url => blog_post_path) do |f| %>
-  <%= f.error_messages %>
-
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>

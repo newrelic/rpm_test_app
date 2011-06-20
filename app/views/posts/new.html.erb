@@ -4,7 +4,6 @@
 <p>Note: Metrics for the create are ignored. </p>
 <% form_for(@post, :url => blog_posts_url) do |f| %>
   <%= f.hidden_field :blog_id %>
-  <%= f.error_messages %>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
