@@ -23,7 +23,7 @@ module Admin
     end
     
     def readme
-      render :file => "#{RAILS_ROOT}/README", :use_full_path => false
+      render :file => "#{Rails.root}/README", :use_full_path => false
     end
     # GET /blogs/1
     # GET /blogs/1.xml
