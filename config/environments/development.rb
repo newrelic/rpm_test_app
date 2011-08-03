@@ -16,9 +16,3 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-config.gem "mocha", :version => '>= 0.9.5'
-if defined? JRuby
-config.gem "jdbc-sqlite3", :lib => "sqlite3"
-else
-config.gem "sqlite3-ruby", :lib => "sqlite3"
-end

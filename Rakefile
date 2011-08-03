@@ -18,4 +18,4 @@ if ENV['RAILS_ENV'] == 'test'
   end
 end
 require 'tasks/rails'
-require File.dirname(`gem which newrelic_rpm`) + "/tasks/all"
+require "vendor/plugins/newrelic_rpm/lib/tasks/all"
