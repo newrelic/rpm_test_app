@@ -18,16 +18,15 @@ rvm gemset create rails20_agent_tests
 
 rvm gemset use rails20_agent_tests
 
-gem install rails --version=2.0.2
+gem install rails --version=2.0.2 --no-rdoc --no-ri
 
 gem install jeweler bundler shoulda mocha rack ci_reporter --no-rdoc --no-ri
 
 bundle install
 
-git clone chi-repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
+git clone chi-repo.newrelic.com:/git/ruby_agent.git vendor/plugins/newrelic_rpm
 
-(cd tmp/newrelic_rpm; git checkout -b integration origin/integration; rake build )
-gem install tmp/newrelic_rpm/pkg/*.gem --no-rdoc --no-ri
+(cd vendor/plugins/newrelic_rpm; git checkout -b integration origin/integration; rake build )
 export RAILS_ENV=test
 
 rake gems:install
