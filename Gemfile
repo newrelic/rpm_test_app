@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-gem 'rake', '0.8.7'
 gem 'test-unit'
 gem 'rails', '3.0.4'
 gem 'newrelic_rpm', :git => 'chi-repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
