@@ -1,9 +1,9 @@
 GIT
   remote: chi-repo.newrelic.com:/git/ruby_agent.git
-  revision: 423700796e2b199724b9bd2a6d66e40c7912f9c5
+  revision: df9a539870358dc50f56f5eac3106ccebd01b97f
   branch: integration
   specs:
-    newrelic_rpm (3.1.2.beta1)
+    newrelic_rpm (3.1.2.beta2)
 
 GIT
   remote: git://github.com/newrelic/ci_reporter.git
@@ -15,16 +15,16 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    actionmailer (2.3.14)
-      actionpack (= 2.3.14)
-    actionpack (2.3.14)
-      activesupport (= 2.3.14)
+    actionmailer (2.3.11)
+      actionpack (= 2.3.11)
+    actionpack (2.3.11)
+      activesupport (= 2.3.11)
       rack (~> 1.1.0)
-    activerecord (2.3.14)
-      activesupport (= 2.3.14)
-    activeresource (2.3.14)
-      activesupport (= 2.3.14)
-    activesupport (2.3.14)
+    activerecord (2.3.11)
+      activesupport (= 2.3.11)
+    activeresource (2.3.11)
+      activesupport (= 2.3.11)
+    activesupport (2.3.11)
     builder (3.0.0)
     gemcutter (0.5.0)
       json_pure
@@ -41,12 +41,12 @@ GEM
     rack (1.1.2)
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (2.3.14)
-      actionmailer (= 2.3.14)
-      actionpack (= 2.3.14)
-      activerecord (= 2.3.14)
-      activeresource (= 2.3.14)
-      activesupport (= 2.3.14)
+    rails (2.3.11)
+      actionmailer (= 2.3.11)
+      actionpack (= 2.3.11)
+      activerecord (= 2.3.11)
+      activeresource (= 2.3.11)
+      activesupport (= 2.3.11)
       rake (>= 0.8.3)
     rake (0.9.2)
     rubyforge (2.0.4)
@@ -68,7 +68,7 @@ DEPENDENCIES
   newrelic_rpm!
   rack
   rack-test
-  rails (~> 2.3.0)
+  rails (= 2.3.11)
   shoulda
   sqlite3-ruby (= 1.2.5)
   test-unit

@@ -3,7 +3,7 @@ source :gemcutter
 
 gem "test-unit"
 
-gem "rails", "~>2.3.0"
+gem "rails", "2.3.11"
 
 gem "ci_reporter", :git => 'git://github.com/newrelic/ci_reporter.git'
 gem "mocha", "0.9.8"
