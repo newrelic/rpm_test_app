@@ -1,9 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'test-unit'
-gem 'rails', '~> 3.1.0.rc5'
-gem 'arel', '2.1.4'
-gem 'newrelic_rpm', :git => 'chi-repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
+gem 'rails', '~>3.1.0'
 gem "ci_reporter", :git => 'git://github.com/newrelic/ci_reporter.git'
 gem "mocha"
 gem 'shoulda'
@@ -19,3 +17,4 @@ else
   gem "sqlite3-ruby"
 end
 
+gem "newrelic_rpm", :path => "../ruby_agent"
