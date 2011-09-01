@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'test-unit'
-gem 'rails', '3.0.4'
+gem 'rails', '~>3.0.0'
 gem 'newrelic_rpm', :git => 'chi-repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
 gem "ci_reporter", :git => 'git://github.com/newrelic/ci_reporter.git'
 gem "mocha"
