@@ -4,7 +4,6 @@ BRANCH=integration
 if [ $# == 1 ] ; then
   BRANCH=$1
 fi
-exit
 echo "Executing $0 on branch $BRANCH"
 echo "Running in $(pwd)"
 rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems vendor/newrelic_rpm
