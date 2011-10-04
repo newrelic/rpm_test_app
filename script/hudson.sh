@@ -1,6 +1,11 @@
 #!/bin/bash
 # Script executed by hudson
-echo "Executing $0"
+BRANCH=integration
+if [ $# == 1 ] ; then
+  BRANCH=$1
+fi
+exit
+echo "Executing $0 on branch $BRANCH"
 echo "Running in $(pwd)"
 rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems vendor/newrelic_rpm
 mkdir -p tmp
@@ -26,7 +31,7 @@ bundle install
 
 git clone chi-repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
 
-(cd tmp/newrelic_rpm; git checkout -b integration origin/integration; rake build )
+(cd tmp/newrelic_rpm; git checkout -b $BRANCH origin/$BRANCH ; rake build )
 gem install tmp/newrelic_rpm/pkg/*.gem --no-rdoc --no-ri
 export RAILS_ENV=test
 
