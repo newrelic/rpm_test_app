@@ -13,7 +13,7 @@ gem "gemcutter", "0.5.0"
 gem 'rack'
 gem 'rack-test'
 
-gem "newrelic_rpm", :git => 'chi-repo.newrelic.com:/git/ruby_agent.git', :branch => 'integration'
+gem "newrelic_rpm", :git => 'chi-repo.newrelic.com:/git/ruby_agent.git', :branch => 'rum_2'
 
 if(RUBY_PLATFORM == 'java')
   gem "activerecord-jdbcmysql-adapter"
