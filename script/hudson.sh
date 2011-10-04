@@ -1,6 +1,11 @@
 #!/bin/bash
 # Script executed by hudson
-echo "Executing $0"
+BRANCH=integration
+if [ $# == 1 ] ; then
+  BRANCH=$1
+fi
+exit
+echo "Executing $0 on branch $BRANCH"
 echo "Running in $(pwd)"
 rm -rf tmp/newrelic_rpm vendor/plugins/newrelic_rpm vendor/gems vendor/newrelic_rpm
 mkdir -p tmp
@@ -20,6 +25,8 @@ rvm gemset use rails23_agent_tests
 
 gem install bundler jeweler shoulda mocha --no-rdoc --no-ri
 
+(cd tmp/newrelic_rpm; git checkout $BRANCH ; rake build )
+gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
 bundle update
