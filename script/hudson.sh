@@ -24,8 +24,6 @@ rvm gemset use rails23_agent_tests
 
 gem install bundler jeweler shoulda mocha --no-rdoc --no-ri
 
-(cd tmp/newrelic_rpm; git checkout $BRANCH ; rake build )
-gem install tmp/newrelic_rpm/pkg/*.gem -i vendor --no-rdoc --no-ri
 export RAILS_ENV=test
 
 bundle update
