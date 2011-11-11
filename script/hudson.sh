@@ -26,6 +26,7 @@ gem install bundler jeweler shoulda mocha --no-rdoc --no-ri
 
 export RAILS_ENV=test
 
+bundle config build.mysql --with-mysql-config=`which mysql_config`
 bundle update
 rake --trace ci:setup:testunit test:newrelic || echo "Unit test failures"
 
