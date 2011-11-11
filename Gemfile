@@ -20,7 +20,7 @@ gem "activerecord-jdbcmysql-adapter"
 
 else
 
-gem "mysql", "2.8.1"
+  gem "mysql", RUBY_VERSION == '1.8.6' ? '2.7' : '2.8.1'
 gem "sqlite3-ruby", "1.2.5"
 
 end
