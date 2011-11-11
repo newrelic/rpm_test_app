@@ -26,6 +26,7 @@ gem install rails --version=2.1.2
 
 gem install jeweler bundler shoulda mocha rack ci_reporter --no-rdoc --no-ri
 
+bundle config build.mysql --with-mysql-config=`which mysql_config`
 bundle install
 
 git clone chi-repo.newrelic.com:/git/ruby_agent.git tmp/newrelic_rpm
