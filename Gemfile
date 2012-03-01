@@ -13,7 +13,6 @@ gem "gemcutter", "0.5.0"
 gem 'rack'
 gem 'rack-test'
 gem 'newrelic_rpm'
-gem 'shoulda'
 
 if (RUBY_PLATFORM == 'java')
 
@@ -21,7 +20,13 @@ gem "activerecord-jdbcmysql-adapter"
 
 else
 
-gem "mysql", RUBY_VERSION == '1.8.6' ? '2.7' : '2.8.1'
+if RUBY_VERSION == '1.8.6'
+  gem "mysql", '2.7'
+  gem 'shoulda', '~> 2.11.3'
+else
+  gem "mysql",  '2.8.1'
+  gem 'shoulda', '~> 3.0.0'
+end
 gem "sqlite3-ruby", "1.2.5"
 
 end
