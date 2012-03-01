@@ -12,6 +12,7 @@ gem "jeweler", "1.4.0"
 gem "gemcutter", "0.5.0"
 gem 'rack'
 gem 'rack-test'
+gem 'shoulda'
 
 if (RUBY_PLATFORM == 'java')
 
