@@ -13,6 +13,7 @@ gem "gemcutter", "0.5.0"
 gem 'rack'
 gem 'rack-test'
 gem 'newrelic_rpm'
+gem 'shoulda'
 
 if (RUBY_PLATFORM == 'java')
 
