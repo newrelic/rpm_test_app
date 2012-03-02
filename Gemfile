@@ -15,6 +15,7 @@ gem 'rack-test'
 
 if (RUBY_PLATFORM == 'java')
   gem "activerecord-jdbcmysql-adapter"
+  gem "jruby-openssl"
 else
   gem "sqlite3-ruby", "1.2.5"
 end
