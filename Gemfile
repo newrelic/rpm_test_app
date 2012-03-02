@@ -16,13 +16,10 @@ gem 'rack-test'
 gem 'newrelic_rpm'
 
 if (RUBY_PLATFORM == 'java')
-
-gem "activerecord-jdbcmysql-adapter"
-
+  gem "activerecord-jdbcmysql-adapter"
+  gem "jruby-openssl"
 else
-
   gem "mysql", RUBY_VERSION == '1.8.6' ? '2.7' : '2.8.1'
-gem "sqlite3-ruby", "1.2.5"
-
+  gem "sqlite3-ruby", "1.2.5"
 end
 
