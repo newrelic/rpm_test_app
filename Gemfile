@@ -14,19 +14,16 @@ gem 'rack'
 gem 'rack-test'
 
 if (RUBY_PLATFORM == 'java')
-
-gem "activerecord-jdbcmysql-adapter"
-
+  gem "activerecord-jdbcmysql-adapter"
 else
+  gem "sqlite3-ruby", "1.2.5"
+end
 
 if RUBY_VERSION == '1.8.6'
-  gem "mysql", '2.7'
+  gem "mysql", '2.7' unless RUBY_PLATFORM == 'java'
   gem 'shoulda', '~> 2.11.3'
 else
-  gem "mysql",  '2.8.1'
+  gem "mysql", '2.8.1' unless RUBY_PLATFORM == 'java'
   gem 'shoulda', '~> 3.0.0'
-end
-gem "sqlite3-ruby", "1.2.5"
-
 end
 
