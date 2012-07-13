@@ -15,5 +15,6 @@ if (RUBY_PLATFORM == 'java')
   gem "jruby-openssl"
 else
   gem "mysql"
-  gem "sqlite3-ruby"
+  #gem "sqlite3-ruby"
+  gem "sqlite3"
 end
