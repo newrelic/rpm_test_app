@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_filter :load_blog
     
   def index
-    @posts = Post.find(:all)
+    @posts = Post.all
 
     respond_to do |format|
       format.html # index.html.erb

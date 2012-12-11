@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
   newrelic_ignore :only => :index
   
   def index
-    @authors = Author.find(:all)
+    @authors = Author.all
 
     respond_to do |format|
       format.html # index.html.erb

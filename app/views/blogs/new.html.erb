@@ -7,7 +7,7 @@
   </p>
   <p>
     <%= f.label :author %><br />
-    <%= f.select(:author_id, Author.find(:all).map{ |a| [a.name, a.id] }) %> <%= link_to "New", new_author_path %>
+    <%= f.select(:author_id, Author.all.map{ |a| [a.name, a.id] }) %> <%= link_to "New", new_author_path %>
   </p>
   <p>
     <%= f.submit "Create" %>

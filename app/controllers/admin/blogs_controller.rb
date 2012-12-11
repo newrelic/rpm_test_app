@@ -3,7 +3,7 @@ module Admin
     # GET /blogs
     # GET /blogs.xml
     def index
-      @blogs = Blog.find(:all)
+      @blogs = Blog.all
 
       respond_to do |format|
         format.html # index.html.erb

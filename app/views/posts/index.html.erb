@@ -19,7 +19,7 @@
     <td><%=h post.blog_id %></td>
     <td><%= link_to 'Show', blog_post_path(@blog, post) %></td>
     <td><%= link_to 'Edit', edit_blog_post_path(@blog, post) %></td>
-    <td><%= link_to 'Destroy', blog_post_path(@blog, post), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', blog_post_path(@blog, post), :data => {:confirm => 'Are you sure?'}, :method => :delete %></td>
   </tr>
 <% end %>
 </table>

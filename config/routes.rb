@@ -12,11 +12,11 @@ RpmTestApp::Application.routes.draw do
   
   namespace :admin do
     # admin.blogs 'blogs', :controller => 'blogs', :action => 'index'
-    match 'blogs' => 'blogs#index'
+    get 'blogs' => 'blogs#index'
     # admin.readme 'readme', :controller => 'blogs', :action => 'readme'
-    match 'readme' => 'blogs#readme'
+    get 'readme' => 'blogs#readme'
     # admin.status 'status', :controller => 'blogs', :action => 'rpm_status'
-    match 'status' => 'blogs#rpm_status'
+    get 'status' => 'blogs#rpm_status'
   end
 
   root :to => 'blogs#index'

@@ -1,9 +1,13 @@
 source 'http://rubygems.org'
 
 gem 'test-unit','2.3.2'
-gem 'rails', '~>3.2.0'
+
+gem 'rails', '~>4.0.0.beta', :github => 'rails/rails'
+gem 'activerecord-deprecated_finders', :github => 'rails/activerecord-deprecated_finders'
+gem 'journey', :github => 'rails/journey'
+gem 'activerecord-mysql-adapter'
+
 gem 'newrelic_rpm', :path => '../ruby_agent'
-gem "ci_reporter", :git => 'git://github.com/newrelic/ci_reporter.git'
 gem "mocha"
 gem 'shoulda'
 gem 'rack'
