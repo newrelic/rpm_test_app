@@ -12,12 +12,12 @@ common: &default_settings
   # You must specify the licence key associated with your New Relic account.
   # This key binds your Agent's data to your account in the New Relic RPM service.
 
-  #license_key: 'bootstrap_newrelic_admin_license_key_000'
-  #host: localhost
-  #port: 3000
+  license_key: 'bootstrap_newrelic_admin_license_key_000'
+  host: localhost
+  port: 8081
 
-  license_key: 'bd0e1d52adade840f7ca727d29a86249e89a6f1c'
-  host: staging-collector.newrelic.com
+  #license_key: 'bd0e1d52adade840f7ca727d29a86249e89a6f1c'
+  #host: staging-collector.newrelic.com
 
   # Agent Enabled
   # Use this setting to force the agent to run or not run.
@@ -76,7 +76,7 @@ common: &default_settings
   capture_params: false
 
 
-  # Transaction tracer captures deep information about slow
+
   # transactions and sends this to the RPM service once a minute. Included in the
   # transaction is the exact call sequence of the transactions including any SQL statements
   # issued.
@@ -101,6 +101,8 @@ common: &default_settings
     # when SQL statements exceed this threshold, then capture and send to RPM the current
     # stack trace. This is helpful for pinpointing where long SQL calls originate from  
     stack_trace_threshold: 0.500
+
+    explain_threshold: 0.0001
   
   # Error collector captures information about uncaught exceptions and sends them to RPM for
   # viewing

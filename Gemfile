@@ -8,6 +8,7 @@ gem "mocha"
 gem 'shoulda'
 gem 'rack'
 gem 'rack-test'
+gem 'unicorn'
 
 if (RUBY_PLATFORM == 'java')
   gem "activerecord-jdbcmysql-adapter"
