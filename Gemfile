@@ -9,6 +9,9 @@ gem 'shoulda'
 gem 'rack'
 gem 'rack-test'
 gem 'unicorn'
+gem 'pg'
+gem 'resque'
+gem 'debugger'
 
 if (RUBY_PLATFORM == 'java')
   gem "activerecord-jdbcmysql-adapter"
