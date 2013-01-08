@@ -1,16 +1,14 @@
 GIT
-  remote: chi-repo.newrelic.com:/git/ruby_agent.git
-  revision: 423700796e2b199724b9bd2a6d66e40c7912f9c5
-  branch: integration
-  specs:
-    newrelic_rpm (3.1.2.beta1)
-
-GIT
   remote: git://github.com/newrelic/ci_reporter.git
   revision: ffaf36ee59c5b797f9b29a1753958ebecc744aa0
   specs:
     ci_reporter (1.6.4)
       builder (>= 2.1.2)
+
+PATH
+  remote: ../ruby_agent
+  specs:
+    newrelic_rpm (3.5.5)
 
 GEM
   remote: http://rubygems.org/
