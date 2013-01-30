@@ -1,16 +1,14 @@
 GIT
-  remote: chi-repo.newrelic.com:/git/ruby_agent.git
-  revision: df9a539870358dc50f56f5eac3106ccebd01b97f
-  branch: integration
-  specs:
-    newrelic_rpm (3.1.2.beta2)
-
-GIT
   remote: git://github.com/newrelic/ci_reporter.git
   revision: ffaf36ee59c5b797f9b29a1753958ebecc744aa0
   specs:
     ci_reporter (1.6.4)
       builder (>= 2.1.2)
+
+PATH
+  remote: ../ruby_agent
+  specs:
+    newrelic_rpm (3.5.6.2.local)
 
 GEM
   remote: http://rubygems.org/
@@ -51,7 +49,6 @@ GEM
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
     shoulda (2.11.3)
-    spruz (0.2.13)
     sqlite3-ruby (1.2.5)
     test-unit (2.3.2)
 
