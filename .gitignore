@@ -14,3 +14,5 @@ pkg/
 /tmp
 log/*.log
 tmp/**/*
+*.swp
+*.swo
