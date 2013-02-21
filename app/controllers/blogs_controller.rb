@@ -84,6 +84,10 @@ class BlogsController < ApplicationController
     end
   end
 
+  def boom
+    raise "Boom!"
+  end
+
   def metrics
     @stats = NewRelic::Agent.agent.stats_engine.
       instance_variable_get(:@stats_hash).
