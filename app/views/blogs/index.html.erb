@@ -4,6 +4,8 @@
 <p>Go to <%= link_to "Authors Page", authors_path %> (this is ignored by instrumentation).</p>
 <p>Here is an <%= link_to "About Page", :action => 'about'%> which links to a template without a controller action.
 <p>Here is <%= link_to "Page", admin_status_path %> that makes an external call.
+<p>Here is <%= link_to "a page that always fails", boom_path %>.
+<p>Here is <%= link_to "a peek at the current stats hash", metrics_path %>.
 <table>
   <tr>
     <th>Title</th>
