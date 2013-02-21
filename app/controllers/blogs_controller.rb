@@ -83,4 +83,11 @@ class BlogsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def metrics
+    @stats = NewRelic::Agent.agent.stats_engine.
+      instance_variable_get(:@stats_hash).
+      map {|k,v| [k, v]}.
+      sort_by {|a| a[0]}
+  end
 end

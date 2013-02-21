@@ -20,6 +20,8 @@ RpmTestApp::Application.routes.draw do
   end
 
   root :to => 'blogs#index'
+
+  match 'metrics' => 'blogs#metrics'
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
