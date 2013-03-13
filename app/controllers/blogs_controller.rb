@@ -1,8 +1,16 @@
 class BlogsController < ApplicationController
+  #extend NewRelic::Agent::MethodTracer
+
   # GET /blogs
   # GET /blogs.xml
   def index
     @blogs = Blog.find(:all)
+
+    self.class.trace_execution_scoped(["Custom/kiq/enqueue"]) do
+      100.times do
+        Computin.perform_async
+      end
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +22,10 @@ class BlogsController < ApplicationController
   # GET /blogs/1.xml
   def show
     @blog = Blog.find(params[:id])
+
+    100.times do
+      Databasin.perform_async
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -85,7 +97,10 @@ class BlogsController < ApplicationController
   end
 
   def boom
-    raise "Boom!"
+    100.times do
+      Boomin.perform_async
+    end
+    raise "Page went boom, job should blow too."
   end
 
   def metrics
