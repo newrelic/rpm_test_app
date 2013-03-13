@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
 gem 'test-unit', '2.3.2'
-gem 'rake', '0.9.2.2'
+gem 'rake', '0.9.6'
 
 gem 'rails', '~>4.0.0.beta1'
 
-gem "mocha"
+gem "mocha", '~>0.13.0', :require => false
 gem 'shoulda'
 gem 'rack'
 gem 'rack-test'
