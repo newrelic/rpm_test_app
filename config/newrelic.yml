@@ -8,15 +8,14 @@ common: &common
 
   license_key: bootstrap_newrelic_admin_license_key_000
   host: localhost
-  #port: 8081
-  port: 8888
+  port: 8081
   ssl: false
  
   enabled: true
   monitor_mode: true
 
   app_name: kiq
-  log_level: debug
+  log_level: info
   apdex_t: 0.0
   capture_params: false
   transaction_tracer: &70195347551140
