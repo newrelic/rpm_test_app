@@ -1,38 +1,35 @@
-# This file is auto-generated from the current state of the database. Instead
-# of editing this file, please use the migrations feature of Active Record to
-# incrementally modify your database, and then regenerate this schema definition.
-#
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
-#
-# It's strongly recommended to check this file into your version control system.
-
-ActiveRecord::Schema.define(:version => 20081124213650) do
-
-  create_table "authors", :force => true do |t|
-    t.string   "name"
-    t.string   "login_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+Sequel.migration do
+  change do
+    create_table(:authors) do
+      primary_key :id
+      column :name, "text"
+      column :login_id, "text"
+      column :created_at, "timestamp with time zone"
+      column :modified_at, "timestamp with time zone"
+    end
+    
+    create_table(:blogs) do
+      primary_key :id
+      column :title, "text"
+      foreign_key :author_id, Sequel::SQL::QualifiedIdentifier.new(:public, :authors), :key=>[:id]
+      column :created_at, "timestamp with time zone"
+      column :modified_at, "timestamp with time zone"
+    end
+    
+    create_table(:posts) do
+      primary_key :id
+      column :title, "text"
+      column :body, "text"
+      column :published, "boolean"
+      foreign_key :blog_id, Sequel::SQL::QualifiedIdentifier.new(:public, :blogs), :key=>[:id]
+      column :created_at, "timestamp with time zone"
+      column :modified_at, "timestamp with time zone"
+    end
+    
+    create_table(:schema_migrations) do
+      column :filename, "text", :null=>false
+      
+      primary_key [:filename]
+    end
   end
-
-  create_table "blogs", :force => true do |t|
-    t.string   "title"
-    t.integer  "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.boolean  "published"
-    t.integer  "blog_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end

@@ -1,13 +1,16 @@
-class Post < ActiveRecord::Base
-  belongs_to :blog
-  scope :published, :conditions => {:published => true}
+class Post < Sequel::Model
+  many_to_one :blog
 
-  after_save do
+  dataset_module do
+    subset( :published ) { :published }
+  end
+
+  def after_save
     sleep 5
   end
 
   def evaluate
     # does nothing
   end
-  
+
 end

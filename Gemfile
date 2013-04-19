@@ -9,12 +9,6 @@ gem 'shoulda'
 gem 'rack'
 gem 'rack-test'
 
-if (RUBY_PLATFORM == 'java')
-  gem "activerecord-jdbcmysql-adapter"
-  gem "activerecord-jdbcsqlite3-adapter"
-  gem "jruby-openssl"
-else
-  gem "mysql"
-  #gem "sqlite3-ruby"
-  gem "sqlite3"
-end
+gem 'sequel-rails'
+gem 'pg'
+gem "sqlite3"

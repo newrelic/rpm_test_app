@@ -16,3 +16,6 @@ log/*.log
 tmp/**/*
 *.swp
 *.swo
+vendor/cache/*
+ack/*
+db/*.sqlite3

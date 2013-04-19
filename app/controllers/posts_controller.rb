@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_filter :load_blog
     
   def index
-    @posts = Post.find(:all)
+    @posts = Post.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    @post = Post.find(params[:id])
+    @post = Post[ params[:id] ]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    @post = Post.find(params[:id])
+    @post = Post[ params[:id] ]
   end
 
   # POST /posts
@@ -59,10 +59,10 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.xml
   def update
-    @post = Post.find(params[:id])
+    @post = Post[ params[:id] ]
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update(params[:post])
         flash[:notice] = 'Post was successfully updated.'
         format.html { redirect_to(blog_post_url(@blog, @post)) }
         format.xml  { head :ok }
@@ -76,7 +76,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.xml
   def destroy
-    @post = Post.find(params[:id])
+    @post = Post[ params[:id] ]
     @post.destroy
 
     respond_to do |format|

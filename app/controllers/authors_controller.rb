@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
   newrelic_ignore :only => :index
   
   def index
-    @authors = Author.find(:all)
+    @authors = Author.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +16,7 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.xml
   def show
-    @author = Author.find(params[:id])
+    @author = Author[ params[:id] ]
 
     respond_to do |format|
       format.html # show.html.erb
@@ -37,7 +37,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1/edit
   def edit
-    @author = Author.find(params[:id])
+    @author = Author[ params[:id] ]
   end
 
   # POST /authors
@@ -60,10 +60,10 @@ class AuthorsController < ApplicationController
   # PUT /authors/1
   # PUT /authors/1.xml
   def update
-    @author = Author.find(params[:id])
+    @author = Author[ params[:id] ]
 
     respond_to do |format|
-      if @author.update_attributes(params[:author])
+      if @author.update(params[:author])
         flash[:notice] = 'Author was successfully updated.'
         format.html { redirect_to(@author) }
         format.xml  { head :ok }
@@ -77,7 +77,7 @@ class AuthorsController < ApplicationController
   # DELETE /authors/1
   # DELETE /authors/1.xml
   def destroy
-    @author = Author.find(params[:id])
+    @author = Author[ params[:id] ]
     @author.destroy
 
     respond_to do |format|

@@ -1,4 +1,4 @@
-class Blog < ActiveRecord::Base
-  belongs_to :author
-  has_many :posts
+class Blog < Sequel::Model
+  many_to_one :author
+  one_to_many :posts
 end

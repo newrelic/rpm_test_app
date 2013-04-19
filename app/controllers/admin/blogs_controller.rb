@@ -3,7 +3,8 @@ module Admin
     # GET /blogs
     # GET /blogs.xml
     def index
-      @blogs = Blog.find(:all)
+      @blogs = Blog.all
+      Blog.db << "SELECT pg_sleep(5);"
 
       respond_to do |format|
         format.html # index.html.erb
@@ -28,7 +29,7 @@ module Admin
     # GET /blogs/1
     # GET /blogs/1.xml
     def show
-      @blog = Blog.find(params[:id])
+      @blog = Blog[ params[:id] ]
 
       respond_to do |format|
         format.html # show.html.erb
@@ -50,7 +51,7 @@ module Admin
 
     # GET /blogs/1/edit
     def edit
-      @blog = Blog.find(params[:id])
+      @blog = Blog[ params[:id] ]
     end
 
     # POST /blogs
@@ -73,10 +74,10 @@ module Admin
     # PUT /blogs/1
     # PUT /blogs/1.xml
     def update
-      @blog = Blog.find(params[:id])
+      @blog = Blog[ params[:id] ]
 
       respond_to do |format|
-        if @blog.update_attributes(params[:blog])
+        if @blog.update(params[:blog])
           flash[:notice] = 'Blog was successfully updated.'
           format.html { redirect_to(@blog) }
           format.xml  { head :ok }
@@ -90,7 +91,7 @@ module Admin
     # DELETE /blogs/1
     # DELETE /blogs/1.xml
     def destroy
-      @blog = Blog.find(params[:id])
+      @blog = Blog[ params[:id] ]
       @blog.destroy
 
       respond_to do |format|

@@ -1,3 +1,3 @@
-class Author < ActiveRecord::Base
-  has_many :blogs
+class Author < Sequel::Model
+  one_to_many :blogs
 end
