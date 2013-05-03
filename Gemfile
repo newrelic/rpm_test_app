@@ -23,6 +23,5 @@ if RUBY_VERSION == '1.8.6'
 else
   gem "mysql", '2.8.1' unless RUBY_PLATFORM == 'java'
   gem 'shoulda', '~> 3.0.0'
+  gem 'sequel', '~> 3.46.0' unless RUBY_VERSION == "1.8.6"
 end
-
-gem 'sequel', '~> 3.46.0'
