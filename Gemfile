@@ -1,10 +1,7 @@
 # A sample Gemfile
 source :gemcutter
 
-# gem "rails", "2.3.4"
-# gem "rails", "2.0.2"
- gem "rails", "2.1.2"
-# gem "rails", "2.2.2"
+gem "rails", "2.1.2"
 
 gem "ci_reporter", "1.6.0"
 gem "mocha", "0.9.8"
@@ -23,3 +20,4 @@ else
   gem "sqlite3-ruby", "1.2.5"
 end
 
+gem 'sequel', '~> 3.46.0'
