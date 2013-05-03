@@ -18,3 +18,5 @@ else
   #gem "sqlite3-ruby"
   gem "sqlite3"
 end
+
+gem 'sequel', '~> 3.46.0'
