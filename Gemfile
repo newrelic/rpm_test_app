@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'test-unit', '2.3.2'
 gem 'rake', '0.9.6'
 
-gem 'rails', '~>4.0.0.beta1'
+gem 'rails', '~>4.0.0.rc1'
 
 gem "mocha", '~>0.13.0', :require => false
 gem 'shoulda'
@@ -17,7 +17,6 @@ platforms :jruby do
 end
 
 platforms :mri_19, :mri_20, :rbx do
-  gem 'activerecord-mysql-adapter'
   gem "mysql"
   gem "sqlite3-ruby"
   gem "sqlite3"
