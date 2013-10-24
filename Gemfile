@@ -22,6 +22,11 @@ platforms :mri_19, :mri_20, :rbx do
   gem "sqlite3"
 end
 
+platforms :rbx do
+  gem 'rubysl'
+  gem 'racc'
+end
+
 gem 'sequel', '~> 3.46.0'
 
 gem "newrelic_rpm", :path => "../ruby_agent"
